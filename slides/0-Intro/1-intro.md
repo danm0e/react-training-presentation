@@ -1,4 +1,4 @@
-# Adamest Hall
+# Adam Hall
 
 Agile Coach AND Waste Reducer
 
