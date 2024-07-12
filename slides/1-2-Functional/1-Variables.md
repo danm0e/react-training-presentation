@@ -1,10 +1,3 @@
-# Practical Functional JavaScript
-- Variables: Intro to const, let and var.
-- Function basics: Understanding the basics about functions
-- Advanced function arguments: Using rest and spread to write cleaner, simpler functions.
-- Passing by reference & value: How functions interact with in memory variables.
-- Understanding Functional Scope: Functions and how they access parent scope.
----
 # Variables 
 In JavaScript, there are 3 ways to declare a variable, each with their own differences.
 These are:

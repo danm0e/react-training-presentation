@@ -28,6 +28,14 @@ try {
 > Error: I throw an error
 ```
 ---
+npm run exercise::basics
+brew install node@18
+
+git clone https://github.com/and-digital/and-workshop-corejs.git
+
+cd and-workshop-corejs
+npm install
+---
 # Exercise 1: Implement a test assertion library
 Implement a jest inspired API assertion library.
 

@@ -351,11 +351,16 @@ gulp.task('serve', () => {
         livereload: true
     })
     renderPresentation();
+    
+    gulp.watch([
+        slidesRoot + 'slides/**/*',
+    ], gulp.series('merge-presentation'));
+
     gulp.watch([
         slidesRoot + '**/*.html',
         slidesRoot + '**/*.md',
         `!${slidesRoot}**/node_modules/**`, // ignore node_modules
-    ], gulp.series('reload','merge-presentation'))
+    ], gulp.series('reload'))
 
     gulp.watch(['js/**'], gulp.series('js', 'reload', 'eslint'))
 

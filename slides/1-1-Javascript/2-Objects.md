@@ -9,6 +9,8 @@ The main difference between the two is that Arrays ensure order, Objects do not.
 
 To access and set properties in an Object, we can use auto assignment, dot notation or bracketed notation
 
+---
+# Types - Objects
 ```js
 const assignToMe = {name1: "I'm auto assigned"};
 
@@ -17,7 +19,15 @@ assignToMe["name" + 3] = "I'm a bracket assignment";
 
 console.log(assignToMe);
 ```
-Note: <https://carbon.now.sh/efCTijMM7DgtATJEWBOo> ({name1: "I'm auto assigned",name2:"I'm a dot assignment",name3: "I'm a bracket assignment"})
+```js
+{
+    name1: "I'm auto assigned",
+    name2:"I'm a dot assignment",
+    name3: "I'm a bracket assignment"
+}
+```
+<!-- .element: class="fragment" -->
+Note: <https://carbon.now.sh/efCTijMM7DgtATJEWBOo> ()
 ---
 # Types - Arrays
 

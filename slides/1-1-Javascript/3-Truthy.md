@@ -27,6 +27,10 @@ console.log(!!0);
 What is the difference between == and ===?
 
 Which should you use?
+Note: Answer
+Double equals is looser about type checking
+You should almost always use triple equals to ensure strict equality. Explicitly convert the types if necessary.
+
 ---
 # Loose & Strict Equality
 
