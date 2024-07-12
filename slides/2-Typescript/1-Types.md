@@ -270,152 +270,20 @@ Direction["Up"];
 Note: Similar to an object, enums have named properties and associated values. However, unlike an object, the values cannot be changed. 
 You can access values using dot or bracket notation. Typically dot notation is used.
 
-
 Generally you’d access an Array using the bracketed notation.
----
-1.2 - Objects, Arrays, Tuples & Enums
 
-Enums
 Generally we use dot notation to access enum values.
 
 They offer improved readability for related constants. Often uses to represent a set of fixed options or choices, like directions.
-
-Very nice for usage with switching logic. E.g. switch statements!
-
-
-Truthy / Falsey Values
-1.3	
-
-1.3 - Truthy / Falsey  Values
-Truthy & Falsey
-
-
-Truthy and falsey refer to whether or not a value can be converted to true or false. If a value can be converted to true, it is truthy and if a value can be converted to false, it is falsey.
-In JavaScript, all values are truthy unless they are falsey. The values that are considered falsey are the following:
-false
-0
--0
-0n
-null
-undefined
-NaN
-“”
-
-
-1.3 - Truthy / Falsey Values
-The !! operator
-In JavaScript, ! is a logical NOT operator. When it’s used with a non-boolean value, the value is converted to a boolean using the principles mentioned in the previous slide and then returns the inverse of that.
-For example as 1 is truthy, !1 is false.
-But if we use two logical NOT operators (!!), we can explicitly force the value to be converted to a boolean based on the truthyness or falseyness of the value.
-
-console.log(!!1);
-> true
-
-console.log(!!0);
-> false
-
-Question
-What do you think the truthyness of these are?
-
-
-!!{}
-!![]
-!!'true'
-!!'false'
-!!'0'
-!!1
-!!new Boolean(false)
-!!false
-!!undefined
-!!-1
-!!null
-!!''
-!!0
-
-Question
-What is the difference between == and ===?
-
-Which should you use?
-0 == '0'
-0 === '0'
-Question
-What is the difference between double equals and triple equals?
-Which should you use?
-
-Answer
-Double equals is looser about type checking
-You should almost always use triple equals to ensure strict equality. Explicitly convert the types if necessary.
-
-1.3 - Truthy / Falsey Values
-Loose & Strict Equality
-We can use both == and === for comparisons, however == will perform type coercion on the values. This means that if the two values are of a different type but the same value, the comparison will return true.
-To avoid this, we can use  === and the comparison will return false if the types are different.
-console.log("1" == 1);
-> true
-
-console.log("1" === 1);
-> false
-
-Break
-☕️
-
-Errors & Throwing
-1.4
-
-1.4 - Errors & Throwing
-Errors
-An error is where a computer program has reached a state of execution that is unexpected and the resolution is not explicitly known.
-Which is why we have errors, and error handling.
-You should try and handle all errors in your code, throw an explicit error for all errors you might “expect”.
-What type is an Error?
-
-1.4 - Errors & Throwing
-Error Objects
-The Error object is one of the built-in objects in JavaScript.
-Any runtime errors in your code will cause an Error object to be created and thrown by the JavaScript engine.
-We can also create our own Error objects
-const result = new Error("Oops!");
-
-console.log(result);
-> Error: Oops!
-
-1.4 - Errors & Throwing
-Throwing
-By using the throw keyword, we can halt the current execution when an error occurs. It then traverses up the call stack to the nearest try/catch block.
-throw accepts an argument, which can be of any type, and this is passed to the catch block.
-It’s preferred to use the built-in error object for consistency.
-try {
- throw "Just a string...";
-} catch (e) {
- console.log(e);
+### BitWise Enums
+```js
+enum FileAccess {
+  // constant members
+  None,
+  Read = 1 << 0,
+  Write = 1 << 1,
+  Execute = 1 << 2,
+  ReadWrite = Read | Write,
 }
-> Error: Just a string...
-
-Question
-How can we only catch some errors?
-
-
-What if you know a certain condition could throw a particular error - how might you go about catching just that error?
-
-You can’t, you have to catch all and then rethrow
-
-
-
-What have we learnt?
-
-Types and how to use them
-(Nearly) Everything is an object
-What makes something true
-Errors and how to handle them
-Variables and their scope
-
-Exercise Implement a test assertion library
-Implement a jest inspired API assertion library.
-
-Add your code to: exercises/assert.ts
-
-Run this to have the tests run as you save:
-npm run exercise::assert
-Now we have our first exercise, we’re going to implement an assertion library inspired by jest
-
-In this file, you’ll see all the instructions for what you need to implement. Add your code and run the jest command to have it run the tests.
+```
+Note: Very nice for efficient representation of compond properties. For example you can capture the state of 3 parameters using 3 bits. What's lovely about Bitwise style is you can also have permeatations of those different values in athe minimum data footprint, with type safety
