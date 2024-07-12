@@ -1,14 +1,13 @@
 
 
-Asynchronous JavaScript
-4
-
-4 - Asynchronous JavaScript
-The Event Loop: Why we need async anyway, and how JS handles async.
-Callbacks: Passing functions around for later execution
-Promises: Understanding the promise object and using it.
-Async / Await: Taking Promises one step further with async/await.
-
+# Asynchronous JavaScript
+---
+### Agenda
+- The Event Loop: Why we need async anyway, and how JS handles async.
+- Callbacks: Passing functions around for later execution
+- Promises: Understanding the promise object and using it.
+- Async / Await: Taking Promises one step further with async/await.
+---
 The Event Loop
 4.1
 

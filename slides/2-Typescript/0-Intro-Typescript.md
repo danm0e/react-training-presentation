@@ -1,5 +1,12 @@
 
-
+# Typescript
+---
+### Agenda
+- Types: What goes on top of what we've learnt?
+- Objects & Arrays: Creating, managing and structuring your data objects.
+- Truthy/Fasley Values: What resolves to true and what resolves to false
+- Errors & Throwing: How and when to create, throw and handle errors.
+---
 In this file, you’ll see all the instructions for what you need to implement. Add your code and run the jest command to have it run the tests.
 
 The Basics

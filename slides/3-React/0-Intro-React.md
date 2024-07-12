@@ -1,5 +1,12 @@
 
-React Server Components (RSC) overview
+# React 
+---
+- Server Components (RSC) 
+- JSX
+- State & Redux
+- Hooks vs Classes
+---
+##Server Components (RSC) overview
 Most of us will be familiar with NextJS’s getServerSideProps function.
 GetServerSideProps is a NextJS function that can be used to fetch data and render the contents of a page at request time.
 RSC’s replace and enhance this concept by allowing you to fetch from the data layer directly from any given RSC. 

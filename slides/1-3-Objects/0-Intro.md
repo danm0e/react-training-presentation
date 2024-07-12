@@ -1,15 +1,16 @@
 
 
 
-Object Oriented JavaScript
-3
+### Object Oriented JavaScript
+---
+### Agenda
 
-3 - Object Oriented JavaScript
-Using Objects As Modules: Design patterns and pseudo-private variables 
-Object Constructor: How we create objects in JavaScript.
-Prototypal Inheritance: How JS does inheritance and why your arrays have a .map
-Classes: A class is just a function ... but how!?
-Dynamic Scoping: How JavaScript gives contexts dynamic scope with "this"
+- Using Objects As Modules: Design patterns and pseudo-private variables 
+- Object Constructor: How we create objects in JavaScript.
+- Prototypal Inheritance: How JS does inheritance and why your arrays have a .map
+- Classes: A class is just a function ... but how!?
+- Dynamic Scoping: How JavaScript gives contexts dynamic scope with "this"
+---
 
 Using Objects As Modules
 3.1
