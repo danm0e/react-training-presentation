@@ -1,9 +1,11 @@
+# Quiz
 ```js
 [] == ![];
 ```
 Note: <>(Output is...  true because it converts it to 0 == false which is 0 == 0 which is true )
 ---
-```js
+# Quiz
+```js[1|2|4|5]
 true == []; 
 true == ![]; 
 
@@ -12,21 +14,13 @@ false == ![];
 ```
 Note: <>(Output is...  false, false, true, true because toNumber(true) = 1, toNumber([]) = 0, ![] = false )
 ---
-```js
-true == []; 
-true == ![]; 
-
-false == []; 
-false == ![]; 
-```
-Note: <>(Output is...  false, false, true, true because toNumber(true) = 1, toNumber([]) = 0, ![] = false )
----
+# Quiz
 ```js
 NaN === NaN;
 ```
 Note: <>(NaN is always false. It's crazy but always returns false when you compare to it.)
 ---
-```js
+```js[1|2|4|5|7|8]
 Object.is(NaN, NaN);
 NaN === NaN;
 
@@ -38,7 +32,7 @@ NaN === 0 / 0;
 ```
 Note: <>(Output is true, false, false, true, true, false)
 ---
-```js
+```js[1|2|3]
 parseInt(0.000001); 
 parseInt(0.0000001);
 parseInt(1 / 1999999);

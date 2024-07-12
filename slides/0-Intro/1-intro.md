@@ -43,3 +43,7 @@ cd and-workshop-corejs
 
 npm install
 ```
+---
+### Thoughts
+Please list 5 things in the chat that you are hoping to learn by the end of day 5
+
