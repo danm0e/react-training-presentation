@@ -1,62 +1,5 @@
-
-Object Oriented Typescript
-3
-
-3 - Object Oriented TypeScript
-Using Objects As Modules: Design patterns and pseudo-private variables
-ES6 Modules: A modern approach to modules
-Classes: Fancy objects
-Interfaces: Defining the shape of an object or class
-
-
-Using Objects As Modules
-3.1
-
-3.1 - Using Objects As Modules
-Modules
-A module is simply a way of organizing code and using them can be helpful for grouping together related code.
-You can utilise the various module systems such as native modules and node modules. But you can also create them in your code using objects.
-
-3.1 - Using Objects As Modules
-Basic module
-A basic module is just an object with properties applied. These properties can be functions or other types and they can be accessed both within the module and outside of the module.
-
-const databaseSeed = {
-  patchQuery: "INSERT into USERS ...",
-  init: function () {
-    return this.runQuery(this.patchQuery);
-  },
-  runQuery(query: string) {
-    return `Running query: ${query}`;
-  },
-};
-
-console.log(databaseSeed.init());
-console.log(databaseSeed.patchQuery);
-
-3.1 - Using Objects As Modules
-Revealing module pattern
-A common pattern in basic modules is the revealing module pattern. This is where you use a function call to return an object that contains only some of the methods and properties used by the module, so you can have pseudo-private methods and properties.
-const databaseSeed = function () {
-  const patchQuery = "INSERT into USERS ...";
-  const init = () => runQuery(patchQuery);
-  const runQuery = (query: string) => `Running: ${query}`;
-  return {
-    init,
-    runQuery,
-  };
-};
-
-console.log(databaseSeed().init());
-console.log(databaseSeed().patchQuery);
-// Property 'patchQuery' does not exist on type....
-
-ES6 Modules
-3.2
-
-3.2 - ES6 Modules
-ES6 modules
-ES6 modules are similar to objects as modules but offer some advantages.
+# ES6 modules
+```js
 // databaseSeed.ts
 const patchQuery = "INSERT into USERS ...";
 
@@ -69,26 +12,26 @@ const runQuery = (query) => {
 };
 
 export { patchQuery, init, runQuery };
-
+```
+```js
 // app.ts (for TypeScript)
 import { patchQuery, init, runQuery } from './databaseSeed';
 
 console.log(patchQuery);
 console.log(init());
 console.log(runQuery('SELECT * FROM USERS'));
-
-3.2 - ES6 Modules
-Why use ES6 modules?
+```
+Note: ES6 modules are similar to objects as modules but offer some advantages.
+---
+### Why use ES6 modules?
+Note:
 ES6 modules are natively supported in modern browsers and Node.js environments, providing great tooling integration and performance
 Explicit dependencies make it easier to manage and reason about module dependencies.
 They provide encapsulation by default, as variables and functions are private to the module unless explicitly exported.
-
-Classes
-3.3
-
-3.3 - Classes
-Classes vs objects
-A class is a clearer way of defining an object with a constructor
+---
+<!-- .slide: data-auto-animate="true" -->
+### Classes vs objects
+```js
 const person = (firstName: string, surname: string) => {
   const fullName = `${firstName} ${surname}`;
 
@@ -101,10 +44,12 @@ const person = (firstName: string, surname: string) => {
     greeting,
   };
 };
-
-3.3 - Classes
-Classes vs objects
-A class is a clearer way of defining an object with a constructor
+```
+<!-- .element: data-id="code-animation" -->
+---
+<!-- .slide: data-auto-animate="true" -->
+### Classes vs objects
+```js
 class Person {
   fullName: string;
 
@@ -116,6 +61,11 @@ class Person {
     console.log(`Hello, ${this.fullName}!`);
   }
 }
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: A class is a clearer way of defining an object with a constructor
+
 Start with class
 
 Define some properties
@@ -127,22 +77,11 @@ In the constructor assign the instance properties
 That is what this is
 
 Define some 
+---
 
-3.4 - Classes
-Static methods
-As we have already talked about, a function is an object in JavaScript. Because a function is an object it can have properties and if we assign functions to these properties, they become the function’s “static” methods.
-They’re called static methods, because you don’t have to create a new instance of the object like a prototype method. An example of a static method on one of the built-in objects is Array.isArray().
-When writing code with constructors, defining static methods can make our code cluttered, but when we’re writing code with classes, it becomes much cleaner.
+### Static methods
 
-
-
-Static Members
-3.4
-
-3.4 - Static Members
-static
-A static member is a method or property that is defined on the class itself, rather than on instances of the class. 
-
+```js
 class Circle {
   static pi: number = 3.14;
 
@@ -150,9 +89,13 @@ class Circle {
     return this.pi * radius * radius;
   }
 }
-
 Circle.pi; // 3.14
 Circle.calculateArea(3); // 28.26
+```
+Note: As we have already talked about, a function is an object in JavaScript. Because a function is an object it can have properties and if we assign functions to these properties, they become the function’s “static” methods.
+They’re called static methods, because you don’t have to create a new instance of the object like a prototype method. An example of a static method on one of the built-in objects is Array.isArray().
+When writing code with constructors, defining static methods can make our code cluttered, but when we’re writing code with classes, it becomes much cleaner.
+
 Accessibility: Static methods can be called directly on the class itself, without creating an instance of the class. For example, MyClass.staticMethod().
 
 Instance Independence: Static methods do not have access to instance properties or methods. They can only access and operate on static properties and methods of the class.
@@ -161,10 +104,10 @@ Inheritance: Static methods are inherited by subclasses, but they are not overri
 
 Use Cases: Static methods are commonly used for utility or helper functions that operate on data without requiring an instance of the class. They are also used for creating instances of the class (factory methods) or for providing functionality related to the class itself, rather than its instances.
 
-3.4 - Static Members
-readonly
-You might also pair static with readonly.
-
+Can you name a static method? Array.isArray()
+---
+### readonly
+```js
 class Circle {
   static readonly pi: number = 3.14;
 
@@ -175,27 +118,22 @@ class Circle {
 
 Circle.pi = 314; 
 // Cannot assign to 'pi' because it is a read-only property.
-
-Accessibility: Static methods can be called directly on the class itself, without creating an instance of the class. For example, MyClass.staticMethod().
-
-Instance Independence: Static methods do not have access to instance properties or methods. They can only access and operate on static properties and methods of the class.
-
-Inheritance: Static methods are inherited by subclasses, but they are not overridden. If a subclass defines a static method with the same name as a static method in the parent class, the subclass method will hide the parent class method for that subclass.
-
-Use Cases: Static methods are commonly used for utility or helper functions that operate on data without requiring an instance of the class. They are also used for creating instances of the class (factory methods) or for providing functionality related to the class itself, rather than its instances.
-
-Access Modifiers
-3.5
-
-3.5 - Access Modifiers
-Access modifiers
-An access modifier is a keyword that specifies the accessibility or visibility of a class member (properties, methods, or constructors) from other parts of the code. Access modifiers control how and where class members can be accessed or referenced.
+```
+Note: You might also pair static with readonly.
+---
+### Access modifiers
+The three Ps
+- public <!-- .element: class="fragment" -->
+- private <!-- .element: class="fragment" -->
+- protected <!-- .element: class="fragment" -->
+Note: An access modifier is a keyword that specifies the accessibility or visibility of a class member (properties, methods, or constructors) from other parts of the code. Access modifiers control how and where class members can be accessed or referenced.
 public - accessible from anywhere (the default)
 private - only accessible in the class that defined them
 protected - accessible in the class that defined then and any subclasses.
-
-3.5 - Access Modifiers
-public
+---
+<!-- .slide: data-auto-animate="true" -->
+### public
+```js
 class Example {
   public property: string;
   public someFunction() {}
@@ -204,7 +142,12 @@ class Example {
     this.property = "Example";
   }
 }
-// equivalent to...
+```
+<!-- .element: data-id="code-animation" -->
+---
+### public
+<!-- .slide: data-auto-animate="true" -->
+```js
 class Example {
   property: string;
   someFunction() {}
@@ -213,10 +156,13 @@ class Example {
     this.property = "Example";
   }
 }
-This is the default and you don’t necessarily need to specify that something is public.
-
-3.5 - Access Modifiers
-private
+```
+<!-- .element: data-id="code-animation" -->
+Note: This is the default and you don’t necessarily need to specify that something is public.
+---
+<!-- .slide: data-auto-animate="true" -->
+### private
+```js
 class Example {
   private property: string;
   private someFunction(arg: string) {}
@@ -224,26 +170,27 @@ class Example {
   constructor() {
     this.property = "Example";
   }
-
-  anotherFunction() {
-    this.someFunction(this.property);
-  }
 }
-
+```
+<!-- .element: data-id="code-animation" -->
+```js
 const myExample = new Example();
 
 myExample.someFunction();
 // Property 'someFunction' is private and only accessible within class 'Example'
+```
+<!-- .element: class="fragment" -->
+Note:
 Worth noting that the constructor cannot be private, that wouldn’t be very helpful!
 
 A use case for this is some helper methods within the class that are then called by public functions
 
-Worth noting there is some sneaky ECMA script syntax that can be used in place of private - the #
+Worth noting there is some sneaky ECMA script syntax that can be used in place of private - the Hash symbol #
 
 I would caution against this as it isn’t widely used and private is more explicit and marrys up to other OOO language syntax.
-
-3.5 - Access Modifiers
-protected
+---
+### protected
+```js
 class Animal {
   protected name: string;
 
@@ -255,43 +202,77 @@ class Animal {
     console.log(`${this.name} makes a sound.`);
   }
 }
-
+```
+```js
 class Dog extends Animal {
   bark(): void {
     this.makeSound();
     console.log(`${this.name} barks.`);
   }
 }
-Protected members can be accessed within the class and any sub classes.
-
-
-
-3.4 - Classes
-Automatic this assignment
+```
+<!-- .element: class="fragment" -->
+Note: Protected members can be accessed within the class and any sub classes.
+---
+<!-- .slide: data-auto-animate="true" -->
+### Automatic assignment
+```js
 class Animal {
-  constructor(public name: string, public sound: string) {}
+    private name: string;
+    private sound: string;
+    constructor( animalName: string, animalSound: string) {
+        this.name = animalName;
+        this.sound = animalSound;
+    }
 
-  protected makeSound(): void {
-    console.log(`${this.name} ${this.sound}.`);
-  }
+    public makeSound(): void {
+        console.log(`The ${this.name} says ${this.sound}.`);
+    }
 }
+let d = new Animal("dog","Woof!")
+console.log(d.makeSound());
+```
+<!-- .element: data-id="code-animation" -->
+Note: You can automatically assign properties rather than assinging them in the constructor.
+---
+<!-- .slide: data-auto-animate="true" -->
+### Automatic assignment
+```js
+class Animal {
 
-Setting the access modifier in the constructor automatically assigns the parameter to this. A handy shortcut!
+
+    constructor(private name: string, private sound: string) {}
+
+
+
+
+    public makeSound(): void {
+        console.log(`The ${this.name} says ${this.sound}.`);
+    }
+}
+let d = new Animal("dog","Woof!")
+console.log(d.makeSound());
+```
+<!-- .element: data-id="code-animation" -->
+Note: Setting the access modifier in the constructor automatically assigns the parameter to this. A handy shortcut!
 Protected members can be accessed within the class and any sub classes.
 
+---
+## Getters & Setters
 
-
-Getters & Setters
-3.3
-
-3.4 - Getters & Setters
-get and set
-Getters and Setters are special methods that allow you to control the access and manipulation of a class's properties. They offer some benefits over interacting with properties directly.
-Data Validation - Validate the data being assigned to a property,
-Computed Properties - Compute and return a value based on other properties or calculations.
-Logging & Debugging - Log or debug the access and modification of properties.
-
-3.4 - Getters & Setters
+Note: Getters and Setters are special methods that allow you to control the access and manipulation of a class's properties. They offer some benefits over interacting with properties directly.
+---
+### get and set
+- Data Validation
+- Computed Properties
+- Logging & Debugging
+Note:
+- Data Validation - Validate the data being assigned to a property,
+- Computed Properties - Compute and return a value based on other properties or calculations.
+- Logging & Debugging - Log or debug the access and modification of properties.
+---
+### Getters & Setters
+```js
 class Example {
   private _property: number = 1;
 
@@ -307,16 +288,15 @@ const example = new Example();
 example.property = 2;
 console.log(example.property);
 // 2
-This is a basic example 
+```
+Note: This is a basic example 
 
 shows how you would use a private property that is only accessible within the class 
 
 Then use getter and setter methods to interact with it.
 
 In this example it is more verbose and not really worthwhile but demonstrates the syntax
-
-
-
+---
 3.4 - Getters & Setters
 class Person {
   private _name: string;

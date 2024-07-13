@@ -275,6 +275,7 @@ Generally you’d access an Array using the bracketed notation.
 Generally we use dot notation to access enum values.
 
 They offer improved readability for related constants. Often uses to represent a set of fixed options or choices, like directions.
+---
 ### BitWise Enums
 ```js
 enum FileAccess {
