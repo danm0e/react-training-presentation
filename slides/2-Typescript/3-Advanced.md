@@ -297,11 +297,13 @@ Then use getter and setter methods to interact with it.
 
 In this example it is more verbose and not really worthwhile but demonstrates the syntax
 ---
-3.4 - Getters & Setters
+### Getters & Setters
+<!-- .slide: data-auto-animate="true" -->
+```js
 class Person {
   private _name: string;
 
-  constructor(name: string) {
+  constructor(private name: string) {
     this._name = name;
   }
 
@@ -318,6 +320,9 @@ class Person {
     this._name = value;
   }
 }
+```
+<!-- .element: data-id="code-animation" -->
+Note:
 This is a more complete and realistic use case for getters and setters.
 
 We do some logging (which could be to a logging service)
@@ -325,19 +330,22 @@ We do some logging (which could be to a logging service)
 We modify the property as it is retrieved
 
 We validate that the value fits requirements
+---
+### Inheritance
 
-Inheritance
-3.3
+- DRY
+- Hierarchical Classification 
+- Testability
 
-3.4 - Inheritance
-Inheritance is a mechanism that allows a new class to inherit properties and methods from an existing class. This gives some great advantages over many classes.
-Code Reuse - Keep it DRY
-Hierarchical Classification - Specialized classes can be derived from more general base classes for better organization and classification of objects.
-Testability - Common functionality can be tested once in a base class then relied upon for children classes.
+Note: Inheritance is a mechanism that allows a new class to inherit properties and methods from an existing class. This gives some great advantages over many classes.
 
-3.4 - Inheritance
-Base Class
+- Code Reuse - Keep it DRY
+- Hierarchical Classification - Specialized classes can be derived from more general base classes for better organization and classification of objects.
+- Testability - Common functionality can be tested once in a base class then relied upon for children classes.
+---
+### Base Class
 Here we define a base class - Animal with two public members, a property and a method.
+```js
 class Animal {
   public name: string;
 
@@ -349,11 +357,12 @@ class Animal {
     console.log(`${this.name} makes a sound.`);
   }
 }
-
-3.4 - Inheritance
-Child Class
+```
+---
+### Child Class
 This class extends Animal.
 Note the extends keyword and super() method.
+```js
 class Dog extends Animal {
   public breed: string;
 
@@ -367,7 +376,8 @@ class Dog extends Animal {
     console.log(`${this.name} barks.`);
   }
 }
-This class has its own property - breed
+```
+Note: This class has its own property - breed
 
 And its own method bark()
 
@@ -378,11 +388,10 @@ This calls the constructor of the parent class
 In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
 
 This can be layered and layered.
+---
+### abstract classes
 
-3.4 - Inheritance
-abstract Classes
-Abstract classes allow defining a common class in situations you don't want to instantiate the base class itself. They provide a way to enforce behaviors or properties that derived classes must implement
-
+```js
 abstract class Animal {
   public name: string;
   protected abstract sound: string;
@@ -393,6 +402,8 @@ abstract class Animal {
 
   public abstract makeSound(): void;
 }
+```
+Note:
 This class has its own property - breed
 
 And its own method bark()
@@ -404,11 +415,10 @@ This calls the constructor of the parent class
 In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
 
 This can be layered and layered.
-
-3.4 - Inheritance
-Extending abstract Classes
+---
+### Extending abstract Classes
 Extending abstract classes is similar to standard classes but with the requirement of implementing abstract properties and methods. 
-
+```js
 abstract class Animal {
   public name: string;
 
@@ -432,7 +442,8 @@ class Dog extends Animal {
     console.log(`${this.name} ${this.sound}.`);
   }
 }
-This class has its own property - breed
+```
+Note: This class has its own property - breed
 
 And its own method bark()
 
@@ -443,23 +454,19 @@ This calls the constructor of the parent class
 In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
 
 This can be layered and layered.
-
-Interfaces
-3.5
-
-3.5 - Interfaces
-interface
+---
+### interface
 An interface is a structural contract that defines the shape of an object, including its properties and methods. It serves as a blueprint or a set of rules that classes, objects, or functions must adhere to.
-
+```js
 interface Animal {
   name: string;
   makeSound(): void;
 }
-
-3.5 - Interfaces
-interface
+```
+---
+### interface
 The Dog class implements the Animal interface, ensuring that it adheres to the contract defined by the interface. It provides an implementation for the makeSound() method and includes an additional breed property.
-
+```js
 class Dog implements Animal {
   name: string;
   breed: string;
@@ -473,7 +480,8 @@ class Dog implements Animal {
     console.log(`${this.name} barks.`);
   }
 }
-Optional Properties: Interfaces can define optional properties by using the ? syntax, allowing objects to have a flexible structure while still providing type safety.
+```
+Note: Optional Properties: Interfaces can define optional properties by using the ? syntax, allowing objects to have a flexible structure while still providing type safety.
 
 Readonly Properties: Interfaces can define readonly properties using the readonly keyword, ensuring that these properties cannot be modified after an object is created.
 
@@ -484,14 +492,11 @@ Interfaces are primarily used for defining the structure of object literals and 
 Interfaces can extend other interfaces, allowing for inheritance and code reuse.
 
 Interfaces are automatically merged when they have the same name, which can be useful for modular development.
-
-Class Patterns
-3.6
-
-3.6 - Class Patterns
-Factory Pattern
+---
+### Factory Pattern
 With interfaces (or types!) and classes we can use the Factory Pattern. This is a way to create objects of some type, leaving the decision of which concrete type to create to the factory.
 
+```js
 interface Shoe {
   purpose: string;
 }
@@ -507,11 +512,12 @@ class Sneaker implements Shoe {
 class Boot implements Shoe {
   purpose = "hiking";
 }
+```
 
-3.6 - Class Patterns
-Factory Pattern
+---
+### Factory Pattern
 The factory class with a static method is responsible for creating the 
-
+```js
 class ShoeFactory {
   static createShoe(type: "ballet" | "sneaker" | "boot"): Shoe {
     switch (type) {
@@ -528,20 +534,11 @@ class ShoeFactory {
 const balletShoe = ShoeFactory.createShoe("ballet");
 console.log(balletShoe.purpose);
 // dancing
-This class has its own property - breed
+```
 
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-3.6 - Class Patterns
-Returning this
+---
+### Returning this
+```js
 class RequestBuilder {
   private method: "get" | "post" | null = null;
   private url: string | null = null;
@@ -556,13 +553,14 @@ class RequestBuilder {
     return this;
   }
 }
+```
 You can also return this and create chains of functions acting on the same object instances. 
 Protected members can be accessed within the class and any sub classes.
 
 
-
-3.6 - Class Patterns
-Builder Pattern
+---
+### Builder Pattern
+```js
 class RequestBuilder {
   private method: "GET" | "POST" | null = null;
   private url: string | null = null;
@@ -580,16 +578,13 @@ new RequestBuilder()
   .setUrl("https://example.com")
   .setData({ key: "value" })
   .send();
-
+```
 This is called the builder pattern. 
 Protected members can be accessed within the class and any sub classes.
-
-
-
-3.4 - Interfaces
-abstract & interface
+---
+### abstract & interface
 You can also combine and interface and abstract classes!
-
+```js
 interface Animal {
   name: string;
   makeSound(): void;
@@ -598,21 +593,11 @@ interface Animal {
 abstract class Mammal {
   public breathesAir: boolean = true;
 }
-This class has its own property - breed
+```
 
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-3.4 - Interfaces
-abstract & interface
-
+---
+### abstract & interface
+```js
 class Dog extends Mammal implements Animal {
   name: string;
 
@@ -628,26 +613,12 @@ class Dog extends Mammal implements Animal {
 
 const dog = new Dog("Fluffy");
 dog.breathesAir; // true
+```
+---
+### Decorators
 
-This class has its own property - breed
-
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-Decorators
-3.3
-
-3.4 - Interfaces
-@decorator
 A decorator in TypeScript is a special kind of function that allows you to modify or extend the behavior of a class, method, property, or parameter. It is a way to add metadata or additional functionality to your code without directly modifying the original code.
-
+```js
 class Dog implements Animal {
   name: string;
   breed: string;
@@ -661,25 +632,12 @@ class Dog implements Animal {
     console.log(`${this.name} barks.`);
   }
 }
-This class has its own property - breed
+```
+---
+### Generic Types
 
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-Generic Types
-4
-
-4.1 - Generics
-Functions
 A generic type is a way to write code that can work with different types of data. Instead of writing separate code for each data type, you can write one piece of code that can handle multiple types. 
-
+```js
 function wrapStringInArray(string: string): string[] {
   return [string];
 }
@@ -692,22 +650,11 @@ function wrapNumberInArray(number: number): number[] {
 function wrapValueInArray<T>(value: T): T[] {
   return [value];
 }
-This class has its own property - breed
+```
+---
+### Generics
 
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-4.1 - Generics
-Classes
-Generics can also be used with classes!
-
+```js
 class ValueHolder<T> {
   constructor(private _value: T) {}
 
@@ -721,23 +668,11 @@ console.log(num.value);
 
 const str = new ValueHolder('string');
 console.log(str.value);
-
-This class has its own property - breed
-
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-4.1 - Generics
-Types
+```
+---
+### Types
 Type aliases can also use generics!
-
+```js
 type ValueBox<T> = {
   value: T;
 };
@@ -752,37 +687,5 @@ const stringToNumber: ValueConverterFunction<string, number> = function (
 ) {
   return Number(value);
 };
+```
 
-This class has its own property - breed
-
-And its own method bark()
-
-In the constructor we call super()
-
-This calls the constructor of the parent class
-
-In bark() we can call this.makeSound because makeSound is part of this class because it extends Animal.
-
-This can be layered and layered.
-
-Exercise 2: Implement lodash
-Re-implement some lodash methods.
-
-Add your code to: exercises/2-functional.test.js
-
-Run this to have the tests run as you save:
-npm run exercise::functional
-Now we have our first exercise, we’re going to re-implement some lodash methods.
-
-In this file, you’ll see all the instructions for what you need to implement. Add your code and run the jest command to have it run the tests.
-
-Exercise 3: Implement A Calculator
-Implement a Calculator with an interface,  module and a Class.
-
-Add your code to: exercises/3-objectOriented.test.js
-
-Run this to have the tests run as you save:
-npm run exercise::object-oriented
-Now we have our first exercise, we’re going to re-implement some lodash methods.
-
-In this file, you’ll see all the instructions for what you need to implement. Add your code and run the jest command to have it run the tests.
