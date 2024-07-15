@@ -255,11 +255,37 @@ Note: While props are used to pass data between components, state is used to man
 ---
 
 ### useState Hook
+<!-- .slide: data-auto-animate="true" -->
 ```js
-const [state, steState] = useState(initialState);
+const [state, setState] = useState(initialState);
 ```
+<!-- .element: data-id="code-animation" -->
 Note: Introduced in React Hooks, the useState hook is a powerful tool for managing state in functional components. It allows functional components to have stateful logic without the need for class components. The hook returns the current state and a function to update it.
-
+---
+<!-- .slide: data-auto-animate="true" -->
+### useState Hook
+```js
+const [state, setState] = useState<number>(initialState);
+```
+<!-- .element: data-id="code-animation" -->
+---
+<!-- .slide: data-auto-animate="true" -->
+### useState Hook
+```js
+const [state, setState] = useState<string>(initialState);
+```
+<!-- .element: data-id="code-animation" -->
+---
+<!-- .slide: data-auto-animate="true" -->
+### useState Hook
+```js
+const [state, setState] = useState<MyType>(initialState);
+interface MyType {
+    age: number;
+    name: string;
+}
+```
+<!-- .element: data-id="code-animation" -->
 ---
 ## Handling Events
 
@@ -547,7 +573,7 @@ useEffect(() => {
 ```
 ---
 ### useRef Hook
-```
+```js
 import { useRef, useEffect } from 'react';
 
 const MyComponent = () => {
