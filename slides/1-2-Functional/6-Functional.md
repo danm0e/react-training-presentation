@@ -1,11 +1,11 @@
 # Functional Methods
 ---
-### Collection functional methods
+### Array methods methods
 - .map<!-- .element: class="fragment" --> 
 - .filter<!-- .element: class="fragment" --> 
 - .reduce<!-- .element: class="fragment" --> 
-Note:Functional methods allow us to write code where inputs aren’t mutated. This is useful in cases where we pass a collection to a function and want to do things with that collection without changing the original collection.
-There are 3 main functional methods on collections in JavaScript:
+Note:Functional methods allow us to write code where inputs aren’t mutated. This is useful in cases where we pass a array to a function and want to do things with that array without changing the original array.
+There are 3 main functional methods on arrays in JavaScript, but there are many more that you should [take time to understand](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#:~:text=non%2Dmutating%20alternative%3A-,Mutating,-method).
 
 ---
 ### Map

@@ -39,4 +39,4 @@ console.log(reverseString(input));
 console.log(input);
 > hello
 ```
-Note: In this example, we can see that the original string and the output from the function are different. This is because it has been passed by value.
+Note: In this example, we can see that the original string and the output from the function are different. This is because it has been passed by value because the variable is a primitive type.
