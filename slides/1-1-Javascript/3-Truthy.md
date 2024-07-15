@@ -27,7 +27,16 @@ console.log(!!1);
 console.log(!!0);
 > false
 ```
-<!-- .element: class="fragment" -->
+---
+# What about these?
+```js[1|2|3|4|5]
+console.log(!!false);
+console.log(!!NaN);
+console.log(!!"yes");
+console.log(!!42);
+console.log(!!"false");
+```
+Note: all of these seem logical apart from the last one. It is a string so javascript returns true, despite the fact we might think it's false
 ---
 # Question
 What is the difference between == and ===? <!-- .element: class="fragment" -->
