@@ -57,6 +57,20 @@ Understanding JSX Syntax
 While JSX bears a resemblance to HTML, it's crucial to understand the distinctions. JSX introduces the ability to embed dynamic content through JavaScript expressions enclosed in curly braces {}. This dynamic nature empowers developers to create highly interactive and data-driven React components, blending the best of both worlds.
 JSX vs HTML
 ---
+### Fragments in React
+```js
+const MyComponent = () => {
+  return (
+    <>
+      <p>First paragraph</p>
+      <p>Second paragraph</p>
+    </>
+  );
+};
+```
+Note: Fragments are a way to group multiple elements without introducing an additional parent element to the DOM. They help keep the HTML structure clean when rendering multiple components.
+Fragments in React
+---
 ### JSX Expressions & Embeddings
 ```ts
 const App = () => {
@@ -207,32 +221,6 @@ interface UserProps = {
 <!-- .element: data-id="code-animation" -->
 Note: 2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objetcs as props.
 ---
-### State in class components
-```js
-class CounterClass extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
-  }
-
-  increment = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  render() {
-    return (
-      <div>
-        <p>Count: {this.state.count}</p>
-        <button onClick={this.increment}>Increment</button>
-      </div>
-    );
-  }
-}
-```
-Note: Goign back to class components, it often makes sense why developers reach for them. Classes like to retain state, theresfor you get the beneifts of simplyfying the codebase because you can mutate objects.
-
-In class components, state is managed using the setState method. Understanding how to correctly update state is crucial for React developers. It ensures that the UI reflects the latest data and triggers necessary re-renders.
----
 ### State in React
 ```js
 const Counter = () => {
@@ -263,21 +251,21 @@ Note: Introduced in React Hooks, the useState hook is a powerful tool for managi
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### useState Hook
-```js
+```tsx
 const [state, setState] = useState<number>(initialState);
 ```
 <!-- .element: data-id="code-animation" -->
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### useState Hook
-```js
+```tsx
 const [state, setState] = useState<string>(initialState);
 ```
 <!-- .element: data-id="code-animation" -->
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### useState Hook
-```js
+```tsx
 const [state, setState] = useState<MyType>(initialState);
 interface MyType {
     age: number;
@@ -291,7 +279,7 @@ interface MyType {
 Note: React provides a straightforward way to handle events, such as clicks or input changes. Event handlers are assigned as attributes in JSX, and they can invoke functions that update state or perform other actions, creating a responsive and interactive user experience.
 ---
 
-### onClick & Others
+### onClick 
 
 ```js
 const handleClick = (event) => {
@@ -374,8 +362,8 @@ const ConditionalComponent = ({ username }) => {
   );
 };
 ```
-Note: Now consider it's a username if it's logged in (or blank if it's not logged in). You can use the truthy comparison to ensure the name matches and display a personalised welcome message.
 <!-- .element: data-id="code-animation" -->
+Note: Now consider it's a username if it's logged in (or blank if it's not logged in). You can use the truthy comparison to ensure the name matches and display a personalised welcome message.
 ---
 
 ## Lists & Keys
@@ -420,24 +408,13 @@ const FilteredList = ({ items, filterTerm }) => {
 };
 ```
 Note: JavaScript array methods like map(), filter(), and reduce() play a crucial role in working with dynamic lists in React. Understanding these methods enhances your ability to manipulate and render data.
+
+Obviously it's problematicc if you mutate props going in, so make sure you are using Out of Process methods.
 ---
-### Fragments in React
-```js
-const MyComponent = () => {
-  return (
-    <>
-      <p>First paragraph</p>
-      <p>Second paragraph</p>
-    </>
-  );
-};
-```
-Note: Fragments are a way to group multiple elements without introducing an additional parent element to the DOM. They help keep the HTML structure clean when rendering multiple components.
-Fragments in React
 
-Styling in React
+### Styling in React
 
-Styling is an essential aspect of creating visually appealing React applications. React supports various styling approaches, including inline styles, class-based styling, and CSS modules.
+Note: Styling is an essential aspect of creating visually appealing React applications. React supports various styling approaches, including inline styles, class-based styling, and CSS modules.
 Styling in React
 ---
 ### Inline Styles in React
@@ -457,15 +434,17 @@ Note: React allows the use of inline styles directly within the JSX. This approa
 
 ---
 ### Class Based Styling
-styles.module.css
+
 ```css
+/*styles.module.css*/
 .myComponent {
   color: blue;
   font-size: 18px;
 }
 ```
-MyComponent.jsx
+
 ```js
+/*MyComponent.jsx*/
 import styles from './styles.module.css';
 
 const MyComponent = () => {
@@ -482,7 +461,7 @@ Functional components, introduced in React with Hooks, provide a more concise an
 
 ---
 ### Functional Benefits
-Functional components are easier to read, write, and test. They encourage a functional programming style and make it simpler to reason about the component's behavior.
+
 
 ```js
 const MyFunctionalComponent = () => {
@@ -500,19 +479,23 @@ const MyFunctionalComponent = () => {
   );
 };
 ```
+Note: Functional components are easier to read, write, and test. They encourage a functional programming style and make it simpler to reason about the component's behavior.
 ---
 ### useState Hook
+
+Returns a 2 length tuple with
+1. The current state value
+2. A function that allows you to update the state
+
 ```js
 const [count, setCount] = useState(0);
 ```
-Returns a 2 length tuple with
-- The current state value
-- A function that allows you to update the state
 
 Note: The useState hook is used to introduce state in functional components. It returns an array with two elements:
 The current state value.
 A function that allows you to update the state.
 ---
+<!-- .slide: data-auto-animate="true" -->
 ```js
 //useEffect
 useEffect(() => {
@@ -522,13 +505,15 @@ useEffect(() => {
   };
 }, [dependencies]);
 ```
+<!-- .element: data-id="code-animation" -->
 Note: The useEffect hook is employed for handling side effects in functional components. It runs after every render and replaces lifecycle methods like componentDidMount and componentDidUpdate in traditional class components.
 
 Dependencies Array: The second parameter, an array of dependencies, controls when the effect runs. If dependencies change, the effect runs again.
 Cleanup Function: The optional cleanup function runs before the next effect or when the component unmounts.
 useEffect Hook
-
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```js
 //User function component
 const [userID, setUserID] = useState("");
@@ -539,6 +524,10 @@ const [userProfile, setUserProfile] = useState({});
   setUserProfile(res.profile));
 })();
 ```
+<!-- .element: data-id="code-animation" -->
+---
+<!-- .slide: data-auto-animate="true" -->
+
 ```js
 const [userID, setUserID] = useState("");
 const [userProfile, setUserProfile] = useState({});
@@ -552,7 +541,9 @@ useEffect(() => {
 
 }, [userID]);
 ```
-
+<!-- .element: data-id="code-animation" -->
+---
+<!-- .slide: data-auto-animate="true" -->
 ```js
 const [userID, setUserID] = useState("");
 const [userProfile, setUserProfile] = useState({});
@@ -564,14 +555,16 @@ useEffect(() => {
     const res = await fetch(`/user/${userID}`, {signal});
     setUserProfile(res.profile));
   })();
-
   return () => {
     controller.abort();
   }
 }, [userID]);
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 ### useRef Hook
+<!-- .slide: data-auto-animate="true" -->
 ```js
 import { useRef, useEffect } from 'react';
 
@@ -586,10 +579,13 @@ const MyComponent = () => {
   return <input ref={inputRef} />;
 };
 ```
+<!-- .element: data-id="code-animation" -->
+
 Note: The useRef hook creates a mutable object called a "ref object" that persists across renders. It's commonly used to access and interact with DOM elements or to persist values without triggering re-renders.
 
 In general - useState if you want to re-render the component when it changes, otherwise use useRef. IE - storing a value that must not re-render the component, or something that should remain constant.
 ---
+<!-- .slide: data-auto-animate="true" -->
 ### useContent Hook
 ```js
 const MyComponent = () => {
@@ -604,15 +600,11 @@ useContext simplifies context consumption in functional components.
 It's particularly useful for avoiding prop drilling in deeply nested components.
 ---
 ### useContext Hook
+<!-- .slide: data-auto-animate="true" -->
 
-Key Points:
-- createContext creates a context object.
-- Provider component wraps the part of the tree where the context is available.
-- useContext hooks into the context within functional components.
 ```js
 const MyContext = React.createContext();
-```
-```js
+
 const MyProvider = ({ children }) => {
   const contextValue = // some value;
   return (
@@ -628,6 +620,10 @@ const MyComponent = () => {
   // Access contextValue and render component logic
 };
 ```
+Note: Key Points:
+- createContext creates a context object.
+- Provider component wraps the part of the tree where the context is available.
+- useContext hooks into the context within functional components.
 ---
 ## Custom Hooks
 - useXXX
@@ -640,7 +636,7 @@ Note:
 ---
 ### Custom Hooks Example
 
-```js[1,2,16|2|4-11|12-15]
+```js[1,2,16|2|4-11|12-15|]
 export const useOnlineStatus = () => {
   const [isOnline, setIsOnline] = useState(true);
   useEffect(() => {
@@ -699,7 +695,7 @@ Note: React Router provides a <BrowserRouter> component and <Route> components t
 Defining routes involves mapping paths to specific components. The Route component renders the specified component when the path matches.
 ---
 ### Parameters and Query
-```
+```js
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const UserProfile = ({ match }) => {
@@ -716,7 +712,7 @@ const App = () => {
 };
 ```
 Note: React Router allows the use of parameters in the URL and accessing them within components. Additionally, query strings can be utilized for dynamic data.
-
+---
 ### Navigation and Linking
 ```js
 import { Link } from 'react-router-dom';
