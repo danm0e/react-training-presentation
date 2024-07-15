@@ -630,6 +630,39 @@ const MyComponent = () => {
 };
 ```
 ---
+### Custom Hooks
+
+Key Points:
+- You can create your own reusable hooks for a more specific purpose: for example, to fetch data or get online status.
+- Hooks always start with ```use```, if your linter is configured for React, it will enforce this naming convention.
+- This convention allows us to easily identify that a function is a hook and likely contains state / calls to other hooks.
+```js
+export const useOnlineStatus = () => {
+  const [isOnline, setIsOnline] = useState(true);
+  useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true);
+    }
+    const handleOffline () => {
+      setIsOnline(false);
+    }
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+  return isOnline;
+}
+```
+```js
+const MyComponent = () => {
+  const isOnline = useOnlineStatus();
+  // Access contextValue and render component logic
+};
+```
+---
 
 ## React Router
 
