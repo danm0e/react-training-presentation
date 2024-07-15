@@ -116,8 +116,17 @@ const MyFunctionalComponent = () => {
 Note: Functional components are the building blocks of a React application. They are concise, stateless, and focus solely on rendering UI. With the advent of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
 
 ---
-
-### Props and Prop Types
+JSX
+<!-- .slide: data-auto-animate="true" -->
+```js
+const User = ({ username }) => {
+    return <div><h1>{username}</h1></div>;
+}
+```
+<!-- .element: data-id="code-animation" -->
+---
+<!-- .slide: data-auto-animate="true" -->
+JSX with propTypes
 ```js
 const User = ({ username }) => {
     return <div><h1>{username}</h1></div>;
@@ -127,60 +136,47 @@ User.propTypes = {
   username: PropTypes.string.isRequired,
 };
 ```
-
+<!-- .element: data-id="code-animation" -->
 Note: In React, data can be passed from a parent component to a child component using props. Props are essentially properties that a parent component passes down to its children. Additionally, specifying PropTypes helps enforce data types and ensures the correct usage of props.
-
-
 ---
-
-### TSX
-```js
-const User = ({ username }) => {
-    return <div><h1>{username}</h1></div>;
-}
-```
-<!-- .element: class="fragment" -->
+TSX with inline typings
+<!-- .slide: data-auto-animate="true" -->
 ```ts
 const User = ({ username } 
-    : { username: string}) => {
+    : { username : string}) => {
     return <div><h1>{username}</h1></div>;
 }
 ```
-<!-- .element: class="fragment" -->
+<!-- .element: data-id="code-animation" -->
 ---
-### TSX
-```js
-const User = ({ username }) => {
-    return <div><h1>{username}</h1></div>;
-}
-// Prop Types
-User.propTypes = {
-  username: PropTypes.string.isRequired,
-};
-```
-
+TSX with defined typings
+<!-- .slide: data-auto-animate="true" -->
 ```ts
-function User(props: UserProps ) {
+const User = (props : UserProps) => {
     return <div><h1>{props.username}</h1></div>;
 }
-type UserProps = { username: string };
+interface UserProps = { username : string };
 ```
-<!-- .element: class="fragment" -->
+<!-- .element: data-id="code-animation" -->
+---
+TSX using generics
+<!-- .slide: data-auto-animate="true" -->
 ```ts
 const User: React.FC<UserProps> = ({username}) => {
     return <div><h1>{username}</h1></div>;
 };
-type UserProps = { username: string };
+interface UserProps = { username : string };
 ```
-<!-- .element: class="fragment" -->
+<!-- .element: data-id="code-animation" -->
 
 Note: In javascript you can dynamically design the props being passed in by naming them.
 
 In Typscript you end up repaeting yourself if you are desingin your props in the component file
 
 But the real value is if you pull the props into it's own object, ans then you can share it amonst multiple areas as well as give your IDE more clues on what the object contains.
-
 ---
+<!-- .slide: data-auto-animate="true" -->
+TSX using generics and children
 ```ts
 const User: React.FC<UserProps> = ({username, children}) => {
     return <div>
@@ -189,25 +185,27 @@ const User: React.FC<UserProps> = ({username, children}) => {
     </div>;
 };
 
-type UserProps = { username: string };
+interface UserProps = { username: string };
 ```
-<!-- .element: class="fragment" -->
+<!-- .element: data-id="code-animation" -->
+---
+TSX children without generics
+<!-- .slide: data-auto-animate="true" -->
 ```ts
-type UserProps = { 
-    username: string, 
-    children: React.ReactNode
-};
-
 const User({username, children}: UserProps) {
     return <div>
         <h1>{username}</h1>
         <div>{children}</div>
     </div>;
 };
-```
-<!-- .element: class="fragment" -->
 
-2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objetcs as props.
+interface UserProps = { 
+    username: string, 
+    children: React.ReactNode
+};
+```
+<!-- .element: data-id="code-animation" -->
+Note: 2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objetcs as props.
 ---
 ### State in class components
 ```js
