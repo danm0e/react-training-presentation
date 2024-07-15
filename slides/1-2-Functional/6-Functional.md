@@ -1,6 +1,6 @@
 # Functional Methods
 ---
-### Array methods methods
+### Array methods
 - .map<!-- .element: class="fragment" --> 
 - .filter<!-- .element: class="fragment" --> 
 - .reduce<!-- .element: class="fragment" --> 
