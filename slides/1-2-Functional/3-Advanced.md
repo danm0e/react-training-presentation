@@ -65,15 +65,19 @@ Note: One thing to be aware of with the spread operator is that it only creates 
 In the example below, we create an object with a nested object within it. We then use the spread operator to copy this into a new object. When we modify the nested object within objB, it also modifies the object within objA as well. This behaviour can cause unexpected issues.
 ---
 # Deep copies
+
 ```js
 const objA = { nested: { hello: true } };
-var objB = JSON.parse(JSON.stringify(objA));
-
+var objB = structuredClone(objA);
+//this gives you a deep clone of a nested object but will transfer any nested objects to this object to remove the possibility of unexpected behviours.
 objA.nested.hello = false;
 console.log(objA);
 > { nested: { hello: false } }
-console.log(objB);
-> { nested: { hello: true } }
+//this 'hack' was the old method which has side effects of 
+var objC = JSON.parse(JSON.stringify(objA));
+objC.nested.hello = false;
+console.log(objC);
+> { nested: { hello: false } }
 ```
 Note: One thing to be aware of with the spread operator is that it only creates a new copy of the top level object. Any nested objects will still refer to the same object and will be impacted by modifications.
 In the example below, we create an object with a nested object within it. We then use the spread operator to copy this into a new object. When we modify the nested object within objB, it also modifies the object within objA as well. This behaviour can cause unexpected issues.
@@ -96,7 +100,8 @@ Note: Destructuring allows us to unpack values from arrays or objects into disti
 ---
 # Destructuring
 ```js
-const getCar = ({ make, model: { modelName: name, year } }) => {
+const getCar = (props) => {
+const  { make, model: { modelName: name, year } } = props;
  return `${year} ${make} ${name}`;
 }
 console.log(

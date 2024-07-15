@@ -175,8 +175,8 @@ Unless you have a .catch chained on to the end of your promise, a rejected promi
 
 ```js
 const getGitHubData = () => Promise.resolve([
- { commit: '123csj43', author: '@1337c0d3r },
- { commit: '123csj44', author: '@1337c0d3r }
+ { commit: '123csj43', author: '@1337c0d3r' },
+ { commit: '123csj44', author: '@1337c0d3r' }
 ]);
 
 getGitHubData().then(data => {
