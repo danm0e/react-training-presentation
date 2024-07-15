@@ -1,5 +1,5 @@
 # ES6 modules
-```js
+```ts
 // databaseSeed.ts
 const patchQuery = "INSERT into USERS ...";
 
@@ -7,13 +7,13 @@ const init = () => {
   return runQuery(patchQuery);
 };
 
-const runQuery = (query) => {
+const runQuery = (query: string) => {
   return `Running query: ${query}`;
 };
 
 export { patchQuery, init, runQuery };
 ```
-```js
+```ts
 // app.ts (for TypeScript)
 import { patchQuery, init, runQuery } from './databaseSeed';
 
@@ -31,7 +31,7 @@ They provide encapsulation by default, as variables and functions are private to
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### Classes vs objects
-```js
+```ts
 const person = (firstName: string, surname: string) => {
   const fullName = `${firstName} ${surname}`;
 
@@ -49,7 +49,7 @@ const person = (firstName: string, surname: string) => {
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### Classes vs objects
-```js
+```ts
 class Person {
   fullName: string;
 
@@ -81,7 +81,7 @@ Define some
 
 ### Static methods
 
-```js
+```ts
 class Circle {
   static pi: number = 3.14;
 
@@ -107,7 +107,7 @@ Use Cases: Static methods are commonly used for utility or helper functions that
 Can you name a static method? Array.isArray()
 ---
 ### readonly
-```js
+```ts
 class Circle {
   static readonly pi: number = 3.14;
 
@@ -133,7 +133,7 @@ protected - accessible in the class that defined then and any subclasses.
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### public
-```js
+```ts
 class Example {
   public property: string;
   public someFunction() {}
@@ -147,7 +147,7 @@ class Example {
 ---
 ### public
 <!-- .slide: data-auto-animate="true" -->
-```js
+```ts
 class Example {
   property: string;
   someFunction() {}
@@ -162,7 +162,7 @@ Note: This is the default and you don’t necessarily need to specify that somet
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### private
-```js
+```ts
 class Example {
   private property: string;
   private someFunction(arg: string) {}
@@ -173,7 +173,7 @@ class Example {
 }
 ```
 <!-- .element: data-id="code-animation" -->
-```js
+```ts
 const myExample = new Example();
 
 myExample.someFunction();
@@ -190,7 +190,7 @@ Worth noting there is some sneaky ECMA script syntax that can be used in place o
 I would caution against this as it isn’t widely used and private is more explicit and marrys up to other OOO language syntax.
 ---
 ### protected
-```js
+```ts
 class Animal {
   protected name: string;
 
@@ -203,7 +203,7 @@ class Animal {
   }
 }
 ```
-```js
+```ts
 class Dog extends Animal {
   bark(): void {
     this.makeSound();
@@ -216,7 +216,7 @@ Note: Protected members can be accessed within the class and any sub classes.
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### Automatic assignment
-```js
+```ts
 class Animal {
     private name: string;
     private sound: string;
@@ -237,7 +237,7 @@ Note: You can automatically assign properties rather than assinging them in the 
 ---
 <!-- .slide: data-auto-animate="true" -->
 ### Automatic assignment
-```js
+```ts
 class Animal {
 
 
@@ -272,7 +272,7 @@ Note:
 - Logging & Debugging - Log or debug the access and modification of properties.
 ---
 ### Getters & Setters
-```js
+```ts
 class Example {
   private _property: number = 1;
 
@@ -299,7 +299,7 @@ In this example it is more verbose and not really worthwhile but demonstrates th
 ---
 ### Getters & Setters
 <!-- .slide: data-auto-animate="true" -->
-```js
+```ts
 class Person {
   private _name: string;
 
@@ -345,7 +345,7 @@ Note: Inheritance is a mechanism that allows a new class to inherit properties a
 ---
 ### Base Class
 Here we define a base class - Animal with two public members, a property and a method.
-```js
+```ts
 class Animal {
   public name: string;
 
@@ -362,7 +362,7 @@ class Animal {
 ### Child Class
 This class extends Animal.
 Note the extends keyword and super() method.
-```js
+```ts
 class Dog extends Animal {
   public breed: string;
 
@@ -391,7 +391,7 @@ This can be layered and layered.
 ---
 ### abstract classes
 
-```js
+```ts
 abstract class Animal {
   public name: string;
   protected abstract sound: string;
@@ -418,7 +418,7 @@ This can be layered and layered.
 ---
 ### Extending abstract Classes
 Extending abstract classes is similar to standard classes but with the requirement of implementing abstract properties and methods. 
-```js
+```ts
 abstract class Animal {
   public name: string;
 
@@ -457,7 +457,7 @@ This can be layered and layered.
 ---
 ### interface
 An interface is a structural contract that defines the shape of an object, including its properties and methods. It serves as a blueprint or a set of rules that classes, objects, or functions must adhere to.
-```js
+```ts
 interface Animal {
   name: string;
   makeSound(): void;
@@ -466,7 +466,7 @@ interface Animal {
 ---
 ### interface
 The Dog class implements the Animal interface, ensuring that it adheres to the contract defined by the interface. It provides an implementation for the makeSound() method and includes an additional breed property.
-```js
+```ts
 class Dog implements Animal {
   name: string;
   breed: string;
@@ -496,7 +496,7 @@ Interfaces are automatically merged when they have the same name, which can be u
 ### Factory Pattern
 With interfaces (or types!) and classes we can use the Factory Pattern. This is a way to create objects of some type, leaving the decision of which concrete type to create to the factory.
 
-```js
+```ts
 interface Shoe {
   purpose: string;
 }
@@ -517,7 +517,7 @@ class Boot implements Shoe {
 ---
 ### Factory Pattern
 The factory class with a static method is responsible for creating the 
-```js
+```ts
 class ShoeFactory {
   static createShoe(type: "ballet" | "sneaker" | "boot"): Shoe {
     switch (type) {
@@ -538,7 +538,7 @@ console.log(balletShoe.purpose);
 
 ---
 ### Returning this
-```js
+```ts
 class RequestBuilder {
   private method: "get" | "post" | null = null;
   private url: string | null = null;
@@ -560,7 +560,7 @@ Protected members can be accessed within the class and any sub classes.
 
 ---
 ### Builder Pattern
-```js
+```ts
 class RequestBuilder {
   private method: "GET" | "POST" | null = null;
   private url: string | null = null;
@@ -584,7 +584,7 @@ Protected members can be accessed within the class and any sub classes.
 ---
 ### abstract & interface
 You can also combine and interface and abstract classes!
-```js
+```ts
 interface Animal {
   name: string;
   makeSound(): void;
@@ -597,7 +597,7 @@ abstract class Mammal {
 
 ---
 ### abstract & interface
-```js
+```ts
 class Dog extends Mammal implements Animal {
   name: string;
 
@@ -618,7 +618,7 @@ dog.breathesAir; // true
 ### Decorators
 
 A decorator in TypeScript is a special kind of function that allows you to modify or extend the behavior of a class, method, property, or parameter. It is a way to add metadata or additional functionality to your code without directly modifying the original code.
-```js
+```ts
 class Dog implements Animal {
   name: string;
   breed: string;
@@ -637,7 +637,7 @@ class Dog implements Animal {
 ### Generic Types
 
 A generic type is a way to write code that can work with different types of data. Instead of writing separate code for each data type, you can write one piece of code that can handle multiple types. 
-```js
+```ts
 function wrapStringInArray(string: string): string[] {
   return [string];
 }
@@ -654,7 +654,7 @@ function wrapValueInArray<T>(value: T): T[] {
 ---
 ### Generics
 
-```js
+```ts
 class ValueHolder<T> {
   constructor(private _value: T) {}
 
@@ -672,7 +672,7 @@ console.log(str.value);
 ---
 ### Types
 Type aliases can also use generics!
-```js
+```ts
 type ValueBox<T> = {
   value: T;
 };

@@ -35,7 +35,7 @@ Type aliases allow you to create a new name for a type, making complex types mor
 We’ve talked about different types of types and how they behave in some circumstances, how do we actually say something is a type?
 ### Type annotation
 
-```js
+```ts
 let secondName: string;
 // typeof string
 
@@ -47,7 +47,7 @@ const firstName = "Bill";
 Note: Typescript can infer types where they are not explicitly specified. 
 ---
 ## Type aliases
-```js
+```ts
 type Friends = string[]
 // string array (alias)
 
@@ -63,7 +63,7 @@ type Location = {
 Note: Types can be declared in isolation. This is useful for documentation and when to make aliases for a specific shapes or structures.
 ---
 ### Union & Intersection
-```js
+```ts
 type Cat = { name: string; purrs: boolean };
 type Dog = { name: string; barks: boolean; wags: boolean };
 type CatOrDogOrBoth = Cat | Dog;
@@ -85,7 +85,7 @@ let dogcat: CatAndDog = {
 Note: The union of two types is everything in one, the other, or both. The intersection is everything in both types.
 ---
 ### Pick & Partial
-```js
+```ts
 type Cat = { name: string; purrs: boolean };
 type Dog = { name: string; barks: boolean; wags: boolean };
 type CatOrDogOrBoth = Cat | Dog;
@@ -107,7 +107,7 @@ let animal2: CatAndDog = {
 Note: The union of two types is everything in one, the other, or both.The intersection is everything in both types.
 ---
 ### Type casting
-```js
+```ts
 // We have a variable of type unknown
 let userInput: unknown = “123”;
 
@@ -119,7 +119,7 @@ Note: Type casting is the process of explicitly changing the type of a variable 
 Typically you’ll only be doing this with unknown types, or as we say here, when working with untyped JS libraries. You may use a type alias and then cast to that type.
 ---
 ### Type generics
-```js
+```ts
 function identity<Type>(arg: Type): Type {
   return arg;
 }
@@ -156,7 +156,7 @@ Tuples are similar to arrays. They maintain the order of their elements but thei
 Enums are way of defining a set of named constants. They allow us to create a collection of related values represented by a specific name.
 ---
 ### Objects
-```js[1|3-5|7]
+```ts[1|3-5|7]
 let obj: object;
 
 let obj: Object;
@@ -176,7 +176,7 @@ The second and third are equilivent. This is specifying an object with no parame
 The last one is Object Literal Notation. It creates an object and specifies the shape of the object. This is the best way to do it. Let's dive into more examples. 
 ---
 ### Object literal notation
-```js
+```ts
 let obj: {
   a: number;
   b?: string;
@@ -187,14 +187,14 @@ let obj: {
 Note: Also known as a shape. Used when you know which fields an object could have. 
 ---
 ### Index Signatures
-```js
+```ts
 type Booking = {
   [seatNumber: string]: string;
 };
 type Booking = Record<string, string>;
 ```
 
-```js
+```ts
 let trainSeatBookings: Booking = {
   "32A": "Peter Parker",
   "34E": "Carol Danvers",
@@ -205,7 +205,7 @@ Note: This lets you tell Typescript that a given object might have more keys.
 You could also use Record to create an object with key:value pairs of strings. Why might you not want to do that, though? (Collisions, Less expressive, Harder to save in a structured database, trickier to iterate)
 ---
 ### Arrays
-```js [1-2|4-5|7]
+```ts [1-2|4-5|7]
 let horses: string[];
 horses = ["Clydesdale", "Shire", "Unicorn"];
 
@@ -217,7 +217,7 @@ let horses = ["Clydesdale", "Shire", "Unicorn"];
 ---
 ### Tuples
 
-```js[1-2|4-5|7-8|9-10]
+```ts[1-2|4-5|7-8|9-10]
 const coordinates1: [number, number] = [23, 48];
 const coordinates2 = [23, 48];
 
@@ -230,7 +230,8 @@ Note: Tuples act similarly to arrays but their length and types of elements are 
 Generally you would use bracket notation to access them, like arrays.
 ---
 ### Readonly Tuples
-```js[1-3|4|6-7|8|10-12|13]
+
+```ts[1-3|4|6-7|8|10-12|13]
 let coordinates1: readonly[number, number];
 coordinates1 = [23, 48];
 coordinates1.push(1);
@@ -253,7 +254,7 @@ Or setting a varaible "as const'
 But be warned if you've set a tuple type without readonly, and then assign it will not treat it as readonly.
 ---
 ### Enum
-```js
+```ts
 enum Direction {
   Up = "UP",
   Down = "DOWN",
@@ -277,7 +278,7 @@ Generally we use dot notation to access enum values.
 They offer improved readability for related constants. Often uses to represent a set of fixed options or choices, like directions.
 ---
 ### BitWise Enums
-```js
+```ts
 enum FileAccess {
   // constant members
   None,

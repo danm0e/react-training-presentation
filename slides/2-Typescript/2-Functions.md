@@ -1,6 +1,6 @@
 
 ### Declaring function types
-```js
+```ts
 type myFunction = (arg: string, arg2: number) => string;
 type myType = {
   func: (arg: string) => void;
@@ -16,7 +16,7 @@ The type signature of a function specifies the types of the parameters that a fu
 Common use cases for this are functions in object literals and callbacks in other functions.
 ---
 ### Function
-```js
+```ts
 function add(a: number, b: number): number {
   return a + b;
 }
@@ -28,7 +28,7 @@ Note: The Function type represents the type of all function values. It is a very
 Effectively it is shorthand for (...args: any[]) => anyAvoid using it!
 ---
 ### Function Signatures
-```js
+```ts
 function greeting(name: string = "Lisa"): string {
   return "hello " + name;
 }
