@@ -40,8 +40,8 @@ Popular: React is the highest used and loved frontend framework, used by 49% of 
 
 ### Basics of JSX
 
-```ts
-function renderLogin({ prefilledEmail }: {prefilledEmail: string}) {
+```tsx
+function renderLogin({ prefilledEmail }) {
   return (
     <section>
       <input type="email" placeholder="email" value={prefilledEmail} />
@@ -56,69 +56,6 @@ Understanding JSX Syntax
 
 While JSX bears a resemblance to HTML, it's crucial to understand the distinctions. JSX introduces the ability to embed dynamic content through JavaScript expressions enclosed in curly braces {}. This dynamic nature empowers developers to create highly interactive and data-driven React components, blending the best of both worlds.
 JSX vs HTML
----
-### JSX Styling with TypeScript
-```js
-function User({ username }) {
-    return <div><h1>{username}</h1></div>;
-}
-```
-
-```ts
-function User({ username } 
-    : { username: string}) {
-    return <div><h1>{username}</h1></div>;
-}
-```
-<!-- .element: class="fragment" -->
-
-```ts
-type UserProps = { username: string};
-function User(props: UserProps ) {
-    return <div><h1>{props.username}</h1></div>;
-}
-```
-<!-- .element: class="fragment" -->
-```ts
-type UserProps = { username: string};
-const User: React.FC<UserProps> = ({username}) => {
-    return <div><h1>{username}</h1></div>;
-};
-```
-<!-- .element: class="fragment" -->
-
-Note: In javascript you can dynamically design the props being passed in by naming them.
-
-In Typscript you end up repaeting yourself if you are desingin your props in the component file
-
-But the real value is if you pull the props into it's own object, ans then you can share it amonst multiple areas as well as give your IDE more clues on what the object contains.
-
----
-```ts
-type UserProps = { username: string};
-const User: React.FC<UserProps> = ({username, children}) => {
-    return <div>
-        <h1>{username}</h1>
-        <div>{children}</div>
-    </div>;
-};
-```
-<!-- .element: class="fragment" -->
-```ts
-type UserProps = { 
-    username: string, 
-    children: React.ReactNode
-};
-const User({username, children}: UserProps) {
-    return <div>
-        <h1>{username}</h1>
-        <div>{children}</div>
-    </div>;
-};
-```
-<!-- .element: class="fragment" -->
-
-2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objetcs as props.
 ---
 ### JSX Expressions & Embeddings
 ```ts
@@ -178,28 +115,99 @@ const MyFunctionalComponent = () => {
 ```
 ---
 Note: Functional components are the building blocks of a React application. They are concise, stateless, and focus solely on rendering UI. With the advent of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
-Functional Components
+
 ---
+
 ### Props and Prop Types
 ```js
-const MyComponent = (props) => {
-  // Accessing props
-  return (
-    <div>
-      {props.myProp}
-    </div>
-  );
-};
-
+const User = ({ username }) => {
+    return <div><h1>{username}</h1></div>;
+}
 // Prop Types
-MyComponent.propTypes = {
-  myProp: PropTypes.string.isRequired,
+User.propTypes = {
+  username: PropTypes.string.isRequired,
 };
 ```
 
 Note: In React, data can be passed from a parent component to a child component using props. Props are essentially properties that a parent component passes down to its children. Additionally, specifying PropTypes helps enforce data types and ensures the correct usage of props.
+
+
 ---
 
+### TSX
+```js
+const User = ({ username }) => {
+    return <div><h1>{username}</h1></div>;
+}
+```
+
+```ts
+const User = ({ username } 
+    : { username: string}) => {
+    return <div><h1>{username}</h1></div>;
+}
+```
+<!-- .element: class="fragment" -->
+--
+### TSX
+```js
+const User = ({ username }) => {
+    return <div><h1>{username}</h1></div>;
+}
+// Prop Types
+User.propTypes = {
+  username: PropTypes.string.isRequired,
+};
+```
+
+```ts
+function User(props: UserProps ) {
+    return <div><h1>{props.username}</h1></div>;
+}
+type UserProps = { username: string };
+```
+<!-- .element: class="fragment" -->
+```ts
+const User: React.FC<UserProps> = ({username}) => {
+    return <div><h1>{username}</h1></div>;
+};
+type UserProps = { username: string};
+```
+<!-- .element: class="fragment" -->
+
+Note: In javascript you can dynamically design the props being passed in by naming them.
+
+In Typscript you end up repaeting yourself if you are desingin your props in the component file
+
+But the real value is if you pull the props into it's own object, ans then you can share it amonst multiple areas as well as give your IDE more clues on what the object contains.
+
+---
+```ts
+type UserProps = { username: string};
+const User: React.FC<UserProps> = ({username, children}) => {
+    return <div>
+        <h1>{username}</h1>
+        <div>{children}</div>
+    </div>;
+};
+```
+<!-- .element: class="fragment" -->
+```ts
+type UserProps = { 
+    username: string, 
+    children: React.ReactNode
+};
+const User({username, children}: UserProps) {
+    return <div>
+        <h1>{username}</h1>
+        <div>{children}</div>
+    </div>;
+};
+```
+<!-- .element: class="fragment" -->
+
+2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objetcs as props.
+---
 ### State in class components
 ```js
 class CounterClass extends React.Component {
@@ -222,7 +230,9 @@ class CounterClass extends React.Component {
   }
 }
 ```
-Note: In class components, state is managed using the setState method. Understanding how to correctly update state is crucial for React developers. It ensures that the UI reflects the latest data and triggers necessary re-renders.
+Note: Goign back to class components, it often makes sense why developers reach for them. Classes like to retain state, theresfor you get the beneifts of simplyfying the codebase because you can mutate objects.
+
+In class components, state is managed using the setState method. Understanding how to correctly update state is crucial for React developers. It ensures that the UI reflects the latest data and triggers necessary re-renders.
 ---
 ### State in React
 ```js

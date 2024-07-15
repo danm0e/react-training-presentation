@@ -22,7 +22,7 @@ State Management
 a. We are utilizing a state management library redux-toolkit and redux-saga for managing centralized application state.
 b. Normalize and organize the state structure to ensure a predictable and efficient data flow.
 c. Try to avoid unnecessary or excessive use of global state; prefer local component state when applicable.
-d. We are using re-select library for memorization techniques to optimize state updates which will eventually enhance the performance of our application to a significant amount by reducing unnecessary re-renders on the DOM.
+
 
 
 TypeScript
