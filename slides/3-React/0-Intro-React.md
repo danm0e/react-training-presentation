@@ -113,7 +113,6 @@ const MyFunctionalComponent = () => {
   );
 };
 ```
----
 Note: Functional components are the building blocks of a React application. They are concise, stateless, and focus solely on rendering UI. With the advent of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
 
 ---
@@ -140,7 +139,7 @@ const User = ({ username }) => {
     return <div><h1>{username}</h1></div>;
 }
 ```
-
+<!-- .element: class="fragment" -->
 ```ts
 const User = ({ username } 
     : { username: string}) => {
@@ -148,7 +147,7 @@ const User = ({ username }
 }
 ```
 <!-- .element: class="fragment" -->
---
+---
 ### TSX
 ```js
 const User = ({ username }) => {
@@ -171,7 +170,7 @@ type UserProps = { username: string };
 const User: React.FC<UserProps> = ({username}) => {
     return <div><h1>{username}</h1></div>;
 };
-type UserProps = { username: string};
+type UserProps = { username: string };
 ```
 <!-- .element: class="fragment" -->
 
@@ -183,13 +182,14 @@ But the real value is if you pull the props into it's own object, ans then you c
 
 ---
 ```ts
-type UserProps = { username: string};
 const User: React.FC<UserProps> = ({username, children}) => {
     return <div>
         <h1>{username}</h1>
         <div>{children}</div>
     </div>;
 };
+
+type UserProps = { username: string };
 ```
 <!-- .element: class="fragment" -->
 ```ts
@@ -197,6 +197,7 @@ type UserProps = {
     username: string, 
     children: React.ReactNode
 };
+
 const User({username, children}: UserProps) {
     return <div>
         <h1>{username}</h1>
