@@ -5,12 +5,12 @@ Our two main types for representing data in JavaScript are Object and Array.
 The main difference between the two is that Arrays ensure order, Objects do not.
 
 ---
-# Types - Objects
+### Types - Objects
 
 To access and set properties in an Object, we can use auto assignment, dot notation or bracketed notation
 
 ---
-# Types - Objects
+### Types - Objects
 ```js
 const assignToMe = {name1: "I'm auto assigned"};
 
@@ -29,7 +29,7 @@ console.log(assignToMe);
 <!-- .element: class="fragment" -->
 Note: <https://carbon.now.sh/efCTijMM7DgtATJEWBOo> ()
 ---
-# Types - Arrays
+### Types - Arrays
 
 As mentioned in the last section, Arrays are actually implemented as types of object. The main difference is that Arrays ensure their order.
 Generally you’d access an Array using the bracketed notation

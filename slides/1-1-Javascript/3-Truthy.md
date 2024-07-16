@@ -14,7 +14,7 @@
 
 Note: Everything else is a Turthy. 0n is  BigInt zero
 ---
-# The !! operator
+### The !! operator
 - ! is a logical NOT operator <!-- .element: class="fragment" -->
 - Converts non-Booleans to the opposite boolean value <!-- .element: class="fragment" -->
 - !! Will swap it back to the original object but as a boolean <!-- .element: class="fragment" -->
@@ -27,8 +27,9 @@ console.log(!!1);
 console.log(!!0);
 > false
 ```
+<!-- .element: class="fragment" -->
 ---
-# What about these?
+### What about these?
 ```js[1|2|3|4|5]
 console.log(!!false);
 console.log(!!NaN);
@@ -46,7 +47,7 @@ Note: Answer
 Double equals is looser about type checking
 You should almost always use triple equals to ensure strict equality. Explicitly convert the types if necessary.
 ---
-# Loose & Strict Equality
+### Loose & Strict Equality
 
 ```js [1|2]
 console.log("1" == 1);

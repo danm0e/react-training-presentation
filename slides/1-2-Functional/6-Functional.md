@@ -22,7 +22,7 @@ console.log(numbers.map((number) => number * 3))
 Note: The map method iterates over all of the items in a collection and runs a function on them and then returns a new collection with the results.
 This is useful for things like manipulating a set of data into a format that you need, or doing repeated calculations.
 ---
-# Filter
+### Filter
 
 ```js [1|3-4|6-12]
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

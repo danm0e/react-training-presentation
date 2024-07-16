@@ -15,7 +15,7 @@
 
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css2?family=Poppins:800);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 
 // Override theme settings (see ../template/settings.scss)
@@ -30,6 +30,7 @@ $headingFontWeight: bold;
 	color: $selectionColor;
 	padding: 12px;
 	font-weight: 800;
+	font-family: $headingFont;
 }
 // Background generator
 @mixin bodyBackground() {

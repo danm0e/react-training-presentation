@@ -1,6 +1,7 @@
 
 
-# Asynchronous JavaScript
+# Asynchronous <!--.element: class="r-fit-text" -->
+# JavaScript<!--.element: class="r-fit-text" -->
 ---
 ### Agenda
 - The Event Loop: Why we need async anyway, and how JS handles async.
@@ -26,7 +27,7 @@ The call stack is responsible for keeping track of all the operations in line to
 
 The call stack is responsible for keeping track of all the operations in line to be executed. Whenever a new function is executed it is pushed onto the stack and when it is finished, it is popped from the stack.
 ---
-# The call stack
+### The call stack
 ```js
 function greeting() {
  const message = sayHi();

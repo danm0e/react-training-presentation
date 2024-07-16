@@ -5,7 +5,7 @@ Note: An error is where a computer program has reached a state of execution that
 Which is why we have errors, and error handling.
 You should try and handle all errors in your code, throw an explicit error for all errors you might “expect”
 ---
-# Errors
+### Errors
 ```js
 const result = new Error("Oops!");
 
@@ -16,7 +16,7 @@ Note: The Error object is one of the built-in objects in JavaScript.
 Any runtime errors in your code will cause an Error object to be created and thrown by the JavaScript engine.
 We can also create our own Error objects
 ---
-# Throwing
+### Throwing
 
 ```js
 try {

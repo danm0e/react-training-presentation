@@ -26,7 +26,7 @@ The function above:
 Note: A function signature is the pattern the function expects you to implement, its inputs and outputs.
 When thinking about a function, it’s important to consider the function signature carefully as it can help you write more readable and extendable code.
 ---
-# Hoisting
+### Hoisting
 Note: Hoisting in JavaScript refers to the process whereby the interpreter appears to move the declaration of functions to the top of their scope, prior to execution of the code.
 Hoisting allows functions to be safely used in code before they are declared.
 Variables are also hoisted, but only their declarations. They are not initialized with any value. Additionally, an exception will be thrown if a variable declared with let or const is read before it is initialized.

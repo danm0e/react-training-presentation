@@ -20,6 +20,7 @@ NaN === NaN;
 ```
 Note: <>(NaN is always false. It's crazy but always returns false when you compare to it.)
 ---
+# Quiz
 ```js[1|2|4|5|7|8]
 Object.is(NaN, NaN);
 NaN === NaN;
@@ -32,6 +33,7 @@ NaN === 0 / 0;
 ```
 Note: <>(Output is true, false, false, true, true, false)
 ---
+# Quiz
 ```js[1|2|3]
 parseInt(0.000001); 
 parseInt(0.0000001);
@@ -39,6 +41,7 @@ parseInt(1 / 1999999);
 ```
 Note: <>(Output is 0 correct, 1 because the value converts into a string "1e-7" which becomes 1, 5 goes to "5.00000250000125e-7" )
 ---
+# Quiz
 ```js
 0.1 * 0.2
 ```

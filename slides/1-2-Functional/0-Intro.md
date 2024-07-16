@@ -1,4 +1,5 @@
-# Practical Functional JavaScript <!-- .element : class="r-fit-text"-->
+# Practical Functional <!--.element: class="r-fit-text" -->
+# JavaScript <!-- .element : class="r-fit-text"-->
 ---
 ### Agenda
 - Variables: Intro to const, let and var.
