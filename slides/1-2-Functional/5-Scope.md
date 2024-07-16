@@ -1,4 +1,5 @@
-# Understanding Functional Scope
+# Understanding <!--.element: class="r-fit-text" -->
+# Functional Scope <!--.element: class="r-fit-text" -->
 ---
 ### Closures
 
