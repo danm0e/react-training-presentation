@@ -32,6 +32,17 @@ $headingFontWeight: bold;
 	font-weight: 800;
 	font-family: $headingFont;
 }
+.backgrounds::before {
+	content: '';
+	background-image: url('/assets/AND-logo.png');
+	background-size: contain; /* Or cover, depending on how you want the logo to fit */
+	background-repeat: no-repeat;
+	width: 350px; /* Adjust to your desired size */
+	height: 80px;
+	position: absolute;
+	bottom: 0px; /* Optional spacing from the bottom */
+	left: 30px;  /* Optional spacing from the left */
+} 
 // Background generator
 @mixin bodyBackground() {
 	@include radial-gradient( rgb(10, 36, 62), rgb(0, 0, 0) );
