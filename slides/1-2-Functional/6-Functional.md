@@ -59,7 +59,7 @@ Note: The reduce method runs a function on each element in the collection, passi
 ---
 ### Exercise 2: Implement lodash
 - Re-implement some lodash methods.
-- Add your code to: `exercises/2-functional.test.js`
+- Add your code to: `exercises/2-functional.js`
 - Run this to have the tests run as you save:
 ```
 npm run exercise::functional

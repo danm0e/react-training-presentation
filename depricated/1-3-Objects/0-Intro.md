@@ -249,7 +249,7 @@ bind returns a function with a scope and any arguments bound to it that then nee
 ---
 ### Exercise 3: Implement A Calculator
 - Implement a Calculator with a module, constructor and a Class.
-- Add your code to: exercises/3-objectOriented.test.js
+- Add your code to: `exercises/3-objectOriented.js`
 - Run this to have the tests run as you save:
 ```
 npm run exercise::object-oriented

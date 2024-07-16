@@ -20,8 +20,6 @@
 - We will be mobbing <!-- .element: class="fragment" -->
 - No question is a dumb question <!-- .element: class="fragment" -->
 - No-one left behind <!-- .element: class="fragment" -->
-- Some exercises you play along <!-- .element: class="fragment" -->
-- Some exercises you will present <!-- .element: class="fragment" -->
 - If you have a fact - share it <!-- .element: class="fragment" -->
 - Frequent breaks <!-- .element: class="fragment" -->
 - Anything else? <!-- .element: class="fragment" -->

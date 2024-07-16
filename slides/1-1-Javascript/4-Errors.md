@@ -35,7 +35,7 @@ It’s preferred to use the built-in error object for consistency.
 # Exercise 1
 Pass all the failing tests
 
-Add your code to: `exercises/1-theBasics.test.js`
+Add your code to: `exercises/1-theBasics.js`
 
 ```js[5]
 brew install node@18

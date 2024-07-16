@@ -247,7 +247,7 @@ getProfile("1234")
 ---
 ### Exercise 4: Practicing Promises
 - Apply what you’ve learned about promises in the exercise
-- Add your code to: exercises/4-promises.test.js
+- Add your code to: `exercises/4-promises.js`
 - Run this to have the tests run as you save:
 ```
 npm run exercise::promises
@@ -298,7 +298,7 @@ Note: Whereas we can use try/catch to catch that error and return something from
 ---
 ### Exercise 5: async/await refactoring
 - Apply what you now know to refactor your code from exercise 4 to use async/await
-- Refactor your code in: exercises/4-promises.test.js
+- Refactor your code in: `exercises/4-promises.js`
 - Run this to have the tests run as you save:
 ```js
 npm run exercise::promises
