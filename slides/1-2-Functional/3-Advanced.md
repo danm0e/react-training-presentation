@@ -13,7 +13,7 @@ Note: There are a few things that we can use with function arguments that can he
 ---
 # Default parameters
 
-```js
+```js[1|1,2-3|1,4-5|1,6-7]
 const multiply = (a, b = 1) => a * b;
 multiply(5, 2);
 > 10
@@ -50,34 +50,34 @@ Note: The spread operator allows iterable objects (such as arrays or strings) an
 In the below example, we have a function that returns a set of options. There is a default set of options and the user can provide a set with their own values. We use the spread operator to merge these together.
 ---
 # Spread copies
-```js
-const objA = { nested: {} };
-const objB = { ...objA };
+<!-- .slide: data-auto-animate="true" -->
+```js [1-2|4|6-7|8-9]
+const objHello = { nested: { greeting: "hello" } };
+const objBye = { ...objHello };
 
-objA.nested.hello = true;
+objBye.nested.greeting = "goodbye";
 
-console.log(objA);
-> { nested: { hello: true } }
-console.log(objB);
-> { nested: { hello: true } }
+console.log(objBye);
+> { nested: { greeting: "goodbye" } }
+console.log(objHello);
+> { nested: { greeting: "goodbye" } }
 ```
+<!-- .element: data-id="code-animation" -->
 Note: One thing to be aware of with the spread operator is that it only creates a new copy of the top level object. Any nested objects will still refer to the same object and will be impacted by modifications.
 In the example below, we create an object with a nested object within it. We then use the spread operator to copy this into a new object. When we modify the nested object within objB, it also modifies the object within objA as well. This behaviour can cause unexpected issues.
 ---
 # Deep copies
 
-```js
-const objA = { nested: { hello: true } };
-var objB = structuredClone(objA);
-//this gives you a deep clone of a nested object but will transfer any nested objects to this object to remove the possibility of unexpected behviours.
-objA.nested.hello = false;
-console.log(objA);
-> { nested: { hello: false } }
-//this 'hack' was the old method which has side effects of 
-var objC = JSON.parse(JSON.stringify(objA));
-objC.nested.hello = false;
-console.log(objC);
-> { nested: { hello: false } }
+```js [2|4|6-7|8-9]
+const objHello = { nested: { greeting: "hello" } };
+const objBye = structuredClone(objHello);
+
+objBye.nested.greeting = "goodbye";
+
+console.log(objBye);
+> { nested: { greeting: "goodbye" } }
+console.log(objHello);
+> { nested: { greeting: "hello" } }
 ```
 Note: One thing to be aware of with the spread operator is that it only creates a new copy of the top level object. Any nested objects will still refer to the same object and will be impacted by modifications.
 In the example below, we create an object with a nested object within it. We then use the spread operator to copy this into a new object. When we modify the nested object within objB, it also modifies the object within objA as well. This behaviour can cause unexpected issues.

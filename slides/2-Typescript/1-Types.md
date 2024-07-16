@@ -29,10 +29,12 @@ Note:
 - unknown - when you really don’t know what a type could be. You should refine the type before using the value
 - never - the return type of a function that never returns - eg it always throws an exception or terminates execution
 ---
-# Type annotation & aliases
+### Type annotation & aliases
+
 Note: Type annotation is a way to explicitly specify the type of a variable, parameter, or return value.
 Type aliases allow you to create a new name for a type, making complex types more readable and reusable.
 We’ve talked about different types of types and how they behave in some circumstances, how do we actually say something is a type?
+---
 ### Type annotation
 
 ```ts

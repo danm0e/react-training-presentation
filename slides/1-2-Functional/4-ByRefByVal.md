@@ -10,7 +10,7 @@ It’s important to know when something is created in memory vs when we’re act
 ---
 # Passing by reference
 
-```js
+```js [1-4|6|7|9-10]
 const updateAge = (person) => {
  person.age = person.age + 1;
  return person;
@@ -26,7 +26,7 @@ Note: In the example below, we can see that the change that the function makes t
 ---
 # By Value
 
-```js
+```js [1-4|6-8|10-11]
 const reverseString = (str) => {
   str = str.split("").reverse().join("");
   return str;

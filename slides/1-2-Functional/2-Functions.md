@@ -33,7 +33,7 @@ Variables are also hoisted, but only their declarations. They are not initialize
 ---
 ### Hoisting
 
-```
+```js[1-8|2-3|2,7|3,8]
 try {
  console.log(funcDec);
  console.log(funcExp);
@@ -60,16 +60,16 @@ Note: During run time, javascript code is interpreted in a minimum of 2 cycles:
 
 If a function doesn’t have a return keyword, it will return undefined by default. The exception to this is an arrow function using the concise body syntax.
 
-```js
+```js[1,7|2,8|3,9|4,10|5,11]
 function undefinedReturn1() {}
 function explicitReturn1() { return "hello";}
 const undefinedReturn2 = () => {};
 const implicitReturn = () => "hello";
 const explicitReturn2 = () => { return "hello";}
 
-console.log(undefinedReturn1());  // undefined
-console.log(explicitReturn1());   // hello
-console.log(undefinedReturn2());  // undefined
-console.log(implicitReturn());    // hello
-console.log(explicitReturn2());   // hello
+console.log(undefinedReturn1());  > undefined
+console.log(explicitReturn1());   > hello
+console.log(undefinedReturn2());  > undefined
+console.log(implicitReturn());    > hello
+console.log(explicitReturn2());   > hello
 ```

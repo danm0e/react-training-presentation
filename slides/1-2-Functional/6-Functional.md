@@ -10,16 +10,13 @@ There are 3 main functional methods on arrays in JavaScript, but there are many 
 ---
 ### Map
 
-```js
+```js [1|3-4|6-7]
 const numbers = [1, 2, 3];
-
-const tripledNumbers = numbers.map((number) => {
- return number * 3;
-});
 
 console.log(numbers)
 > [ 1, 2, 3 ]
-console.log(tripledNumbers)
+
+console.log(numbers.map((number) => number * 3))
 > [ 3, 6, 9 ]
 ```
 Note: The map method iterates over all of the items in a collection and runs a function on them and then returns a new collection with the results.
@@ -27,18 +24,18 @@ This is useful for things like manipulating a set of data into a format that you
 ---
 # Filter
 
-```js
+```js [1|3-4|6-12]
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const evenNumbers = numbers.filter((number) => {
+
+console.log(numbers)
+> [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+console.log(numbers.filter((number) => {
  if (number % 2 === 0) {
    return true;
  }
  return false;
-});
-
-console.log(numbers)
-> [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
-console.log(evenNumbers)
+});)
 > [ 2, 4, 6, 8, 10 ]
 ```
 Note: The filter method iterates over all of the items in a collection and runs a function on them to decide whether or not that item should be included in the returned collection. 
@@ -46,17 +43,15 @@ Note: The filter method iterates over all of the items in a collection and runs 
 
 # Reduce
 
-```js
+```js 
 const numbers = [10, 2, 73, 1, 0, 19, 210, 3, 47, 18];
 
-const highestNumber = numbers.reduce((highest, number) => {
+console.log(numbers.reduce((highest, number) => {
  if (number > highest) {
    return number;
  }
  return highest;
-}, 0);
-
-console.log(highestNumber)
+}, 0))
 > 210
 ```
 

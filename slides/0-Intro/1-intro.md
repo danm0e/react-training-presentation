@@ -1,29 +1,22 @@
-# Adam Hall
-
-Agile Coach AND Waste Reducer
-
-Note:
-Hello
+# Adam Hall<!--.element: class="r-fit-text" -->
+<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
 ---
-- Javascript fundamentals
-    - Writing TDD
-    - Intro to the different quirks
-- Typescript additions
-    - Syntax
-    - Linting, compiling ect...
-- React Groundwork
-    - Simple react app
-    - Hooks vs objects
-    - Testing
-- React Patterns
-    - Components
-    - Suspense
-    - Server Actions
-- Putting it all together
+# Gareth Matson<!--.element: class="r-fit-text" -->
+<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
+---
+# Jake Andrews<!--.element: class="r-fit-text" -->
+<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
+---
+- Day 1 - Javascript 
+- Day 2 - Typescript 
+- Day 3 - React 
+- Day 4 - Advanced React 
+- Day 5 - Putting it all together
 ---
 ### Learning Agreement
 
 - Stay focused, cameras on <!-- .element: class="fragment" -->
+- We are recording <!-- .element: class="fragment" -->
 - We will be mobbing <!-- .element: class="fragment" -->
 - No question is a dumb question <!-- .element: class="fragment" -->
 - No-one left behind <!-- .element: class="fragment" -->

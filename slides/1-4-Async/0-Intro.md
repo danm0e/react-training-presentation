@@ -47,7 +47,7 @@ The call stack is responsible for keeping track of all the operations in line to
 Note: Environment APIs aren’t part of the JavaScript engine itself, but are part of the environment that the engine runs in. These environment APIs allow us to do things that JavaScript itself can’t do, such as network requests or interacting with the DOM.
 Because these environment APIs aren’t part of the JavaScript engine itself, they don’t halt the execution of the JavaScript code and the script can continue executing after the call has been made.
 This allows us to have some form of concurrency in JavaScript.
-
+---
 ### Task queue
 ```js
 console.log("Hello");
@@ -64,7 +64,7 @@ Note: The task queue is a list of any functions to be processed after the curren
 ### The event loop
 Note: The event loop is essentially an infinite loop that checks the task queue for work to be done.
 When it finds work, it processes it until the stack is empty and then continues the loop.
-----
+---
 ### Callbacks
 Some built in objects accept a callback. For example:
 - Array.prototype.sort
@@ -113,6 +113,7 @@ Note:
 As mentioned in the previous section, this callback is only called after the specified time, but it doesn’t halt execution of any other code. This means that if we need to do anything once the timeout has completed, it must be done inside the callback.
 ---
 ### Callback hell
+<!-- .element: data-id="code-animation" -->
 ```js
 getProfile("1234", (profile) => {
  getPosts(profile, (posts) => {
@@ -121,6 +122,13 @@ getProfile("1234", (profile) => {
    })
  })
 })
+```
+<!-- .slide: data-auto-animate="true" -->
+Note: Callback hell is when you have callbacks nested within callbacks, multiple layers deep. This can make code very difficult to read and understand. This can be avoided by structuring our code differently
+---
+### Callback hell
+<!-- .element: data-id="code-animation" -->
+```js
 function profileCb(profile) {
  getPosts(profile, postsCb);
 }
@@ -133,8 +141,8 @@ function commentsCb(comments) {
 
 getProfile("1234", profileCb);
 ```
+<!-- .slide: data-auto-animate="true" -->
 Note: Callback hell is when you have callbacks nested within callbacks, multiple layers deep. This can make code very difficult to read and understand. This can be avoided by structuring our code differently
-
 ---
 ### Promises
 Note: Promises are a way to handle asynchronous behaviour in JavaScript. 
@@ -212,7 +220,30 @@ fetch('/users/:123').then(data => {
 Note: Errors that are thrown in a Promise will go down the Promise chain. If no .catch is provided the Promise usually throws an unhandled exception.
 It is generally best practice to always add a .catch to your promises.
 ---
-
+### Callback hell revisited
+<!-- .slide: data-auto-animate="true" -->
+```js
+getProfile("1234", (profile) => {
+ getPosts(profile, (posts) => {
+   getPostComments(posts[0],(comments) => {
+     console.log(comments)
+   })
+ })
+})
+```
+<!-- .element: data-id="code-animation" -->
+---
+### Callback hell revisited
+<!-- .slide: data-auto-animate="true" -->
+```js
+getProfile("1234")
+  .then(profile => getPosts(profile))
+  .then(posts => getPostComments(posts[0]))
+  .then(comments => console.log(comments))
+  .catch(error => console.error(error));
+```
+<!-- .element: data-id="code-animation" -->
+---
 ### Exercise 4: Practicing Promises
 - Apply what you’ve learned about promises in the exercise
 - Add your code to: exercises/4-promises.test.js
@@ -238,6 +269,7 @@ const getFacebookUser = async () => {
  return user;
 };
 ```
+---
 ### async/await and try..catch
 ```js
 const exampleWithUnhandledError = async () => {

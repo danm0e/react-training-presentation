@@ -92,7 +92,7 @@ JSX Expressions & Embedding
 
 
 ### Components in React
-  <img data-src="assets/react-tree.png" />
+  <img class="r-stretch" data-src="assets/react-tree.png" />
 Note: React applications are built using components, which are self-contained, reusable pieces of code responsible for a specific part of the user interface. Components can be functional or class-based, and they encapsulate both the UI and the logic associated with it.
 
 ---
