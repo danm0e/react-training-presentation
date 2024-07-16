@@ -1,3 +1,5 @@
+# Welcome!<!--.element: class="r-fit-text" -->
+---
 # Adam Hall<!--.element: class="r-fit-text" -->
 <p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
 ---
