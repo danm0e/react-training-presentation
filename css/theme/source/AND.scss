@@ -33,15 +33,18 @@ $headingFontWeight: bold;
 	font-family: $headingFont;
 }
 .backgrounds::before {
-	content: '';
-	background-image: url('/assets/AND-logo.png');
-	background-size: contain; /* Or cover, depending on how you want the logo to fit */
-	background-repeat: no-repeat;
-	width: 350px; /* Adjust to your desired size */
-	height: 80px;
-	position: absolute;
-	bottom: 0px; /* Optional spacing from the bottom */
-	left: 30px;  /* Optional spacing from the left */
+	content: "© 2024 ";
+    font-size: 12px;
+    background-image: url(/assets/AND-logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 900px;
+    height: 41px;
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    background-position-x: 40px;
+    background-position-y: -14px;
 } 
 // Background generator
 @mixin bodyBackground() {
