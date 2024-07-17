@@ -41,8 +41,6 @@
 ### One word check-in
 In the meeting chat give one word to describe how you are feeling <span class="andlogo">right now</span>!
 ---
-# Typescript
----
 ### Agenda
 - Types: What goes on top of what we've learnt?
 - Objects & Arrays: Creating, managing and structuring your data objects.
@@ -64,4 +62,4 @@ In the meeting chat give one word to describe how you are feeling <span class="a
 - Functions: How we can add syntax to describe them
 - Classes: Describing objects
 - BUT FIRST... <!-- .element: class="fragment" -->
-# Setup<!-- .element: class="fragment" -->
+## Setup<!-- .element: class="fragment" -->

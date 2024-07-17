@@ -93,14 +93,15 @@ type Friends = string[];
 interface Friends extends Array<string> {}
 ```
 <!-- .element: class="fragment" -->
-
+---
+## Types vs Interfaces
 ```ts
 type Location = {
     x: number;
     y: number;
 }
 ```
-<!-- .element: class="fragment" -->
+
 ```ts
 interface Location {
     x: number;
@@ -108,11 +109,13 @@ interface Location {
 }
 ```
 <!-- .element: class="fragment" -->
+---
+## Types vs Interfaces
 ```ts
 type House = string | number
 // union
 ```
-<!-- .element: class="fragment" -->
+
 ```ts
 // no!
 ```

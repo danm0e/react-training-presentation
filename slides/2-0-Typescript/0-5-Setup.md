@@ -248,11 +248,9 @@ Finally run it
 ```
 npm run dev
 ```
-
-Now go and play with `index.ts`
 </div>
 <!-- .element: class="fragment" -->
-
+Note: Go and play with index.ts
 ---
 ### ESLint
 
@@ -327,9 +325,8 @@ The above command allows Jest to work with TypeScript.
 ---
 ### Testing Code
 
-And add a test script in `src/index.test.ts`
-
 ```
+//src/index.test.ts
 import { getMessage } from './index'
 
 describe('getMessage()', () => {
@@ -358,8 +355,6 @@ Finally update the `package.json`
 And run it
 
 ```
-npm run test
-OR
 npm run test:watch
 ```
 
@@ -370,10 +365,6 @@ Note:
 Create a file named `index.test.ts` inside the src folder. Add the following code to it:
 
 
-Now you can run your tests with:
-npm run test
-# OR
-npm run test:watch
 --watch is not supported without git/hg, please use --watchAll - it needs to be git or you need watchall.
 
 ---
