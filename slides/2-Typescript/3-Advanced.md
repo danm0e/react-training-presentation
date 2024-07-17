@@ -1,4 +1,6 @@
 # ES6 modules
+---
+### ES6 Module examples
 ```ts
 // databaseSeed.ts
 const patchQuery = "INSERT into USERS ...";
