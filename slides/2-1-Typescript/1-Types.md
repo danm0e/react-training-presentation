@@ -209,21 +209,65 @@ Can you cast the messages to that new type?
 ---
 ### Type generics
 ```ts
-function identity<Type>(arg: Type): Type {
-  return arg;
+function wrapStringInArray(string: string): string[] {
+  return [string];
 }
 
-let output = identity<string>("myString");
-// pass type as argument to function with <>
+function wrapNumberInArray(number: number): number[] {
+  return [number];
+}
 
-let output = identity("myString");
-// let typescript use type argument inference
+//generic
+function wrapValueInArray<T>(value: T): T[] {
+  return [value];
+}
 ```
 Note: A quick note on type generic syntax. 
 We won’t go into any depth on this but I’ll introduce the idea of type generics. 
 Sometimes you want a function, or class, to be flexible on the type it works with without using any, unknown, or a large union type.
 
 Just know that when you see this syntax you are looking at a generic! Don’t worry about this for now!
+---
+
+### Generics
+
+```ts
+class ValueHolder<T> {
+  constructor(private _value: T) {}
+
+  get value(): T {
+    return this._value;
+  }
+}
+
+const num = new ValueHolder(1);
+console.log(num.value);
+
+const str = new ValueHolder('string');
+console.log(str.value);
+```
+---
+### Generics as Types
+Type aliases can also use generics!
+```ts
+type ValueBox<T> = {
+  value: T;
+};
+
+const myStringValue: ValueBox<string> = { value: "hello" };
+const myNumberValue: ValueBox<number> = { value: 5 };
+```
+---
+### Deffered Conversion Example
+```
+type ValueConverterFunction<T, U> = (value: T) => U;
+
+const stringToNumber: ValueConverterFunction<string, number> = function (
+  value
+) {
+  return Number(value);
+};
+```
 ---
 # Exercise
 Change `showMessage` to be a generic.
