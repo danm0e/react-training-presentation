@@ -538,7 +538,7 @@ console.log(balletShoe.purpose);
 // dancing
 ```
 ---
-#Exercise
+# Exercise
 Can you create a `MessageFactory` class like this?
 ```
 class ShoeFactory {
@@ -634,25 +634,6 @@ class Dog extends Mammal implements Animal {
 
 const dog = new Dog("Fluffy");
 dog.breathesAir; // true
-```
----
-### Decorators
-
-A decorator in TypeScript is a special kind of function that allows you to modify or extend the behavior of a class, method, property, or parameter. It is a way to add metadata or additional functionality to your code without directly modifying the original code.
-```ts
-class Dog implements Animal {
-  name: string;
-  breed: string;
-
-  constructor(name: string, breed: string) {
-    this.name = name;
-    this.breed = breed;
-  }
-
-  makeSound(): void {
-    console.log(`${this.name} barks.`);
-  }
-}
 ```
 ---
 ### Generic Types
