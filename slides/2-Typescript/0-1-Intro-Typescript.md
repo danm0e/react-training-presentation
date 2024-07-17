@@ -9,10 +9,28 @@
 <p class="r-fit-text">Product Developer <span class="andlogo">AND</span> Chess Fan</p>
 ---
 - Day 1 - Javascript 
-- Day 2 - Typescript _← You are here_<!-- .element: class="fragment" -->
+- Day 2 - Typescript <span class="andlogo fragment">←You are here</span>
 - Day 3 - React 
 - Day 4 - Advanced React 
 - Day 5 - Putting it all together
+---
+### Learning Agreement
+
+- Stay focused, cameras on <!-- .element: class="fragment" -->
+- We are recording <!-- .element: class="fragment" -->
+- We will be mobbing <!-- .element: class="fragment" -->
+- No question is a dumb question <!-- .element: class="fragment" -->
+- No-one left behind <!-- .element: class="fragment" -->
+- If you have a fact - share it <!-- .element: class="fragment" -->
+- Frequent breaks <!-- .element: class="fragment" -->
+---
+### Additional
+
+- 10 minute breaks <!-- .element: class="fragment" -->
+- Help with setup of exercises <!-- .element: class="fragment" -->
+- Simplify the exercises <!-- .element: class="fragment" -->
+- Debrief after exercises <!-- .element: class="fragment" -->
+
 ---
 # Typescript
 ---

@@ -537,7 +537,23 @@ const balletShoe = ShoeFactory.createShoe("ballet");
 console.log(balletShoe.purpose);
 // dancing
 ```
-
+---
+#Exercise
+Can you create a `MessageFactory` class like this?
+```
+class ShoeFactory {
+  static createShoe(type: "ballet" | "sneaker" | "boot"): Shoe {
+    switch (type) {
+      case "ballet":
+        return new BalletFlat();
+      case "sneaker":
+        return new Sneaker();
+      case "boot":
+        return new Boot();
+    }
+  }
+}
+```
 ---
 ### Returning this
 ```ts
@@ -583,6 +599,9 @@ new RequestBuilder()
 ```
 This is called the builder pattern. 
 Protected members can be accessed within the class and any sub classes.
+---
+# Exercise
+Can you apply the BuilderPattern to create errrors?
 ---
 ### abstract & interface
 You can also combine and interface and abstract classes!
