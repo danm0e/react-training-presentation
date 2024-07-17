@@ -14,6 +14,13 @@
 - Day 4 - Advanced React 
 - Day 5 - Putting it all together
 ---
+### An apology
+
+- The first version of JavaScript was created by Brendan Eich [in 10 days](https://buttondown.email/hillelwayne/archive/did-brendan-eich-really-make-javascript-in-10-days) not 7<!-- .element: class="fragment" -->
+- He did it for Netscape not Mozilla <!-- .element: class="fragment" -->
+- Bill Gates hated all the changes <!-- .element: class="fragment" -->
+- Blame the users for the horrible bits 😂<!-- .element: class="fragment" -->
+---
 ### Learning Agreement
 
 - Stay focused, cameras on <!-- .element: class="fragment" -->
@@ -30,7 +37,9 @@
 - Help with setup of exercises <!-- .element: class="fragment" -->
 - Simplify the exercises <!-- .element: class="fragment" -->
 - Debrief after exercises <!-- .element: class="fragment" -->
-
+---
+### One word check-in
+In the meeting chat give one word to describe how you are feeling <span class="andlogo">right now</span>!
 ---
 # Typescript
 ---

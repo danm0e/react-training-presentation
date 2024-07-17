@@ -1,5 +1,5 @@
 
-# Types 
+# TypeScript 
 ---
 ### Primatives
 Remember the 7 primatives?
