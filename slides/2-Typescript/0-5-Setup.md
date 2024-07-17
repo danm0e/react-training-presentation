@@ -5,18 +5,22 @@ We will step through some activites to setup TypeScript in a brand new project.
 ```
 npm init
 ```
-
-Answer the questions until...<!-- .element: class="fragment" -->
-
+<div markdown=1>
+Answer the questions until...
 
 ```
 entry point: (index.js) index.ts
 ```
+</div>
 <!-- .element: class="fragment" -->
 
-```
+<div markdown=1>
+Did you spot the new file?
+
+```bash
 package.json
 ```
+</div>
 <!-- .element: class="fragment" -->
 
 Note: Open your terminal in the folder you want to create a project in. You will be asked with a few questions. This command initializes a new Node.js project and creates a package.json file for you.
@@ -30,6 +34,15 @@ This will have generated a single file in the directory called `package.json`. T
 ```
 npm install typescript --save-dev
 ```
+
+<div markdown=1>
+This added a new folder
+
+```bash
+node_modules
+```
+</div>
+<!-- .element: class="fragment" -->
 
 Note: Now we want to install Typescript. You can do this using this command. This calls NPM (Sometimes mistakenly refrerred to as Node Package Manager) and asks it to install "Typescript" in the project. The Save-Dev bit means it should be treated as a dveelopment library not something that gets downloaded to the user.
 
@@ -47,11 +60,16 @@ Go into `package.json` and add a reference to the typescript compiler.
     "tsc": "tsc"
   },
 ```
-Now in the terminal run <!-- .element: class="fragment" -->
+<div markdown=1>
+
+Now in the terminal run 
+
 ```
 npm run tsc:init
 ```
+</div>
 <!-- .element: class="fragment" -->
+
 Note: We need to add some scripts to the package.json. These are basically commandline shortcuts.
 
 What they will do is allow us to use the command `npm run...` and it will run a binary file that sits in /node_modules/bin
@@ -85,8 +103,8 @@ In Visual Studio Code create a new file called
 ```
 src/index.ts
 ```
-
-(This automatically creates the src file.)
+<div markdown=1>
+Add the following
 
 ```
 const message:string = 'Welcome from AND!'
@@ -95,9 +113,12 @@ export function getMessage(): string {
 }
 console.log(getMessage())
 ```
+</div>
 <!-- .element: class="fragment" -->
 
-Note: Now create a folder named src and inside, create a file index.ts inside the src folder with the following code:
+
+Note: The src/ autmatically creates the source file.
+Now create a folder named src and inside, create a file index.ts inside the src folder with the following code:
 const message: string = 'Welcome from AND'.
 ---
 ### Compile typescript
@@ -105,23 +126,11 @@ const message: string = 'Welcome from AND'.
 ```
 npm run tsc
 ```
+<div markdown=1>
 
 Check the `src` directory and see a new file `index.js`
 
 ```
-"use strict";
-const message = 'Welcome from AND';
-console.log(message)
-```
-
-What do you notice?
-
-Note: 
-You should notice that the new file is almost identical to the TS file. It doesn't have the typing. It also has a semicolon `;` and "use strict" at the top.
-
-These are all little javascript language fetaures to be strict (and performant) javascript.
-
-It also has created a module.
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMessage = getMessage;
@@ -130,6 +139,20 @@ function getMessage() {
     return message;
 }
 console.log(getMessage());
+```
+
+What do you notice?
+</div>
+<!-- .element: class="fragment" -->
+
+
+
+Note: 
+You should notice that the new file is almost identical to the TS file. It doesn't have the typing. It also has a semicolon `;` and "use strict" at the top.
+
+These are all little javascript language fetaures to be strict (and performant) javascript.
+
+It also has created a module.
 
 ---
 ### Run a node application
@@ -137,10 +160,13 @@ console.log(getMessage());
 ```
 node dist/index.js
 ```
+<div markdown=1>
 
+The terminal says
 ```
 "Welcome from AND"
 ```
+</div>
 <!-- .element: class="fragment" -->
 Note: Node is a backend server that allows you to run node applications written in Javascript. You can run this application.
 
@@ -151,16 +177,27 @@ This is fine, but it requires us to compile the javascript and then re-run the a
 ```
 npm install ts-node --save-dev
 ```
+
+<div markdown=1>
+
+Now edit `package.config`
+
 ```
 "scripts": {
   ...
   "tsnode": "ts-node src/index.ts"
 }
 ```
+</div>
 <!-- .element: class="fragment" -->
+
+<div markdown=1>
+Run the app directly from typescript
+
 ```
 npm run tsnode
 ```
+</div>
 <!-- .element: class="fragment" -->
 
 Note:
@@ -179,7 +216,10 @@ Try chaning the message in typescript and the re-running the command.
 npm install nodemon --save-dev
 ```
 
+<div markdown=1>
+
 Then create a new file `nodemon.json`
+
 ```
 {
   "execMap": {
@@ -187,19 +227,31 @@ Then create a new file `nodemon.json`
   }
 }
 ```
+</div>
+<!-- .element: class="fragment" -->
 
-Finally edit `package.json`
+<div markdown=1>
+
+Next edit `package.json`
 
 ```
 "scripts": {
   "dev": "nodemon src/index.ts"
 }
 ```
+</div>
+<!-- .element: class="fragment" -->
+
+<div markdown=1>
+Finally run it
 
 ```
 npm run dev
 ```
-Now go and play with `index.ts`. Every change is auto-run
+
+Now go and play with `index.ts`
+</div>
+<!-- .element: class="fragment" -->
 
 ---
 ### ESLint
@@ -207,6 +259,8 @@ Now go and play with `index.ts`. Every change is auto-run
 ```
 npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
 ```
+
+<div markdown=1>
 
 Create an `.eslintrc.js` file and add
 
@@ -222,14 +276,23 @@ module.exports = {
   root: true,
 }
 ```
+</div>
+<!-- .element: class="fragment" -->
+
+
+<div markdown=1>
 
 Finally add to `package.json`
+
 ```
     "scripts": {
         ...,
         "lint": "eslint ./src/**/.ts"
     }
 ```
+
+</div>
+<!-- .element: class="fragment" -->
 
 Note: Setting up ESLint for TypeScript
 Linting is essential for maintaining code quality. Install ESLint and its TypeScript parser
@@ -242,8 +305,10 @@ It's worth mentioning you can also install the ESLint extension in VSCode which 
 npm install jest ts-jest @types/jest --save-dev
 npx ts-jest config:init
 ```
+<div markdown=1>
 
-Also edit .eslintrc.js
+Also edit `.eslintrc.js`
+
 ```
 module.exports = {
   env: {
@@ -251,6 +316,8 @@ module.exports = {
     jest: true, // <-- Add this
   },
 ```
+</div>
+<!-- .element: class="fragment" -->
 
 Note: Integrating Jest for Testing
 Jest is fantastic for testing TypeScript projects. Install it by running
@@ -259,7 +326,9 @@ The above command allows Jest to work with TypeScript.
 
 ---
 ### Testing Code
+
 And add a test script in `src/index.test.ts`
+
 ```
 import { getMessage } from './index'
 
@@ -270,7 +339,10 @@ describe('getMessage()', () => {
 })
 ```
 
-Finally update the package.json
+<div markdown=1>
+
+Finally update the `package.json`
+
 ```
  "scripts": {
     ...,
@@ -279,6 +351,10 @@ Finally update the package.json
   }
 ```
 
+</div>
+<!-- .element: class="fragment" -->   
+
+<div markdown=1>
 And run it
 
 ```
@@ -287,6 +363,8 @@ OR
 npm run test:watch
 ```
 
+</div>
+<!-- .element: class="fragment" -->  
 Note:
 
 Create a file named `index.test.ts` inside the src folder. Add the following code to it:
@@ -324,8 +402,9 @@ Create a `launch.json` to allow debugging from VSCode
     }
   ]
 }
-
 ```
 Note:
 Debugging TypeScript in VSCode is straightforward. Just hit F5 after configuring your launch.json appropriately. You can go in the debugging panel to edit the launch.json. Or create a new folder named .vscode in the project. And inside the .vscode folder, create a launch.json file with the following content:
-Once you're done, your debugging panel should look as follows:
+
+---
+# Phew!

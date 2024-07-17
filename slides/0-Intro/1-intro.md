@@ -4,10 +4,10 @@
 <p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
 ---
 # Gareth Matson<!--.element: class="r-fit-text" -->
-<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
+<p class="r-fit-text">Product Developer <span class="andlogo">AND</span> Music Guru</p>
 ---
 # Jake Andrews<!--.element: class="r-fit-text" -->
-<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
+<p class="r-fit-text">Product Developer <span class="andlogo">AND</span> Chess Fan</p>
 ---
 - Day 1 - Javascript 
 - Day 2 - Typescript 

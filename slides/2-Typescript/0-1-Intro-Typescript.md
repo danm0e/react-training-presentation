@@ -1,4 +1,19 @@
 
+# Welcome<!--.element: class="r-fit-text" -->
+# Back!<!--.element: class="r-fit-text" -->
+---
+# Adam Hall<!--.element: class="r-fit-text" -->
+<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
+---
+# Jake Andrews<!--.element: class="r-fit-text" -->
+<p class="r-fit-text">Product Developer <span class="andlogo">AND</span> Chess Fan</p>
+---
+- Day 1 - Javascript 
+- Day 2 - Typescript _← You are here_<!-- .element: class="fragment" -->
+- Day 3 - React 
+- Day 4 - Advanced React 
+- Day 5 - Putting it all together
+---
 # Typescript
 ---
 ### Agenda
