@@ -285,7 +285,7 @@ Finally add to `package.json`
 ```
     "scripts": {
         ...,
-        "lint": "eslint ./src/**/.ts"
+        "lint": "eslint ./src/**/*.ts"
     }
 ```
 
