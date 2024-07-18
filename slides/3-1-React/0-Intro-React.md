@@ -1,43 +1,6 @@
 
 # React 
 ---
-- Server Components (RSC) 
-- JSX
-- State & Redux
-- Hooks vs Classes
----
-
-### Introduction to React
-
-React was initially developed by Facebook; and is declarative, efficient and flexible. <!-- .element: class="fragment" -->
-
-Note: React is a JavaScript / TypeScript framework that lets you build user interfaces out of individual pieces called components.
-
-You can create components like Button, Thumbnail and others; then combine them into screens, pages and entire applications.
-Introduction to React
-
-It’s widely used in building single-page applications, utilises a component based architecture. What this means is that a UI is constructed from reusable building blocks.
----
-### Advantages of using React
-
-- Virtual DOM
-- Declarative Syntax
-- Component-Based
-- Popular
-
-Note: 
-React distinguishes itself through several key features:
-
-Virtual DOM: React's efficient Virtual DOM minimizes direct manipulation of the actual DOM, enhancing performance by reducing unnecessary updates.
-
-Declarative Syntax: With a declarative syntax, React makes code more readable and less prone to bugs, enabling developers to focus on the "what" rather than the "how.
-
-Component-Based: The component-based architecture promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
-
-Popular: React is the highest used and loved frontend framework, used by 49% of all respondants, and beating Svelte as a language people would use again
-
----
-
 ### Basics of JSX
 
 ```tsx
