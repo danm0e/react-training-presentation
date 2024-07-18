@@ -26,14 +26,14 @@ The function above:
 Note: A function signature is the pattern the function expects you to implement, its inputs and outputs.
 When thinking about a function, it’s important to consider the function signature carefully as it can help you write more readable and extendable code.
 ---
-# Hoisting
+### Hoisting
 Note: Hoisting in JavaScript refers to the process whereby the interpreter appears to move the declaration of functions to the top of their scope, prior to execution of the code.
 Hoisting allows functions to be safely used in code before they are declared.
 Variables are also hoisted, but only their declarations. They are not initialized with any value. Additionally, an exception will be thrown if a variable declared with let or const is read before it is initialized.
 ---
 ### Hoisting
 
-```
+```js[1-8|2-3|2,7|3,8]
 try {
  console.log(funcDec);
  console.log(funcExp);
@@ -60,16 +60,16 @@ Note: During run time, javascript code is interpreted in a minimum of 2 cycles:
 
 If a function doesn’t have a return keyword, it will return undefined by default. The exception to this is an arrow function using the concise body syntax.
 
-```js
+```js[1,7|2,8|3,9|4,10|5,11]
 function undefinedReturn1() {}
 function explicitReturn1() { return "hello";}
 const undefinedReturn2 = () => {};
 const implicitReturn = () => "hello";
 const explicitReturn2 = () => { return "hello";}
 
-console.log(undefinedReturn1());  // undefined
-console.log(explicitReturn1());   // hello
-console.log(undefinedReturn2());  // undefined
-console.log(implicitReturn());    // hello
-console.log(explicitReturn2());   // hello
+console.log(undefinedReturn1());  > undefined
+console.log(explicitReturn1());   > hello
+console.log(undefinedReturn2());  > undefined
+console.log(implicitReturn());    > hello
+console.log(explicitReturn2());   > hello
 ```

@@ -6,17 +6,21 @@ An object has properties / methods
 
 ---
 ### Primatives (7 in total)
-- String type for strings <!-- .element: class="fragment" -->
-- Number for numbers of any kind: integer or floating-point <!-- .element: class="fragment" -->
-- Boolean for true/false <!-- .element: class="fragment" -->
-- BigInt type for large numbers <!-- .element: class="fragment" -->
-- Null for unknown values <!-- .element: class="fragment" -->
-- Undefined for unassigned values – a standalone type that has a single value undefined <!-- .element: class="fragment" -->
-- Symbol type for unique identifiers <!-- .element: class="fragment" -->
+- `String` for text <!-- .element: class="fragment" -->
+- `Number` for integers or floating-points <!-- .element: class="fragment" -->
+- `Boolean` for true/false <!-- .element: class="fragment" -->
+- `BigInt` type for large numbers <!-- .element: class="fragment" -->
+- `Undefined` for unassigned values <!-- .element: class="fragment" -->
+- `Null` for intentional nothing <!-- .element: class="fragment" -->
+- `Symbol` type for unique identifiers <!-- .element: class="fragment" -->
 Note: That's it - that's all the primitives in Javascript.
+
 ---
 ### Types - Objects
 In JavaScript, an Object is a collection of properties. Property values can be values of any type, including other objects, which enables building complex data structures.
+Null is something that has a value and it's 
+Undefined is somthing that has been declared but not yet assigned a value
+
 ---
 ### Types - Objects
 Examples of built-in objects are:
@@ -24,7 +28,7 @@ Examples of built-in objects are:
  - Error
  - Promise
  - Date
-Note: Blah2
+Note: 
 ---
 ### Types - Objects
 

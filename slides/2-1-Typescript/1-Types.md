@@ -1,16 +1,15 @@
 
-# Types 
+# TypeScript 
 ---
 ### Primatives
 Remember the 7 primatives?
-- String type for strings <!-- .element: class="fragment" -->
-- Number for numbers of any kind: integer or floating-point <!-- .element: class="fragment" -->
-- Boolean for true/false <!-- .element: class="fragment" -->
-- BigInt type for large numbers <!-- .element: class="fragment" -->
-- Null for unknown values <!-- .element: class="fragment" -->
-- Undefined for unassigned values – a standalone type that has a single value undefined <!-- .element: class="fragment" -->
-- Symbol type for unique identifiers <!-- .element: class="fragment" -->
-Note: That's it - that's all the primitives in Javascript.
+- `String` for text <!-- .element: class="fragment" -->
+- `Number` for integers or floating-points <!-- .element: class="fragment" -->
+- `Boolean` for true/false <!-- .element: class="fragment" -->
+- `BigInt` type for large numbers <!-- .element: class="fragment" -->
+- `Undefined` for unassigned values <!-- .element: class="fragment" -->
+- `Null` for intentional nothing <!-- .element: class="fragment" -->
+- `Symbol` type for unique identifiers <!-- .element: class="fragment" -->
 ---
 ### Special Types
 Typescript has some additional types
@@ -29,10 +28,12 @@ Note:
 - unknown - when you really don’t know what a type could be. You should refine the type before using the value
 - never - the return type of a function that never returns - eg it always throws an exception or terminates execution
 ---
-# Type annotation & aliases
+### Type annotation & aliases
+
 Note: Type annotation is a way to explicitly specify the type of a variable, parameter, or return value.
 Type aliases allow you to create a new name for a type, making complex types more readable and reusable.
 We’ve talked about different types of types and how they behave in some circumstances, how do we actually say something is a type?
+---
 ### Type annotation
 
 ```ts
@@ -48,19 +49,87 @@ Note: Typescript can infer types where they are not explicitly specified.
 ---
 ## Type aliases
 ```ts
-type Friends = string[]
+type Friends = string[];
 // string array (alias)
-
-type House = string | number
-// union
 
 type Location = {
     x: number;
     y: number;
 }
 // object literal
+
+type House = string | number
+// union
 ```
 Note: Types can be declared in isolation. This is useful for documentation and when to make aliases for a specific shapes or structures.
+---
+# Exercise
+Make the getMessage return the following type
+```ts
+type GreetingMessage = {
+    content: string;
+    author: string;
+}
+```
+Why isn't the type in the complied javascript? <!-- .element: class="fragment" -->
+Note: It's only needed for type checking (ESLint and the IDE) not for output.
+```
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getMessage = getMessage;
+const message = 'Welcome from AND!';
+function getMessage() {
+    return { content: message, author: "AND" };
+}
+console.log(getMessage());
+```
+---
+## Types vs Interfaces
+```ts
+type Friends = string[];
+```
+
+```ts
+interface Friends extends Array<string> {}
+```
+<!-- .element: class="fragment" -->
+---
+## Types vs Interfaces
+```ts
+type Location = {
+    x: number;
+    y: number;
+}
+```
+
+```ts
+interface Location {
+    x: number;
+    y: number;
+}
+```
+<!-- .element: class="fragment" -->
+---
+## Types vs Interfaces
+```ts
+type House = string | number
+// union
+```
+
+```ts
+// no!
+```
+<!-- .element: class="fragment" -->
+```ts
+interface Address {
+    house: string | number;
+}
+```
+<!-- .element: class="fragment" -->
+---
+
+[Use Types](https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c)
+
 ---
 ### Union & Intersection
 ```ts
@@ -83,6 +152,21 @@ let dogcat: CatAndDog = {
 };
 ```
 Note: The union of two types is everything in one, the other, or both. The intersection is everything in both types.
+
+---
+# Excercise
+Make the getMessage take in a boolean. 
+
+- If true it returns a `GreetingMessage`
+- If false it returns an `ErrorMessage`
+
+```ts
+type ErrorMessage = {
+    content: string;
+    errorcode: number;
+}
+```
+Do your tests still work? <!-- .element: class="fragment" -->
 ---
 ### Pick & Partial
 ```ts
@@ -118,17 +202,28 @@ Note: Type casting is the process of explicitly changing the type of a variable 
 
 Typically you’ll only be doing this with unknown types, or as we say here, when working with untyped JS libraries. You may use a type alias and then cast to that type.
 ---
+# Exercise
+
+Create a new type that both `GreetingMessage` and `ErrorMessage` conform to.
+
+Move the `console.log` activity to a new function `showMessage`
+
+Can you cast the messages to that new type?
+---
 ### Type generics
 ```ts
-function identity<Type>(arg: Type): Type {
-  return arg;
+function wrapStringInArray(string: string): string[] {
+  return [string];
 }
 
-let output = identity<string>("myString");
-// pass type as argument to function with <>
+function wrapNumberInArray(number: number): number[] {
+  return [number];
+}
 
-let output = identity("myString");
-// let typescript use type argument inference
+//generic
+function wrapValueInArray<T>(value: T): T[] {
+  return [value];
+}
 ```
 Note: A quick note on type generic syntax. 
 We won’t go into any depth on this but I’ll introduce the idea of type generics. 
@@ -137,15 +232,62 @@ Sometimes you want a function, or class, to be flexible on the type it works wit
 Just know that when you see this syntax you are looking at a generic! Don’t worry about this for now!
 ---
 
+### Generics
+
+```ts
+class ValueHolder<T> {
+  constructor(private _value: T) {}
+
+  get value(): T {
+    return this._value;
+  }
+}
+
+const num = new ValueHolder(1);
+console.log(num.value);
+
+const str = new ValueHolder('string');
+console.log(str.value);
+```
+---
+### Generics as Types
+Type aliases can also use generics!
+```ts
+type ValueBox<T> = {
+  value: T;
+};
+
+const myStringValue: ValueBox<string> = { value: "hello" };
+const myNumberValue: ValueBox<number> = { value: 5 };
+```
+---
+### Deffered Conversion Example
+```
+type ValueConverterFunction<T, U> = (value: T) => U;
+
+const stringToNumber: ValueConverterFunction<string, number> = function (
+  value
+) {
+  return Number(value);
+};
+```
+---
+# Exercise
+Change `showMessage` to be a generic.
+
+```ts
+export function showMessage<Type>(arg: Type): void 
+```
+
+Does this improve the codebase or make it worse?
+
+---
 ### Type safety
 Note:
 All of this adds up to give us Type safety.
 That is, we use types to prevent programs from doing invalid things.
 JavaScript on its own attempts to make the best of invalid situations which can lead to unexpected outcomes, Typescript helps avoid that.
-
-
 Example
-
 Let's have a look at some examples of type safety.
 ---
 ## Objects, Arrays, Tuples & Enums
@@ -226,6 +368,7 @@ console.log(coordinates1[0]);
 
 coordinates1.push(1);
 ```
+
 Note: Tuples act similarly to arrays but their length and types of elements are fixed and predefined. 
 Generally you would use bracket notation to access them, like arrays.
 ---

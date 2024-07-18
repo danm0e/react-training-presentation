@@ -295,7 +295,7 @@ gulp.task('package', gulp.series(() =>
 gulp.task('reload', () => gulp.src(['index.html'])
     .pipe(connect.reload()));
 
-function renderPresentation() {
+function renderPresentations() {
     const slidesRoot = root.endsWith('/') ? root : root + '/'
     function getDirectories(src) {
         return glob.sync(src, { nodir: false })
@@ -336,7 +336,7 @@ function renderPresentation() {
     });
 }
 gulp.task('merge-presentation', () => {
-    renderPresentation();
+    renderPresentations();
 })
 
 gulp.task('serve', () => {
@@ -350,7 +350,7 @@ gulp.task('serve', () => {
         host: host,
         livereload: true
     })
-    renderPresentation();
+    renderPresentations();
     
     gulp.watch([
         slidesRoot + 'slides/**/*',

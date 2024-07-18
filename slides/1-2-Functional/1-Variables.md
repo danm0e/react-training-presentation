@@ -9,7 +9,7 @@ Note: The first difference between the 3 declarations is scoping.
 `var` has function scope, meaning that any variable declarations using it are scoped to within the function that is currently executing.
 `let` and `const` are block scoped, meaning that declarations are scoped to the block that they are in.
 ---
-# Difference: Scoping
+### Difference: Scoping
 
 ```js
 var $var = 1;
@@ -29,7 +29,7 @@ console.log("Function scope:", $var, $let, $const);
 ```
 Note: Here is an example of function and block scope:
 ---
-# Difference: Immutability
+### Difference: Immutability
 
 ```js
 const NAME = "Louis";
@@ -53,7 +53,7 @@ console.log(`${NAME} is ${age}`);
 Note: A `var` and a `let` declaration can be overwritten
 A `const` cannot. If you attempt to overwrite it, an error will be thrown.
 ---
-# Difference: Immutability
+### Difference: Immutability
 
 ```js
 const NAMES = ["Mo", "Jo"];
@@ -65,7 +65,7 @@ console.log(NAMES);
 ```
 Note: Whilst you cannot update the value of a `const` itself, you can update the properties of an array or object assigned to a `const`.
 ---
-# Global
+### Global
 ```js
 (function nameMyCat() {
  cat = "Reginald Meowington III";

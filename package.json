@@ -108,6 +108,7 @@
     "gulp-filelist": "^2.0.5",
     "gulp-markdown-to-json": "^1.1.0",
     "gulp-string-replace": "^1.1.2",
-    "gulp-template": "^5.0.0"
+    "gulp-template": "^5.0.0",
+    "reveal-multiplex": "^0.1.0"
   }
 }

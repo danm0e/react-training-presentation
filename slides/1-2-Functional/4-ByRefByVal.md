@@ -8,9 +8,9 @@ Pass by value is when a value is passed to a function as a copy, not as a pointe
 
 It’s important to know when something is created in memory vs when we’re acting on a reference as mutating an object that is passed by reference may impact other areas of your code and introduce bugs.
 ---
-# Passing by reference
+### Passing by reference
 
-```js
+```js [1-4|6|7|9-10]
 const updateAge = (person) => {
  person.age = person.age + 1;
  return person;
@@ -24,9 +24,9 @@ console.log(sandra);
 ```
 Note: In the example below, we can see that the change that the function makes to the object impacts the original object too. This is because it is passed by reference.
 ---
-# By Value
+### By Value
 
-```js
+```js [1-4|6-8|10-11]
 const reverseString = (str) => {
   str = str.split("").reverse().join("");
   return str;

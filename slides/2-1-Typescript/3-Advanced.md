@@ -1,4 +1,6 @@
 # ES6 modules
+---
+### ES6 Module examples
 ```ts
 // databaseSeed.ts
 const patchQuery = "INSERT into USERS ...";
@@ -535,7 +537,23 @@ const balletShoe = ShoeFactory.createShoe("ballet");
 console.log(balletShoe.purpose);
 // dancing
 ```
-
+---
+# Exercise
+Can you create a `MessageFactory` class like this?
+```
+class ShoeFactory {
+  static createShoe(type: "ballet" | "sneaker" | "boot"): Shoe {
+    switch (type) {
+      case "ballet":
+        return new BalletFlat();
+      case "sneaker":
+        return new Sneaker();
+      case "boot":
+        return new Boot();
+    }
+  }
+}
+```
 ---
 ### Returning this
 ```ts
@@ -582,6 +600,9 @@ new RequestBuilder()
 This is called the builder pattern. 
 Protected members can be accessed within the class and any sub classes.
 ---
+# Exercise
+Can you apply the BuilderPattern to create errrors?
+---
 ### abstract & interface
 You can also combine and interface and abstract classes!
 ```ts
@@ -613,79 +634,5 @@ class Dog extends Mammal implements Animal {
 
 const dog = new Dog("Fluffy");
 dog.breathesAir; // true
-```
----
-### Decorators
-
-A decorator in TypeScript is a special kind of function that allows you to modify or extend the behavior of a class, method, property, or parameter. It is a way to add metadata or additional functionality to your code without directly modifying the original code.
-```ts
-class Dog implements Animal {
-  name: string;
-  breed: string;
-
-  constructor(name: string, breed: string) {
-    this.name = name;
-    this.breed = breed;
-  }
-
-  makeSound(): void {
-    console.log(`${this.name} barks.`);
-  }
-}
-```
----
-### Generic Types
-
-A generic type is a way to write code that can work with different types of data. Instead of writing separate code for each data type, you can write one piece of code that can handle multiple types. 
-```ts
-function wrapStringInArray(string: string): string[] {
-  return [string];
-}
-
-function wrapNumberInArray(number: number): number[] {
-  return [number];
-}
-
-//generic
-function wrapValueInArray<T>(value: T): T[] {
-  return [value];
-}
-```
----
-### Generics
-
-```ts
-class ValueHolder<T> {
-  constructor(private _value: T) {}
-
-  get value(): T {
-    return this._value;
-  }
-}
-
-const num = new ValueHolder(1);
-console.log(num.value);
-
-const str = new ValueHolder('string');
-console.log(str.value);
-```
----
-### Types
-Type aliases can also use generics!
-```ts
-type ValueBox<T> = {
-  value: T;
-};
-
-const myStringValue: ValueBox<string> = { value: "hello" };
-const myNumberValue: ValueBox<number> = { value: 5 };
-
-type ValueConverterFunction<T, U> = (value: T) => U;
-
-const stringToNumber: ValueConverterFunction<string, number> = function (
-  value
-) {
-  return Number(value);
-};
 ```
 
