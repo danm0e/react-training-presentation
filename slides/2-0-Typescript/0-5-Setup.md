@@ -180,7 +180,7 @@ npm install ts-node --save-dev
 
 <div markdown=1>
 
-Now edit `package.config`
+Now edit `package.json`
 
 ```
 "scripts": {
