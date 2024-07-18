@@ -1,5 +1,5 @@
 ### The Setup
-We will step through some activites to setup TypeScript in a brand new project.
+We will step through some activities to setup TypeScript in a brand new project.
 ---
 ### Initializing a New Project
 ```
