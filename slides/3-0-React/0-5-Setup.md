@@ -53,7 +53,12 @@ npm run test
 
 ```
   console.error
-    Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+    Warning: `ReactDOMTestUtils.act` is 
+    deprecated in favor of `React.act`. 
+    Import `act` from `react` instead of 
+    `react-dom/test-utils`. 
+    See https://react.dev/warnings/react-dom-test-utils 
+    for more info.
 ```
 
 </div> <!-- .element: class="fragment" -->
@@ -95,6 +100,7 @@ npm run start
 ```
 ---
 ### Edit the page
+Can you see the updates?
 ---
 # Challenge
 

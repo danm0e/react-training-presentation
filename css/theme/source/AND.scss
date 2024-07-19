@@ -46,6 +46,13 @@ $headingFontWeight: bold;
     background-position-x: 40px;
     background-position-y: -14px;
 } 
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+
 // Background generator
 @mixin bodyBackground() {
 	@include radial-gradient( rgb(10, 36, 62), rgb(0, 0, 0) );

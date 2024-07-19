@@ -3,13 +3,13 @@
 ---
 ### Basics of JSX
 
-```tsx
-function renderLogin({ prefilledEmail }) {
+```jsx
+function renderLogin({ prefilledEmail }: LoginProps) {
   return (
     <section>
-      <input type="email" placeholder="email" value={prefilledEmail} />
+      <input type="email" placeholder="email" defaultValue={prefilledEmail} /> 
       <input type="password" placeholder="password" />
-      <button>Log In!</button>
+      <button type="submit">Log In!</button> 
     </section>
   );
 }
@@ -20,6 +20,42 @@ Understanding JSX Syntax
 While JSX bears a resemblance to HTML, it's crucial to understand the distinctions. JSX introduces the ability to embed dynamic content through JavaScript expressions enclosed in curly braces {}. This dynamic nature empowers developers to create highly interactive and data-driven React components, blending the best of both worlds.
 JSX vs HTML
 ---
+<!-- .slide: data-auto-animate="true" -->
+### Fragments in React
+```js
+const MyComponent = () => {
+  return (
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+  );
+};
+
+!⛔️JSX expressions must have one parent element.ts(2657)
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: Fragments are a way to group multiple elements without introducing an additional parent element to the DOM. They help keep the HTML structure clean when rendering multiple components.
+Fragments in React
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### Fragments in React
+```js
+const MyComponent = () => {
+  return (
+    <Fragment>
+      <p>First paragraph</p>
+      <p>Second paragraph</p>
+    </Fragment>
+  );
+};
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: Fragments are a way to group multiple elements without introducing an additional parent element to the DOM. They help keep the HTML structure clean when rendering multiple components.
+Fragments in React
+---
+<!-- .slide: data-auto-animate="true" -->
 ### Fragments in React
 ```js
 const MyComponent = () => {
@@ -31,12 +67,12 @@ const MyComponent = () => {
   );
 };
 ```
-Note: Fragments are a way to group multiple elements without introducing an additional parent element to the DOM. They help keep the HTML structure clean when rendering multiple components.
-Fragments in React
+<!-- .element: data-id="code-animation" -->
+Note: There's a more descriptive way of using them - an empty tag
 ---
 ### JSX Expressions & Embeddings
 ```ts
-const App = () => {
+const Clickable = () => {
   const textButton = 'Click Me';
   return (
     <div>
@@ -49,11 +85,30 @@ const App = () => {
 };
 ```
 Note: JSX goes beyond static markup; it supports the embedding of JavaScript expressions directly within the markup. By enclosing expressions in curly braces {}, developers can inject variables, functions, or any valid JavaScript expression into JSX. This dynamic behavior is fundamental to creating responsive, interactive, and data-aware React components that adapt to varying conditions and user interactions.
-JSX Expressions & Embedding
-
 ---
+## Exercise
+Create the clickable button in a new file
+```jsx
+//Clickable.tsx
+export default Clickable = () => {
+  const textButton = 'Click Me';
+  return (
+    <div>
+      <button id="btn">
+        {textButton}
+      </button>
+    </div>
+  );
+};
+```
 
-
+```tsx
+//App.tsx
+import Clickable from './Clickable'
+...
+    <Clickable />
+```
+---
 ### Components in React
   <img class="r-stretch" data-src="assets/react-tree.png" />
 Note: React applications are built using components, which are self-contained, reusable pieces of code responsible for a specific part of the user interface. Components can be functional or class-based, and they encapsulate both the UI and the logic associated with it.
@@ -93,7 +148,7 @@ const MyFunctionalComponent = () => {
 Note: Functional components are the building blocks of a React application. They are concise, stateless, and focus solely on rendering UI. With the advent of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
 
 ---
-JSX
+### JSX with props
 <!-- .slide: data-auto-animate="true" -->
 ```js
 const User = ({ username }) => {
@@ -103,7 +158,7 @@ const User = ({ username }) => {
 <!-- .element: data-id="code-animation" -->
 ---
 <!-- .slide: data-auto-animate="true" -->
-JSX with propTypes
+### JSX with propTypes
 ```js
 const User = ({ username }) => {
     return <div><h1>{username}</h1></div>;
@@ -116,7 +171,7 @@ User.propTypes = {
 <!-- .element: data-id="code-animation" -->
 Note: In React, data can be passed from a parent component to a child component using props. Props are essentially properties that a parent component passes down to its children. Additionally, specifying PropTypes helps enforce data types and ensures the correct usage of props.
 ---
-TSX with inline typings
+### TSX with inline typings
 <!-- .slide: data-auto-animate="true" -->
 ```ts
 const User = ({ username } 
@@ -126,23 +181,23 @@ const User = ({ username }
 ```
 <!-- .element: data-id="code-animation" -->
 ---
-TSX with defined typings
+### TSX with defined typings
 <!-- .slide: data-auto-animate="true" -->
 ```ts
 const User = (props : UserProps) => {
     return <div><h1>{props.username}</h1></div>;
 }
-interface UserProps = { username : string };
+type UserProps = { username : string };
 ```
 <!-- .element: data-id="code-animation" -->
 ---
-TSX using generics
+### TSX using generics
 <!-- .slide: data-auto-animate="true" -->
 ```ts
 const User: React.FC<UserProps> = ({username}) => {
     return <div><h1>{username}</h1></div>;
 };
-interface UserProps = { username : string };
+type UserProps = { username : string };
 ```
 <!-- .element: data-id="code-animation" -->
 
@@ -153,7 +208,7 @@ In Typscript you end up repaeting yourself if you are desingin your props in the
 But the real value is if you pull the props into it's own object, ans then you can share it amonst multiple areas as well as give your IDE more clues on what the object contains.
 ---
 <!-- .slide: data-auto-animate="true" -->
-TSX using generics and children
+### TSX using generics and children
 ```ts
 const User: React.FC<UserProps> = ({username, children}) => {
     return <div>
@@ -162,11 +217,11 @@ const User: React.FC<UserProps> = ({username, children}) => {
     </div>;
 };
 
-interface UserProps = { username: string };
+type UserProps = { username: string };
 ```
 <!-- .element: data-id="code-animation" -->
 ---
-TSX children without generics
+### TSX children without generics
 <!-- .slide: data-auto-animate="true" -->
 ```ts
 const User({username, children}: UserProps) {
@@ -176,34 +231,129 @@ const User({username, children}: UserProps) {
     </div>;
 };
 
-interface UserProps = { 
+type UserProps = { 
     username: string, 
     children: React.ReactNode
 };
 ```
 <!-- .element: data-id="code-animation" -->
-Note: 2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objetcs as props.
+---
+### Question
+
+<div class="container">
+
+  <div class="col" markdown=1>
+
+  Generics
+
+  ```tsx
+  const User: React.FC<UserProps> 
+    = ({username, children}) => {
+      return <div>
+          <h1>{username}</h1>
+          <div>{children}</div>
+      </div>;
+  };
+
+  type UserProps = { 
+    username: string 
+  
+  };
+  ```
+
+  </div>
+
+  <div class="col"  markdown=1>
+
+  Without Generics
+
+  ```ts
+  const User({username, children}
+    : UserProps) {
+      return <div>
+          <h1>{username}</h1>
+          <div>{children}</div>
+      </div>;
+  };
+
+  type UserProps = { 
+      username: string, 
+      children: React.ReactNode
+  };
+  ```
+
+  </div>
+</div>
+
+Which do you prefer?
+
+Note: 2 different ways you can include thingsm notice there's using React.FC (React Function Component), or you can use raw objects as props.
+---
+### Passing in props
+
+```tsx
+<Clickable text={"Hit me"} />
+```
+
+---
+
+# Exercise
+
+Can you pass in the text for the button?
+
+<div markdown=1>
+
+Make only two variations of text allowed:
+
+- Go
+- Hit
+
+</div>
+<!-- .element: class="fragment" -->
+
+---
+
+## Handling Events
+
+Note: React provides a straightforward way to handle events, such as clicks or input changes. Event handlers are assigned as attributes in JSX, and they can invoke functions that update state or perform other actions, creating a responsive and interactive user experience.
+---
+
+### onClick 
+
+```js
+const handleClick = (event) => {
+  console.log('Button clicked!', event.target);
+};
+
+<button onClick={handleClick}>Click me</button>
+```
+
+Note: The onClick event attribute is a common way to handle click events. React supports a range of event attributes, such as onChange for input changes and onSubmit for form submissions. Understanding these attributes is crucial for building interactive user interfaces.
+
+React uses camelCase for event names, such as onClick instead of onclick. Event handlers receive synthetic events with properties like target and currentTarget.
+---
+# Exercise
+
+Add an event when we click the button that writes "You clicked me" to the console.
 ---
 ### State in React
 ```js
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [message, setMessage] = useState("I'm set on page load");
 
-  const increment = () => {
-    setCount(count + 1);
-  };
+  setTimeout(function() {
+    setMessage("I've been updated a few seconds later");
+  }, 5000);
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
+      <p>{message}</p>
     </div>
   );
 };
 ```
 Note: While props are used to pass data between components, state is used to manage a component's internal data. State allows components to react to user input, events, or changes in data, leading to dynamic and interactive user interfaces.
 ---
-
 ### useState Hook
 <!-- .slide: data-auto-animate="true" -->
 ```js
@@ -237,24 +387,22 @@ interface MyType {
 ```
 <!-- .element: data-id="code-animation" -->
 ---
-## Handling Events
+# Quiz
 
-Note: React provides a straightforward way to handle events, such as clicks or input changes. Event handlers are assigned as attributes in JSX, and they can invoke functions that update state or perform other actions, creating a responsive and interactive user experience.
----
+How does `useState` work behind the scenes?
 
-### onClick 
-
-```js
-const handleClick = (event) => {
-  console.log('Button clicked!', event.target);
-};
-
-<button onClick={handleClick}>Click me</button>
+```tsx
+const [message, setMessage] = useState("I'm fine");
 ```
 
-Note: The onClick event attribute is a common way to handle click events. React supports a range of event attributes, such as onChange for input changes and onSubmit for form submissions. Understanding these attributes is crucial for building interactive user interfaces.
+Note: It's a function, it'll be setting an object based on the parameter we pass in, but it returns a tuple (and array of 2 values)
 
-React uses camelCase for event names, such as onClick instead of onclick. Event handlers receive synthetic events with properties like target and currentTarget.
+The first value in the array is a reference to the object (Which is a string here "I'm fine")
+
+The second is a function. This function exposes a closure to the original object and allows us to update it.
+---
+# Exercise
+Can you make it so the Clickable has a state that remembers how many times you've clicked the button?
 ---
 ### Conditional Rendering
 
@@ -277,7 +425,6 @@ const ConditionalComponent = ({ isLoggedIn }) => {
 <!-- .element: data-id="code-animation" -->
 Note: In React, conditional rendering is achieved using JavaScript expressions within JSX. This enables components to adapt their output based on the current state or props.
 
-
 While JSX doesn't support traditional if statements, you can use ternary operators or logical && operators for conditional rendering.
 ---
 <!-- .slide: data-auto-animate="true" -->
@@ -288,7 +435,6 @@ const ConditionalComponent = ({ isLoggedIn }) => {
     <div>
       {isLoggedIn && 
         <p>Welcome, User!</p>}
-
     </div>
   );
 };
@@ -328,7 +474,9 @@ const ConditionalComponent = ({ username }) => {
 <!-- .element: data-id="code-animation" -->
 Note: Now consider it's a username if it's logged in (or blank if it's not logged in). You can use the truthy comparison to ensure the name matches and display a personalised welcome message.
 ---
-
+# Exercise
+Make it so it displays a special message in Clickable if the user has clicked it more than 5 times.
+---
 ## Lists & Keys
 
 Note: Lists are a fundamental part of many user interfaces. React provides efficient ways to render lists and a mechanism called keys to optimize the performance of list updates.
@@ -375,6 +523,11 @@ Note: JavaScript array methods like map(), filter(), and reduce() play a crucial
 Obviously it's problematicc if you mutate props going in, so make sure you are using Out of Process methods.
 ---
 
+# Exercise
+
+Make it so you can show a list of all the timestamps when the button was clicked
+
+---
 ### Styling in React
 
 Note: Styling is an essential aspect of creating visually appealing React applications. React supports various styling approaches, including inline styles, class-based styling, and CSS modules.
@@ -394,7 +547,9 @@ const MyComponent = ({ isHighlighted }) => {
 Note: React allows the use of inline styles directly within the JSX. This approach is convenient for small-scale styling and dynamic style changes based on component state or props.
 
 
-
+---
+# Excercise
+Can you make it so the button can be one of these two colours, "DarkRed" and "Indigo"
 ---
 ### Class Based Styling
 
@@ -407,7 +562,7 @@ Note: React allows the use of inline styles directly within the JSX. This approa
 ```
 
 ```js
-/*MyComponent.jsx*/
+/*MyComponent.tsx*/
 import styles from './styles.module.css';
 
 const MyComponent = () => {
@@ -416,6 +571,8 @@ const MyComponent = () => {
 ```
 
 Note: For larger applications, organizing styles into separate CSS files and using class-based styling or CSS modules becomes beneficial. This promotes better maintainability and separation of concerns.
+
+It won't allow you to do dynamic changing like the colour thing, so be aware of the advantages and limitations.
 
 --
 ## Functional Components
@@ -459,6 +616,7 @@ The current state value.
 A function that allows you to update the state.
 ---
 <!-- .slide: data-auto-animate="true" -->
+### useEffect Hook
 ```js
 //useEffect
 useEffect(() => {
@@ -476,7 +634,7 @@ Cleanup Function: The optional cleanup function runs before the next effect or w
 useEffect Hook
 ---
 <!-- .slide: data-auto-animate="true" -->
-
+### useEffect Hook
 ```js
 //User function component
 const [userID, setUserID] = useState("");
@@ -490,7 +648,7 @@ const [userProfile, setUserProfile] = useState({});
 <!-- .element: data-id="code-animation" -->
 ---
 <!-- .slide: data-auto-animate="true" -->
-
+### useEffect Hook
 ```js
 const [userID, setUserID] = useState("");
 const [userProfile, setUserProfile] = useState({});
@@ -507,6 +665,7 @@ useEffect(() => {
 <!-- .element: data-id="code-animation" -->
 ---
 <!-- .slide: data-auto-animate="true" -->
+### useEffect Hook
 ```js
 const [userID, setUserID] = useState("");
 const [userProfile, setUserProfile] = useState({});
@@ -524,7 +683,9 @@ useEffect(() => {
 }, [userID]);
 ```
 <!-- .element: data-id="code-animation" -->
-
+---
+# Exercise
+Can you use useEffect to update the document title every time you click the button?
 ---
 ### useRef Hook
 <!-- .slide: data-auto-animate="true" -->
@@ -549,7 +710,7 @@ Note: The useRef hook creates a mutable object called a "ref object" that persis
 In general - useState if you want to re-render the component when it changes, otherwise use useRef. IE - storing a value that must not re-render the component, or something that should remain constant.
 ---
 <!-- .slide: data-auto-animate="true" -->
-### useContent Hook
+### useContext Hook
 ```js
 const MyComponent = () => {
   const contextValue = useContext(MyContext);
@@ -587,6 +748,9 @@ Note: Key Points:
 - createContext creates a context object.
 - Provider component wraps the part of the tree where the context is available.
 - useContext hooks into the context within functional components.
+---
+# Excercise
+Can you move the colour selecter so it sits in a context rather than a prop?
 ---
 ## Custom Hooks
 - useXXX
@@ -637,7 +801,6 @@ And now we encapulated quite alot of logic into a function. If we return the par
 
 React Router is a popular library for handling navigation and routing in React applications. It enables the creation of single-page applications with multiple views.
 ---
-
 
 ### Intro to React Router
 
