@@ -72,6 +72,7 @@ To keep things robust, every component needs a…
 	<button>Sign up</button>
 </form>
 ```
+<!-- .element: data-id="code-animation" -->
 
 💡Perceivable tip 
 Use semantic HTML!
@@ -88,6 +89,8 @@ function InputField(props) {
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -103,6 +106,8 @@ labelText
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -136,6 +141,8 @@ inputType
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -152,6 +159,7 @@ inputType
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
 
 💡Understandable tip
 Use HTML5 types to prevent users making errors
@@ -175,6 +183,8 @@ function SignUpForm(props) {
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -206,6 +216,8 @@ function SignUpForm(props) {
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -224,6 +236,8 @@ function SignUpForm(props) {
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -242,6 +256,8 @@ function SignUpForm(props) {
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 Component reusability
 😄
 ---
@@ -260,6 +276,8 @@ inputType
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -276,6 +294,8 @@ inputType
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 ---
 <!-- .slide: data-auto-animate="true" -->
 
@@ -296,6 +316,8 @@ type InputFiledProps = {
 	inputType: `text` | `email` | `password`
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 Property
 enforcement
 😄
@@ -314,11 +336,13 @@ errorText
 			<input type={inputType} />
 			{errorText && (
 				<div>⚠️ {errorText}</div>
-)}
+			)}
 		</label>
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 💡Understandable tip
 Link error messages with input labels
 ---
@@ -334,16 +358,18 @@ errorText
 		<label>
 			<div>{labelText}</div>
 			<input type={inputType}
-aria-invalid={
-errorText ? “true” : undefined
-} />
+				aria-invalid={
+				errorText ? “true” : undefined
+				} />
 			{errorText && (
 				<div>⚠️ {errorText}</div>
-)}
+			)}
 		</label>
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 Adding logic within HTML
 😄
 ---
@@ -353,18 +379,20 @@ Adding logic within HTML
 function SignUpForm(props) {
 	return (
 <form>
-<InputField 
-labelText=”Email”
-inputType=”email”
-errorText=”Email is required” />
-<InputField
-labelText=”Password”
-inputType=”password” />
-<button>Sign up</button>
+	<InputField 
+		labelText=”Email”
+		inputType=”email”
+		errorText=”Email is required” />
+	<InputField
+		labelText=”Password”
+		inputType=”password” />
+	<button>Sign up</button>
 </form>
 	)
 }
 ```
+<!-- .element: data-id="code-animation" -->
+
 Accessing DOM elements of other components and focus handling 
 🤯
 Note: 
