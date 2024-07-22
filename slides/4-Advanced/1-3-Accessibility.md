@@ -13,7 +13,8 @@ Note:
 - Operable <!-- .element: class="fragment" -->
 - Understandable<!-- .element: class="fragment" -->
 - Robust<!-- .element: class="fragment" -->
-Notes: Perceivable - All users should be able to accurately see and read your website content. That means content must not exclude people with vision loss, hearing loss and other disabilities.
+
+Note: Perceivable - All users should be able to accurately see and read your website content. That means content must not exclude people with vision loss, hearing loss and other disabilities.
 Operable - Website content should be responsive and simple to navigate for all users, for example, using only keyboard commands to navigate a website rather than a mouse.
 Understandable - Website interfaces and information should be organised in a way that makes them easy to use, predictable to navigate and contain language that is understandable to all users.
 Robust - Websites should be compatible with a wide range of technology, including assistive technology tools that are commonly used by users with disabilities.
