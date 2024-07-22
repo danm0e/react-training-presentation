@@ -60,15 +60,15 @@ To keep things robust, every component needs a…
 ### Case study: Sign up form
 ```
 <form>
-<label>
-<div>Email address</div>
-<input />
-</label>
-<label>
-<div>Password</div>
-<input />
-</label>
-<button>Sign up</button>
+	<label>
+		<div>Email address</div>
+		<input />
+	</label>
+	<label>
+		<div>Password</div>
+		<input />
+	</label>
+	<button>Sign up</button>
 </form>
 ```
 
