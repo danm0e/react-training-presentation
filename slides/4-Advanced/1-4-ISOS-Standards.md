@@ -1,15 +1,13 @@
-Navigation and Linking
+#  Best Practices
+## From ISOS coding standards
+---
+### Component Structure and Organization 
 
-User Interface Best Practices
-From ISOS coding standards
-
-Component Structure and Organization 
-a. Use a modular component-based architecture to promote code reusability and maintainability. 
-b. Group related components together in separate directories or folders. We are following a "feature-first" approach for folder structure to improve maintainability and scalability. Folder structure of the application will look like below. 
-c. Split larger components into smaller, reusable components for easier maintenance and testing. 
-d. Follow naming conventions that reflect component functionality and purpose. 
-e. We have organized our project structure logically by separating components, styles, and utility functions. Follow single responsibility principle.
-e. We have organized our project structure logically by separating components, styles, and utility functions. Follow single responsibility principle.
+- Use a modular component-based architecture to promote code reusability and maintainability. 
+-  Group related components together in separate directories or folders. We are following a "feature-first" approach for folder structure to improve maintainability and scalability. <!-- .element: class="fragment" -->
+- Split larger components into smaller, reusable components for easier maintenance and testing. <!-- .element: class="fragment" -->
+- Follow naming conventions that reflect component functionality and purpose. <!-- .element: class="fragment" -->
+- We have organized our project structure logically by separating components, styles, and utility functions. Follow single responsibility principle.<!-- .element: class="fragment" -->
 
 Micro frontends 
 a. We are following micro frontend architecture. screens are divided based on features.
