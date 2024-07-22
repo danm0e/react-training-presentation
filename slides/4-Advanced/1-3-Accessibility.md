@@ -1,4 +1,5 @@
-# Accessibility in React
+# Accessibility<!--.element: class="r-fit-text" -->
+# in React<!--.element: class="r-fit-text" -->
 ---
 # 20%
 of the global population has a permanent disability <!-- .element: class="fragment" -->
