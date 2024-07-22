@@ -2,8 +2,8 @@
 # in React<!--.element: class="r-fit-text" -->
 ---
 # 20%
-of the global population has a permanent disability <!-- .element: class="fragment" -->
-a further 20% have a progressive impairment <!-- .element: class="fragment" -->
+- of the global population has a permanent disability <!-- .element: class="fragment" -->
+- a further 20% have a progressive impairment <!-- .element: class="fragment" -->
 Note: 
 ---
 ![alt text](image.png)
