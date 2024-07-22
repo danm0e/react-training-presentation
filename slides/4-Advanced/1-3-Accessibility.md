@@ -40,7 +40,7 @@ To keep things robust, every component needs a…
 - Name is calculated using the Accessible Name and Description Computation 1.2<!-- .element: class="fragment" -->
 - Always provide unique link names<!-- .element: class="fragment" -->
 - Use visually hidden (or ‘screen reader only’ text) to provide context for screen reader users<!-- .element: class="fragment" -->
-- Use relational HTML elements and attributes such as <label>, <fieldset>, scope<!-- .element: class="fragment" -->
+- Use relational HTML elements and attributes such as label, fieldset, scope<!-- .element: class="fragment" -->
 ---
 ### Keeping things Robost - Role
 - Use semantic HTML
