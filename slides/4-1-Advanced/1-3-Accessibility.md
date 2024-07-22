@@ -470,12 +470,12 @@ function PageTitle() {
 ---
 ## To recap
 ---
-# 🤯 Difficulties
+## 🤯 Difficulties
 - Accessing DOM elements of other components<!-- .element: class="fragment" -->
 - Focus handling<!-- .element: class="fragment" -->
 - Knowing context or where an element might be used<!-- .element: class="fragment" -->
-
-😄 Niceties
+---
+## 😄 Niceties
 - Component reusability<!-- .element: class="fragment" -->
 - Type enforcement<!-- .element: class="fragment" -->
 - Adding logic within HTML<!-- .element: class="fragment" -->
