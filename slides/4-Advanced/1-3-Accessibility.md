@@ -149,15 +149,15 @@ Use HTML5 types to prevent users making errors
 function SignUpForm(props) {
 	return (
 <form>
-<label>
-<div>Email address</div>
-<input />
-</label>
-<label>
-<div>Password</div>
-<input />
-</label>
-<button>Sign up</button>
+	<label>
+		<div>Email address</div>
+		<input />
+	</label>
+	<label>
+		<div>Password</div>
+		<input />
+	</label>
+	<button>Sign up</button>
 </form>
 	)
 }
@@ -167,9 +167,9 @@ function SignUpForm(props) {
 function SignUpForm(props) {
 	return (
 <form>
-<InputField />
-<InputField />
-<button>Sign up</button>
+	<InputField />
+	<InputField />
+	<button>Sign up</button>
 </form>
 	)
 }
@@ -179,12 +179,12 @@ function SignUpForm(props) {
 function SignUpForm(props) {
 	return (
 <form>
-<InputField 
-labelText=”Email”
-/>
-<InputField
-labelText=”Password” />
-<button>Sign up</button>
+	<InputField 
+	labelText=”Email”
+	/>
+	<InputField
+	labelText=”Password” />
+	<button>Sign up</button>
 </form>
 	)
 }
@@ -194,13 +194,13 @@ labelText=”Password” />
 function SignUpForm(props) {
 	return (
 <form>
-<InputField 
-labelText=”Email”
-inputType=”email” />
-<InputField
-labelText=”Password”
-inputType=”password” />
-<button>Sign up</button>
+	<InputField 
+	labelText=”Email”
+	inputType=”email” />
+	<InputField
+	labelText=”Password”
+	inputType=”password” />
+	<button>Sign up</button>
 </form>
 	)
 }
@@ -210,13 +210,13 @@ inputType=”password” />
 function SignUpForm(props) {
 	return (
 <form>
-<InputField 
-labelText=”Email”
-inputType=”email” />
-<InputField
-labelText=”Password”
-inputType=”password” />
-<button>Sign up</button>
+	<InputField 
+	labelText=”Email”
+	inputType=”email” />
+	<InputField
+	labelText=”Password”
+	inputType=”password” />
+	<button>Sign up</button>
 </form>
 	)
 }
