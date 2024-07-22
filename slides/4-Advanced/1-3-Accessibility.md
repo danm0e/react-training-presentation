@@ -6,7 +6,7 @@
 - a further 20% have a progressive impairment <!-- .element: class="fragment" -->
 Note: 
 ---
-![alt text](image.png)
+![alt text](/assets/accessibility.png)
 ---
 ### POUR principles 
 - Perceivable 
