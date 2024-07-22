@@ -57,6 +57,7 @@ To keep things robust, every component needs a…
 - Think about which props you may need to define as required.<!-- .element: class="fragment" -->
 
 ---
+<!-- .slide: data-auto-animate="true" -->
 ### Case study: Sign up form
 ```
 <form>
@@ -75,6 +76,8 @@ To keep things robust, every component needs a…
 💡Perceivable tip 
 Use semantic HTML!
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField(props) {
 	return (
@@ -86,6 +89,8 @@ function InputField(props) {
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText
@@ -99,6 +104,8 @@ labelText
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText
@@ -114,6 +121,8 @@ labelText
 💡Perceivable tip
 Programmatically associate form inputs with their labels
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -128,6 +137,8 @@ inputType
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -145,6 +156,8 @@ inputType
 💡Understandable tip
 Use HTML5 types to prevent users making errors
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function SignUpForm(props) {
 	return (
@@ -163,6 +176,8 @@ function SignUpForm(props) {
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function SignUpForm(props) {
 	return (
@@ -175,6 +190,8 @@ function SignUpForm(props) {
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function SignUpForm(props) {
 	return (
@@ -190,6 +207,8 @@ function SignUpForm(props) {
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function SignUpForm(props) {
 	return (
@@ -206,6 +225,8 @@ function SignUpForm(props) {
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function SignUpForm(props) {
 	return (
@@ -224,6 +245,8 @@ function SignUpForm(props) {
 Component reusability
 😄
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -238,6 +261,8 @@ inputType
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -252,6 +277,8 @@ inputType
 }
 ```
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -273,6 +300,8 @@ Property
 enforcement
 😄
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -293,6 +322,8 @@ errorText
 💡Understandable tip
 Link error messages with input labels
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function InputField({
 labelText,
@@ -316,6 +347,8 @@ errorText ? “true” : undefined
 Adding logic within HTML
 😄
 ---
+<!-- .slide: data-auto-animate="true" -->
+
 ```
 function SignUpForm(props) {
 	return (
