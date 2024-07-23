@@ -1,12 +1,58 @@
 ## Architecture<!--.element: class="r-fit-text" -->
 ---
+<!-- .slide: data-auto-animate="true" -->
+<div class="container">
+<div class="col" markdown="1">
+
 ![alt text](./assets/conway.png)
+
+Melvin Conway<!-- .element: class="fragment" -->
+
+</div>
+<div class="col">
+</div>
+</div>
+Note: Who's this?
+
+Melvin Conway - Computer sceintist. Developer co-routines in 1958. Worked on Pascal. Taught in Massachusetes. 
 ---
+<!-- .slide: data-auto-animate="true" -->
+<div class="container">
+<div class="col" markdown="1">
+
+![alt text](./assets/conway.png)
+
+Melvin Conway
+
+</div>
+<div class="col" markdown="1">
+
 ### Conway's Law
+
 _Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure._
+
+</div>
+</div>
 ---
-### Conway's Law (Paraphrased)
+<!-- .slide: data-auto-animate="true" -->
+<div class="container">
+<div class="col" markdown="1">
+
+![alt text](./assets/conway.png)
+
+Melvin Conway
+
+</div>
+<div class="col" markdown="1">
+
+### Conway's Law
+
+ (Paraphrased)
+
 _The structure of the software will mirror the structure of the organization that built it_
+
+</div>
+</div>
 
 Note: If you have lots of small teams that are distibuted you will create a small distirbuted microarchitecture
 If you have on large team you will create one large monolithic architecture

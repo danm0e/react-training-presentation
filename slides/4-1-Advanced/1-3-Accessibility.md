@@ -470,17 +470,31 @@ function PageTitle() {
 ---
 ## To recap
 ---
-## 🤯 Difficulties
+<div class="container">
+<div class="col" markdown="1">
+
+## 🤯 
+## Difficulties
+
 - Accessing DOM elements of other components<!-- .element: class="fragment" -->
 - Focus handling<!-- .element: class="fragment" -->
 - Knowing context or where an element might be used<!-- .element: class="fragment" -->
----
-## 😄 Niceties
+
+</div>
+<div class="col" markdown="1">
+
+## 😄 
+## Niceties
+
 - Component reusability<!-- .element: class="fragment" -->
 - Type enforcement<!-- .element: class="fragment" -->
 - Adding logic within HTML<!-- .element: class="fragment" -->
 - Variable element semantics<!-- .element: class="fragment" -->
 - ID generation for ARIA usage<!-- .element: class="fragment" -->
+
+</div>
+</div>
+
 ---
 ### ESLint
 Use a linter such as `eslint-plugin-jsx-a11y` to help prevent potential accessibility issues before they go into production, such as
