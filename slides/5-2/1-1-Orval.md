@@ -21,3 +21,31 @@ Note: When creating a web application that interacts with an API, it is common t
 - Integrate the API client in our unit tests. Orval provides first class support for mocking through the Mock Service Worker library, and it can automatically generate the MSW handlers for testing server.
 
 Note: The more complex your API becomes, the more beneficial it is to generate the API client from the API definition to avoid bugs, while keeping type safety and consistency in your API client.
+---
+### Demo Time
+
+```
+npm i orval axios 
+```
+
+---
+### Setup your local script
+```
+//package.json
+...
+scripts: {
+    ...
+    "api:gen": "orval"
+}
+```
+
+### Find an example
+
+https://github.com/APIs-guru/openapi-directory/tree/main/APIs
+
+--- 
+### Read YAML into typings
+
+```
+npm run api:gen -- --input ./src/example.yaml --output ./src/example.ts
+```

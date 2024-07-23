@@ -7,7 +7,7 @@
 
 ---
 
-![alt text](assets/module-federation.png)
+![alt text](./assets/module-federation.png)
 
 ---
 
@@ -26,4 +26,5 @@
 
 ---
 
-### Demo of current implementation ????
+# [Example](https://stackblitz.com/~/github.com/digiguru/module-federation-example?file=aboutusapp/src/App.js)
+Note: Do we have other examples?
