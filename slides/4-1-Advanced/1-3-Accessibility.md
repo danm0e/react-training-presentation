@@ -471,7 +471,7 @@ function PageTitle() {
 ## To recap
 ---
 <div class="container">
-<div class="col" markdown="1">
+<div class="col fragment" markdown="1">
 
 ## 🤯 
 ## Difficulties
@@ -481,7 +481,7 @@ function PageTitle() {
 - Knowing context or where an element might be used<!-- .element: class="fragment" -->
 
 </div>
-<div class="col" markdown="1">
+<div class="col fragment" markdown="1">
 
 ## 😄 
 ## Niceties
