@@ -465,3 +465,11 @@ https://bradfrost.com/blog/post/atomic-web-design/
 <!-- 
 Note:
 https://playcode.io/react -->
+
+---
+
+## Any questions?<!--.element: class="r-fit-text" -->
+
+---
+
+# Thank you!<!--.element: class="r-fit-text" -->
