@@ -1,110 +1,467 @@
 
-# Back<!--.element: class="r-fit-text" -->
-# for more!<!--.element: class="r-fit-text" -->
+# Welcome<!--.element: class="r-fit-text" -->
 
 ---
-# Adam Hall<!--.element: class="r-fit-text" -->
-<p class="r-fit-text">Agile Coach <span class="andlogo">AND</span> Waste Reducer</p>
+
+# Dan Moe<!--.element: class="r-fit-text" -->
+<p class="r-fit-text">Product Developer <span class="andlogo">AND</span> String Plucker</p>
+
 ---
-# Gareth Matson<!--.element: class="r-fit-text" -->
-<p class="r-fit-text">Product Developer <span class="andlogo">AND</span> Music Guru</p>
----
-# Jake Andrews<!--.element: class="r-fit-text" -->
-<p class="r-fit-text">Product Developer <span class="andlogo">AND</span> Chess Fan</p>
----
-- Day 1 - Javascript 
-- Day 2 - Typescript 
-- Day 3 - React <span class="andlogo fragment">←You are here</span>
-- Day 4 - Advanced React 
-- Day 5 - Putting it all together
+
+- Session 1 - React: The Basics <span class="andlogo fragment">←</span> 
+- Session 2 - React: Digging Deeper 
+
 ---
 
 ### Learning Agreement
 
 - Stay focused, cameras on <!-- .element: class="fragment" -->
-- We are recording <!-- .element: class="fragment" -->
 - We are going to be coding <!-- .element: class="fragment" -->
-- No question is a dumb question <!-- .element: class="fragment" -->
-- No-one left behind <!-- .element: class="fragment" -->
-- If you have a fact - share it <!-- .element: class="fragment" -->
-- Frequent breaks <!-- .element: class="fragment" -->
+- No question is a silly question <!-- .element: class="fragment" -->
+
+...so please ask a question whenever you like<!-- .element: class="fragment" -->
 
 ---
 
-### One word check-in
-
-In the meeting chat give one word to describe how you are feeling <span class="andlogo">right now</span>!
+# So, why React?
 
 ---
 
-### Why React
-
-- <a href="https://2023.stateofjs.com/en-US/libraries/#scatterplot_overview">React</a> is the most popular frontend framework on the web
-- It has the most stars on github<!-- .element: class="fragment" -->
-- The most questions on stackoverflow<!-- .element: class="fragment" -->
-- And the most job listings<!-- .element: class="fragment" -->
+- <a href="https://npmtrends.com/@angular/core-vs-jquery-vs-react-vs-svelte-vs-vue">React</a> is the most popular frontend library
 - Developed by Facebook<!-- .element: class="fragment" -->
 - Declarative, efficient and flexible<!-- .element: class="fragment" -->
-
-Note: For facebook React is used on over 100,000 components seen by billions of users every day/
-
-React is a JavaScript / TypeScript framework that lets you build user interfaces out of individual pieces called components.
-
-You can create components like Button, Thumbnail and others; then combine them into screens, pages and entire applications.
-Introduction to React
-
-It’s widely used in building single-page applications, utilises a component based architecture. What this means is that a UI is constructed from reusable building blocks.
----
-### Features of React
-
-- JSX
-- Virtual DOM
-- One-way Data Binding
-- Declarative Syntax
-- Component-Based
-- Extensibility
+- It has the most stars on github<!-- .element: class="fragment" -->
+- The most questions on stackoverflow<!-- .element: class="fragment" -->
+- The most job listings<!-- .element: class="fragment" -->
+- Huge community<!-- .element: class="fragment" -->
 
 Note: 
-React distinguishes itself through several key features:
-
-JSX (Javascript Syntax Extension) combines HTML and javascript to create a synatax that is both familiar and powerful
-
-Virtual DOM: React's efficient Virtual DOM minimizes direct manipulation of the actual DOM, enhancing performance by reducing unnecessary updates.
-
-One-Way Data binding: By flowing the data from parent to childn we can guarentee mutations don't disrupt the components meaning they're easier to understand, easier to test, and really efficient in what they do
-
-Declarative Syntax: With a declarative syntax, React makes code more readable and less prone to bugs, enabling developers to focus on the "what" rather than the "how.
-
-Component-Based: The component-based architecture promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
-
-Extensibility: React has many extensions that we can use to create full-fledged UI applications. It supports mobile app development and provides server-side rendering. React is extended with Flux, Redux, React Native, etc. which helps us to create good-looking UI.
+- For Facebook, React is used on over 100,000 components seen by billions of users every day
+- Unopinionated - bare bones (routing, styling, state handling etc)
+- Utilises a component based architecture meaning building blocks are highly reusable
+- Relatively short learning curve
+- Really good dev exp, meaning easier to maintain
+- Skills are in high demand so a good investment of time to learn
+- 80% of AND clients use React 
 
 ---
-<style>
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-    </style>
-<div class="App-logo">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3"><g fill="#61DAFB"><path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/><circle cx="420.9" cy="296.5" r="45.7"/><path d="M520.5 78.1z"/></g></svg>
-</div>
+
+### Comparison
+
+<img src="./assets/fe-frameworks.png" alt="Front end frameworks" />
 
 ---
-### Agenda
 
+### Features
+
+- Virtual DOM<!-- .element: class="fragment" -->
+- JSX<!-- .element: class="fragment" -->
+- One-way Data Binding<!-- .element: class="fragment" -->
+- Declarative Syntax<!-- .element: class="fragment" -->
+- Component-Based Architecture<!-- .element: class="fragment" -->
+- Extensibility<!-- .element: class="fragment" -->
+
+Note: 
+React sets itself apart with several key features:
+
+- Virtual DOM: How react handles rendering for high performance - reducing unnecessary updates.
+- JSX (Javascript Syntax Extension / Javascript XML) templating language enables you to write JS and HTML code alongside eachother which is both familiar and powerful
+- One-Way Data binding: Is how the data flows from parent to child, so we can guarantee mutations don't disrupt the components
+- Declarative Syntax: React makes code more readable and therefore less prone to bugs.
+- Component-Based: The component-based architecture promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
+- Extensibility: React has many extensions, you can use what comes out of the box or include a different option. (REdux, TanQuery etc)
+
+It supports mobile app development:
+React Native
+Now supports server-side rendering and static site generation with NextJS. 
+
+---
+
+### Today's agenda
+
+- Virtual DOM
 - JSX
 - Components
-- Props 
-- Events
-- CSS-in-JS
+- Handling events
+- Handling data (props and state)
 - Hooks
-- BUT FIRST... <!-- .element: class="fragment" -->
-## Setup<!-- .element: class="fragment" -->
+- Exercise / Demo<!-- .element: class="fragment" -->
+
+---
+
+# Virtual DOM
+
+---
+
+### The DOM
+
+The DOM (Document Object Model) is a programming interface for the web. 
+
+```
+<html>
+  <body>
+    <h1>My web page</h1>
+    <button>Click me</button>
+  </body>
+</html>
+```
+
+Note:
+- It’s a data structure that represents the HTML on a page
+- It allows us to interact with the page and programmatically and alter it with JavaScript, 
+- for example  buttons, links, images, etc, become nodes in the DOM.
+
+React allows us to interact with the virtual DOM to render and update HTML elements on a web page. 
+The virtual DOM is an in-memory copy of the real DOM, and is how React achieves the level of performance that it does.  
+
+So, while HTML is text, the DOM is an in-memory representation of this text.
+
+Now originally DOM trees were quite simple. As the web has evolved things have gotten far more complex, and need to update much more often. 
+
+Think about how quickly websites update when you visit Facebook, Twitter or LinkedIn. 
+
+The DOM aims to rerender content every 16ms. 
+
+Imagine you wanted to completely rerender the entire Facebook page every 16ms... it would likely crash you computer. 
+
+To avoid such issues, we need a better implementation to make these small changes more quickly, and more dynamically.
+
+---
+
+### Virtual DOM
+
+<img src="./assets/virtual-dom.jpg" alt="The Virtual DOM" style="width:50%;" />
+
+Note:
+Imagine you have your web page, which is the Real DOM.
+
+When you first load a React application, React creates a copy of the Real DOM in memory. This is the Virtual DOM.
+
+Now, let's say something changes in your application – perhaps you click a button, or data updates. React doesn't immediately touch the Real DOM. Instead, it creates a new Virtual DOM.
+
+Next, React compares the old Virtual DOM with the new Virtual DOM. This process is called "diffing." It efficiently figures out exactly what has changed.
+
+Finally, React takes only those specific changes and updates the Real DOM. This is much faster than re-rendering the entire page, making your application feel very responsive!
+
+---
+
+# JSX
+
+---
+
+### Without JSX
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// Example div containing welcome message
+React.createElement( 'div', { className: "welcomeMessage" }, "Welcome to ReactJS")
+
+// Rendering to the DOM
+ReactDOM.render (<App />, document.getElementById("root")) ;
+```
+
+Note:
+- As you can see these are some javascript functions, and you CAN use React this way
+- In this case we are adding html elements useing the createElement method from React
+- Its not something that is advised, but it’s a good to know that it’s possible 
+  - Harder to read, harder to maintain, can open you up to security issues such as Injection attacks so not something that's widely used 
+- Instead of this syntax we use something called JSX.
+
+---
+
+### With JSX
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const WelcomeMessage = () => (
+  <div className="welcomeMessage">
+    Welcome to ReactJS
+  </div>;
+)
+
+const App = () => <WelcomeMessage />
+```
+
+Note:
+- Defines a function - which is a reusable component
+- Components return JSX that looks like HTML
+- <WelcomeMessage /> is how you use/call a component (self-closing tag syntax)
+- This is much cleaner than calling React.createElement() multiple times!
+
+JavaScript XML - serves as a syntax extension for JavaScript in React. It allows developers to write UI components using a syntax that resembles HTML but is ultimately transpiled to JavaScript. JSX enhances code readability and expressiveness, making it an integral part of React development.
+
+While JSX bears a resemblance to HTML, it's crucial to understand the distinctions. JSX introduces the ability to embed dynamic content through JavaScript expressions enclosed in curly braces {}. This dynamic nature empowers developers to create highly interactive and data-driven React components, blending the best of both worlds.
+JSX vs HTML
+
+---
+
+## Thinking in React
+
+---
+
+### Atomic Design
+
+<img src="./assets/atomic-design.png" alt="Atomic Design" style="width:70%;" />
+
+Note:
+- Book called Atomic Design - Brad Frost 
+- Championed this idea of creating design systems split in to (Atoms, Molecules, Organisms, Templates and Pages)
+- Good way of stucturing your app in terms of house keeping
+
+---
+
+### Components
+
+<div style="display: flex; gap: 60px; justify-content: center;">
+  <img src="./assets/react-components-1.png" alt="React Components Plain" style="width:25%;" />
+  <img src="./assets/react-components-2.png" alt="React Components Split" style="width:50%;" />
+</div>
+
+Note:
+- Component on the left
+- Breakdown on the right
+
+<a href="https://react.dev/learn/thinking-in-react" target="_blank">React Docs</a>
+
+---
+
+### Class components
+
+```jsx
+class MyClassComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Component state initialisation
+  }
+
+  render() {
+    return (
+      <div>
+        {/* JSX content */}
+      </div>
+    );
+  }
+}
+```
+Note:
+Class components are the traditional way of creating React components. They extend the React.Component class and have access to lifecycle methods, allowing developers to manage state and perform actions at various stages of a component's lifecycle.
+
+---
+
+### Functional components
+
+```jsx
+const MyFunctionalComponent = () => {
+  // Component logic here
+  return (
+    <div>
+      {/* JSX content */}
+    </div>
+  );
+};
+```
+Note:
+- Functional components are the building blocks of a React application. 
+- They are concise, stateless, and focus solely on rendering UI. 
+- Since the introduction of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
+- Dumb/Smart components ... stateless/stateful
+
+---
+
+# Handling Events
+
+Note: 
+- React provides a straightforward way to handle events, such as clicks or input changes. 
+- Event handlers are assigned as attributes in JSX, and they can invoke functions that update state or perform other actions
+– This creates a responsive and interactive user experience.
+
+---
+
+### onClick 
+
+```js
+const handleClick = (event) => {
+  console.log('Button clicked!', event.target);
+};
+
+<button onClick={handleClick}>Click me</button>
+```
+
+Note: 
+The onClick event attribute is a common way to handle click events. 
+- React supports a range of event attributes, such as onChange for input changes and onSubmit for form submissions. 
+- Understanding these attributes is crucial for building interactive user interfaces.
+- React uses camelCase for event names, such as onClick instead of onclick. 
+- Event handlers receive synthetic events with properties like target and currentTarget.
+
+---
+
+# Handling data
+
+---
+
+## Props vs State
+- Props (Properties): Think of props as arguments.<!-- .element: class="fragment" -->
+- State: A component's internal memory.<!-- .element: class="fragment" -->
+
+Note:
+- Props - They are external, read-only data passed down from a parent component to a child component. (Think One-way Data Binding). A child component cannot change its props.
+- State: It is managed and controlled within the component itself. State is mutable (can be changed) and changing it is what causes the component to re-render.
+
+---
+
+### Props
+<!-- .slide: data-auto-animate="true" -->
+```js
+const User = ({ username }) => (
+  <div>
+    <h1>{username}</h1>
+  </div>
+);
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: 
+- In React, data can be passed from a parent component to a child component using props. 
+- Props are essentially properties that a parent component passes down to its children. 
+- In JS however, we have no way of telling what these are, so we use typescript
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### Props ...with types
+```js
+const User = ({ username }) => (
+  <div>
+    <h1>{username}</h1>
+  </div>
+);
+
+type UserProps = { username : string };
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: 
+- When using Typescript you can dynamically design the props being passed in by naming them.
+- You can end up repeating yourself if you are designing your props in the component file
+- But the real value is if you pull the props into it's own object, and then you can share it amongst multiple areas 
+- Which also give your IDE more clues on what the object contains
+- Better dev exp (itellisense, visual aids etc)
+
+---
+
+### State
+```js
+const Counter = () => {
+  const [message, setMessage] = useState("I'm set on page load");
+
+  setTimeout(() => {
+    setMessage("I've been updated a few seconds later");
+  }, 5000);
+
+  return (
+    <MessageComponent message={message} />
+  );
+};
+```
+
+Note: 
+- While props are used to pass data between components, state is used to manage a component's internal data. 
+- State allows components to react to user input, events, or changes in data, leading to dynamic and interactive user interfaces.
+
+Question: state changes cause what in React?
+Answer... Re-renders.
+
+---
+
+# Hooks
+
+---
+
+### useState Hook
+<!-- .slide: data-auto-animate="true" -->
+```js
+const [state, setState] = useState(initialState);
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: 
+- Introduced in React Hooks, the useState hook is a powerful tool for managing state in functional components. 
+- It allows functional components to have stateful logic without the need for class components. 
+- The hook returns the current state and a function to update it.
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### useState Hook
+
+```tsx
+const [state, setState] = useState<number>(initialState);
+```
+<!-- .element: data-id="code-animation" -->
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### useState Hook
+
+```tsx
+const [state, setState] = useState<string>(initialState);
+```
+<!-- .element: data-id="code-animation" -->
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### useState Hook
+```tsx
+const [state, setState] = useState<MyType>(initialState);
+
+interface MyType {
+  age: number;
+  name: string;
+}
+```
+<!-- .element: data-id="code-animation" -->
+
+---
+
+# Exercise
+
+---
+
+#### Follow along!
+```
+https://playcode.io/react
+```
+
+---
+
+### Useful links
+
+<!-- #### Exercise - Follow along!
+```
+https://playcode.io/react
+``` -->
+
+<!-- #### Follow along session 2
+```
+https://codesandbox.io/p/sandbox/d9dw8v?file=%2Fsrc%2FApp.tsx%3A11%2C1
+``` -->
+
+#### React Docs
+```
+https://react.dev/
+```
+
+#### Atomic Design
+```
+https://bradfrost.com/blog/post/atomic-web-design/
+```
+<!-- 
+Note:
+https://playcode.io/react -->

@@ -33,7 +33,7 @@ $headingFontWeight: bold;
 	font-family: $headingFont;
 }
 .backgrounds::before {
-	content: "© 2024 ";
+	content: "© 2025 ";
     font-size: 12px;
     background-image: url(/assets/AND-logo.png);
     background-size: contain;
@@ -44,8 +44,10 @@ $headingFontWeight: bold;
     position: absolute;
     bottom: -10px;
     left: 30px;
-    background-position-x: 40px;
-    background-position-y: -14px;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-position-x: 55px;
+    background-position-y: -9px;
 } 
 .container{
     display: flex;

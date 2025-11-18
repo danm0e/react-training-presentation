@@ -1,0 +1,6 @@
+# Ignore slide markdown files so Prettier doesn't reformat speaker notes
+slides/**/*.md
+
+# You can add any other paths that should not be auto-formatted
+# e.g. custom generated files
+output/**
