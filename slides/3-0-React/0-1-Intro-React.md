@@ -1,5 +1,5 @@
 
-# Welcome<!--.element: class="r-fit-text" -->
+# Welcome!<!--.element: class="r-fit-text" -->
 
 ---
 
@@ -8,18 +8,28 @@
 
 ---
 
-- Session 1 - React: The Basics <span class="andlogo fragment">←</span> 
-- Session 2 - React: Digging Deeper 
+## Session 1
+#### React: The Basics<!-- .element: class="fragment" -->
+
+Note:
+- This is session 1 of 2 parts
+- We're going to cover some basics of the whats and the whys
+- As well as going over some of the key mechanics of how React works under the hood
 
 ---
 
 ### Learning Agreement
 
 - Stay focused, cameras on <!-- .element: class="fragment" -->
-- We are going to be coding <!-- .element: class="fragment" -->
+- We are going to be looking at code <!-- .element: class="fragment" -->
 - No question is a silly question <!-- .element: class="fragment" -->
 
 ...so please ask a question whenever you like<!-- .element: class="fragment" -->
+
+Note:
+ - Helps me know I'm not alone
+ - I understand there maybe some people here that do not code, so please...
+ - If there is any point where I have gone to fast or you would like some clarity on something, please ask
 
 ---
 
@@ -30,17 +40,16 @@
 - <a href="https://npmtrends.com/@angular/core-vs-jquery-vs-react-vs-svelte-vs-vue">React</a> is the most popular frontend library
 - Developed by Facebook<!-- .element: class="fragment" -->
 - Declarative, efficient and flexible<!-- .element: class="fragment" -->
+- Huge community<!-- .element: class="fragment" -->
 - It has the most stars on github<!-- .element: class="fragment" -->
 - The most questions on stackoverflow<!-- .element: class="fragment" -->
 - The most job listings<!-- .element: class="fragment" -->
-- Huge community<!-- .element: class="fragment" -->
 
 Note: 
-- For Facebook, React is used on over 100,000 components seen by billions of users every day
-- Unopinionated - bare bones (routing, styling, state handling etc)
-- Utilises a component based architecture meaning building blocks are highly reusable
+- It is used on over 100,000 components which gets seen by billions of users every day
+- Unopinionated - bare bones library (routing, styling, state handling etc)
 - Relatively short learning curve
-- Really good dev exp, meaning easier to maintain
+- Really good dev exp, meaning easier to maintain and debug
 - Skills are in high demand so a good investment of time to learn
 - 80% of AND clients use React 
 
@@ -64,16 +73,16 @@ Note:
 Note: 
 React sets itself apart with several key features:
 
-- Virtual DOM: How react handles rendering for high performance - reducing unnecessary updates.
-- JSX (Javascript Syntax Extension / Javascript XML) templating language enables you to write JS and HTML code alongside eachother which is both familiar and powerful
-- One-Way Data binding: Is how the data flows from parent to child, so we can guarantee mutations don't disrupt the components
+- Virtual DOM: How react handles rendering for high performance
+- JSX (Javascript Syntax Extension / Javascript XML) templating language enables you to write JS and HTML code alongside eachother
+- One-Way Data binding: So how the data flows from parent to child, so we can guarantee mutations don't disrupt the components
 - Declarative Syntax: React makes code more readable and therefore less prone to bugs.
-- Component-Based: The component-based architecture promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
-- Extensibility: React has many extensions, you can use what comes out of the box or include a different option. (REdux, TanQuery etc)
+- Component-Based: Promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
+- Extensibility: React has many extensions, you can use what comes out of the box or include a different option. 
+- Lego... (Redux, TanstackQuery, Zustand etc)
 
-It supports mobile app development:
-React Native
-Now supports server-side rendering and static site generation with NextJS. 
+- It supports mobile app development with React Native
+- Now supports server-side rendering and static site generation with NextJS.
 
 ---
 
@@ -85,7 +94,7 @@ Now supports server-side rendering and static site generation with NextJS.
 - Handling events
 - Handling data (props and state)
 - Hooks
-- Exercise / Demo<!-- .element: class="fragment" -->
+- Exercise / Demo (Live coding)<!-- .element: class="fragment" -->
 
 ---
 
@@ -108,23 +117,15 @@ The DOM (Document Object Model) is a programming interface for the web.
 
 Note:
 - It’s a data structure that represents the HTML on a page
-- It allows us to interact with the page and programmatically and alter it with JavaScript, 
-- for example  buttons, links, images, etc, become nodes in the DOM.
-
-React allows us to interact with the virtual DOM to render and update HTML elements on a web page. 
-The virtual DOM is an in-memory copy of the real DOM, and is how React achieves the level of performance that it does.  
-
-So, while HTML is text, the DOM is an in-memory representation of this text.
-
-Now originally DOM trees were quite simple. As the web has evolved things have gotten far more complex, and need to update much more often. 
-
-Think about how quickly websites update when you visit Facebook, Twitter or LinkedIn. 
-
-The DOM aims to rerender content every 16ms. 
-
-Imagine you wanted to completely rerender the entire Facebook page every 16ms... it would likely crash you computer. 
-
-To avoid such issues, we need a better implementation to make these small changes more quickly, and more dynamically.
+- While HTML is text, the DOM is an in-memory representation of this text
+- It allows us to interact with the page programmatically with JavaScript
+- So buttons, links, images, etc, are all nodes in the DOM
+- Now originally DOM trees were quite simple (think static brochure style websites)
+- As the web has evolved things have gotten far more complex and need to update much more often 
+- Think about how quickly websites update when you visit Facebook, Twitter or LinkedIn.
+- The DOM aims to rerender content every 16ms 
+- Imagine you wanted to completely rerender the entire Facebook page every 16ms... it would likely crash your computer.
+- To avoid this, we need a better implementation
 
 ---
 
@@ -133,15 +134,38 @@ To avoid such issues, we need a better implementation to make these small change
 <img src="./assets/virtual-dom.jpg" alt="The Virtual DOM" style="width:50%;" />
 
 Note:
-Imagine you have your web page, which is the Real DOM.
+- Imagine you have your web page, which is the Real DOM
+- When you first load a React application, React creates a copy of the Real DOM in memory. This is the Virtual DOM
+- Now, let's say something changes in your application – perhaps you click a button, or data updates 
+- React doesn't immediately touch the Real DOM. Instead, it creates a new copy of the Virtual DOM with the new changes
+- Next, React compares the old Virtual DOM with the new Virtual DOM. 
+- This process is called "diffing." It efficiently figures out exactly what has changed, like a snapshot
+- Finally, React takes only those specific changes and updates the Real DOM. 
+- This is much faster than re-rendering the entire page
 
-When you first load a React application, React creates a copy of the Real DOM in memory. This is the Virtual DOM.
+---
 
-Now, let's say something changes in your application – perhaps you click a button, or data updates. React doesn't immediately touch the Real DOM. Instead, it creates a new Virtual DOM.
+## Thinking in React
 
-Next, React compares the old Virtual DOM with the new Virtual DOM. This process is called "diffing." It efficiently figures out exactly what has changed.
+---
 
-Finally, React takes only those specific changes and updates the Real DOM. This is much faster than re-rendering the entire page, making your application feel very responsive!
+### Atomic Design
+
+<img src="./assets/atomic-design.png" alt="Atomic Design" style="width:70%;" />
+
+Note:
+- Brad Frost - Atomic Design
+- Championed this idea of creating design systems split in to (Atoms, Molecules, Organisms, Templates and Pages)
+- Good way of designing your app for reusability
+- Good way of stucturing your app in terms of house keeping
+
+---
+
+# 🐾
+
+Note:
+- I'm aware there maybe some non coding folk who may not want to delve deeper
+- The rest of the demo is code heavy so wanted to give you an chance to drop off
 
 ---
 
@@ -164,53 +188,130 @@ ReactDOM.render (<App />, document.getElementById("root")) ;
 
 Note:
 - As you can see these are some javascript functions, and you CAN use React this way
-- In this case we are adding html elements useing the createElement method from React
+- In this case we are adding html elements using the createElement method from React
 - Its not something that is advised, but it’s a good to know that it’s possible 
-  - Harder to read, harder to maintain, can open you up to security issues such as Injection attacks so not something that's widely used 
+- Hard to read, hard to maintain, can open you up to security issues such as Injection attacks so not something that's widely used 
 - Instead of this syntax we use something called JSX.
 
 ---
 
 ### With JSX
 
+<!-- .slide: data-auto-animate="true" -->
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 const WelcomeMessage = () => (
   <div className="welcomeMessage">
     Welcome to ReactJS
-  </div>;
+  </div>
 )
-
-const App = () => <WelcomeMessage />
 ```
+<!-- .element: data-id="code-animation" -->
 
 Note:
-- Defines a function - which is a reusable component
+- JSX - is a syntax extension for JavaScript in React (known as syntactic sugar). 
+- It enhances readability and expressiveness of our code, and is an integral part of React development.
+- We define a function - which becomes a reusable component
 - Components return JSX that looks like HTML
-- <WelcomeMessage /> is how you use/call a component (self-closing tag syntax)
 - This is much cleaner than calling React.createElement() multiple times!
 
-JavaScript XML - serves as a syntax extension for JavaScript in React. It allows developers to write UI components using a syntax that resembles HTML but is ultimately transpiled to JavaScript. JSX enhances code readability and expressiveness, making it an integral part of React development.
-
-While JSX bears a resemblance to HTML, it's crucial to understand the distinctions. JSX introduces the ability to embed dynamic content through JavaScript expressions enclosed in curly braces {}. This dynamic nature empowers developers to create highly interactive and data-driven React components, blending the best of both worlds.
-JSX vs HTML
-
 ---
 
-## Thinking in React
+### With JSX
 
----
+<!-- .slide: data-auto-animate="true" -->
+```jsx
+const WelcomeMessage = () => (
+  <div className="welcomeMessage">
+    {welcomeText}
+  </div>
+)
 
-### Atomic Design
-
-<img src="./assets/atomic-design.png" alt="Atomic Design" style="width:70%;" />
+const welcomeText = 'Welcome to ReactJS';
+```
+<!-- .element: data-id="code-animation" -->
 
 Note:
-- Book called Atomic Design - Brad Frost 
-- Championed this idea of creating design systems split in to (Atoms, Molecules, Organisms, Templates and Pages)
-- Good way of stucturing your app in terms of house keeping
+- It also has ability to embed dynamic content through JavaScript expressions enclosed in curly braces
+- So we can create data-driven React components, blending the best of both worlds
+
+Key takeaway:
+- While JSX looks like HTML, it's crucial to understand the distinctions
+- Whilst what we have here is something that resembles HTML, it's ultimately transpiled to JavaScript via the createElement method under the hood
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### JSX Gotchas
+```js
+const MyComponent = () => (
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+)
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: 
+- Now with everything, there are a couple of gotchas with JSX
+- Some rules that need to be followed
+- Can anybody tell me what is wrong with this code?
+- It would error... (next slide)
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### JSX Gotchas
+```js
+const MyComponent = () => (
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+)
+
+!⛔️JSX expressions must have one parent element.ts(2657)
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: 
+- JSX rule is that there can only be one element in a component
+- So what can we do here? 
+- Maybe wrap these paragraphs with a div right?
+
+---
+
+<!-- .slide: data-auto-animate="true" -->
+### JSX Fragments
+```js
+import { Fragment } from 'react';
+
+const MyComponent = () => (
+  <Fragment>
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+  </Fragment>
+)
+```
+<!-- .element: data-id="code-animation" -->
+
+Note: 
+- React exports something known as a Fragment
+- Fragments are a way to group multiple elements without introducing an additional parent element to the DOM
+- They help keep the HTML structure clean when rendering multiple components
+
+---
+<!-- .slide: data-auto-animate="true" -->
+### JSX Fragments
+```js
+const MyComponent = () => (
+  <>
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+  </>
+);
+```
+<!-- .element: data-id="code-animation" -->
+Note: 
+- There's a short hand way of using them - an empty tag
+- So it's more descriptive and you don't have to import the Fragment, React just understands this as a Fragment
+- There's also a gotcha here too with a key requirement when looping through data but we'll not get in to that now
 
 ---
 
@@ -222,10 +323,8 @@ Note:
 </div>
 
 Note:
-- Component on the left
-- Breakdown on the right
-
-<a href="https://react.dev/learn/thinking-in-react" target="_blank">React Docs</a>
+- Overall component on the left which would represent an organism
+- Then an example of how we'd break that in to molecules and atoms on the right
 
 ---
 
@@ -249,6 +348,8 @@ class MyClassComponent extends React.Component {
 ```
 Note:
 Class components are the traditional way of creating React components. They extend the React.Component class and have access to lifecycle methods, allowing developers to manage state and perform actions at various stages of a component's lifecycle.
+
+Think when the component is mounted, updated, unmounted etc.
 
 ---
 
@@ -309,8 +410,12 @@ The onClick event attribute is a common way to handle click events.
 - State: A component's internal memory.<!-- .element: class="fragment" -->
 
 Note:
-- Props - They are external, read-only data passed down from a parent component to a child component. (Think One-way Data Binding). A child component cannot change its props.
-- State: It is managed and controlled within the component itself. State is mutable (can be changed) and changing it is what causes the component to re-render.
+- Props - They are external, read-only data passed down from a parent component to a child component
+- (Think One-way Data Binding) 
+- A child component cannot change its props
+- --
+- State: It is managed and controlled within the component itself
+- State is mutable (can be changed) and changing it is what causes the component to re-render
 
 ---
 
@@ -326,8 +431,7 @@ const User = ({ username }) => (
 <!-- .element: data-id="code-animation" -->
 
 Note: 
-- In React, data can be passed from a parent component to a child component using props. 
-- Props are essentially properties that a parent component passes down to its children. 
+- Props are essentially properties that a parent component passes down to its children 
 - In JS however, we have no way of telling what these are, so we use typescript
 
 ---
@@ -335,7 +439,7 @@ Note:
 <!-- .slide: data-auto-animate="true" -->
 ### Props ...with types
 ```js
-const User = ({ username }) => (
+const User = ({ username }: UserProps) => (
   <div>
     <h1>{username}</h1>
   </div>
@@ -346,11 +450,12 @@ type UserProps = { username : string };
 <!-- .element: data-id="code-animation" -->
 
 Note: 
-- When using Typescript you can dynamically design the props being passed in by naming them.
-- You can end up repeating yourself if you are designing your props in the component file
-- But the real value is if you pull the props into it's own object, and then you can share it amongst multiple areas 
+- When using Typescript you can design the data type being passed in as the prop
 - Which also give your IDE more clues on what the object contains
 - Better dev exp (itellisense, visual aids etc)
+- -- 
+- You can end up repeating yourself if you are designing your props in the component file
+- But the real value is if you pull the props into it's own object, and then you can share it amongst multiple areas 
 
 ---
 
@@ -370,9 +475,11 @@ const Counter = () => {
 ```
 
 Note: 
-- While props are used to pass data between components, state is used to manage a component's internal data. 
-- State allows components to react to user input, events, or changes in data, leading to dynamic and interactive user interfaces.
-
+- While props are used to pass data between components, state is used to manage a component's internal data
+- State can also be passed down as a prop 
+- State allows components to react to user input, events, or changes in data
+- This leads to dynamic and interactive user interfaces
+- --
 Question: state changes cause what in React?
 Answer... Re-renders.
 
@@ -428,6 +535,11 @@ interface MyType {
 ```
 <!-- .element: data-id="code-animation" -->
 
+Note:
+- Other hooks - e.g to manage rerendering (useMemo, useCallback)
+- Custom hooks (useAuthentication)
+- Garbage collection, a way to keep business logic out of your components and keep it reusable
+
 ---
 
 # Exercise
@@ -458,13 +570,15 @@ https://codesandbox.io/p/sandbox/d9dw8v?file=%2Fsrc%2FApp.tsx%3A11%2C1
 https://react.dev/
 ```
 
+##### Thinking in React
+```
+https://react.dev/learn/thinking-in-react
+```
+
 #### Atomic Design
 ```
 https://bradfrost.com/blog/post/atomic-web-design/
 ```
-<!-- 
-Note:
-https://playcode.io/react -->
 
 ---
 
