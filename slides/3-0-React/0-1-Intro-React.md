@@ -64,22 +64,22 @@ Note:
 ### Features
 
 - Virtual DOM<!-- .element: class="fragment" -->
+- Component-Based Architecture<!-- .element: class="fragment" -->
 - JSX<!-- .element: class="fragment" -->
 - One-way Data Binding<!-- .element: class="fragment" -->
 - Declarative Syntax<!-- .element: class="fragment" -->
-- Component-Based Architecture<!-- .element: class="fragment" -->
 - Extensibility<!-- .element: class="fragment" -->
 
 Note: 
 React sets itself apart with several key features:
 
 - Virtual DOM: How react handles rendering for high performance
+- Component-Based: Promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
 - JSX (Javascript Syntax Extension / Javascript XML) templating language enables you to write JS and HTML code alongside eachother
 - One-Way Data binding: So how the data flows from parent to child, so we can guarantee mutations don't disrupt the components
 - Declarative Syntax: React makes code more readable and therefore less prone to bugs.
-- Component-Based: Promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
 - Extensibility: React has many extensions, you can use what comes out of the box or include a different option. 
-- Lego... (Redux, TanstackQuery, Zustand etc)
+- If you think Lego... you can follow the instructions or build your own (Redux, TanstackQuery, Zustand etc)
 
 - It supports mobile app development with React Native
 - Now supports server-side rendering and static site generation with NextJS.
@@ -89,8 +89,8 @@ React sets itself apart with several key features:
 ### Today's agenda
 
 - Virtual DOM
-- JSX
 - Components
+- JSX
 - Handling events
 - Handling data (props and state)
 - Hooks
@@ -158,6 +158,64 @@ Note:
 - Championed this idea of creating design systems split in to (Atoms, Molecules, Organisms, Templates and Pages)
 - Good way of designing your app for reusability
 - Good way of stucturing your app in terms of house keeping
+
+---
+
+### Components
+
+<div style="display: flex; gap: 60px; justify-content: center;">
+  <img src="./assets/react-components-1.png" alt="React Components Plain" style="width:25%;" />
+  <img src="./assets/react-components-2.png" alt="React Components Split" style="width:50%;" />
+</div>
+
+Note:
+- Overall component on the left which would represent an organism
+- Then an example of how we'd break that in to molecules and atoms on the right
+
+---
+
+### Class components
+
+```jsx
+class MyClassComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Component state initialisation
+  }
+
+  render() {
+    return (
+      <div>
+        {/* JSX content */}
+      </div>
+    );
+  }
+}
+```
+Note:
+Class components are the traditional way of creating React components. They extend the React.Component class and have access to lifecycle methods, allowing developers to manage state and perform actions at various stages of a component's lifecycle.
+
+Think when the component is mounted, updated, unmounted etc.
+
+---
+
+### Functional components
+
+```jsx
+const MyFunctionalComponent = () => {
+  // Component logic here
+  return (
+    <div>
+      {/* JSX content */}
+    </div>
+  );
+};
+```
+Note:
+- Functional components are the building blocks of a React application. 
+- They are concise, stateless, and focus solely on rendering UI. 
+- Since the introduction of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
+- Dumb/Smart components ... stateless/stateful
 
 ---
 
@@ -293,8 +351,9 @@ const MyComponent = () => (
 
 Note: 
 - React exports something known as a Fragment
-- Fragments are a way to group multiple elements without introducing an additional parent element to the DOM
+- Fragments are a way to group multiple elements without introducing an unnecessary element to the DOM
 - They help keep the HTML structure clean when rendering multiple components
+- Think performance at scale
 
 ---
 <!-- .slide: data-auto-animate="true" -->
@@ -315,70 +374,12 @@ Note:
 
 ---
 
-### Components
-
-<div style="display: flex; gap: 60px; justify-content: center;">
-  <img src="./assets/react-components-1.png" alt="React Components Plain" style="width:25%;" />
-  <img src="./assets/react-components-2.png" alt="React Components Split" style="width:50%;" />
-</div>
-
-Note:
-- Overall component on the left which would represent an organism
-- Then an example of how we'd break that in to molecules and atoms on the right
-
----
-
-### Class components
-
-```jsx
-class MyClassComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    // Component state initialisation
-  }
-
-  render() {
-    return (
-      <div>
-        {/* JSX content */}
-      </div>
-    );
-  }
-}
-```
-Note:
-Class components are the traditional way of creating React components. They extend the React.Component class and have access to lifecycle methods, allowing developers to manage state and perform actions at various stages of a component's lifecycle.
-
-Think when the component is mounted, updated, unmounted etc.
-
----
-
-### Functional components
-
-```jsx
-const MyFunctionalComponent = () => {
-  // Component logic here
-  return (
-    <div>
-      {/* JSX content */}
-    </div>
-  );
-};
-```
-Note:
-- Functional components are the building blocks of a React application. 
-- They are concise, stateless, and focus solely on rendering UI. 
-- Since the introduction of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
-- Dumb/Smart components ... stateless/stateful
-
----
-
 # Handling Events
 
 Note: 
-- React provides a straightforward way to handle events, such as clicks or input changes. 
+- React provides a straightforward way to handle events, such as clicks or input changes 
 - Event handlers are assigned as attributes in JSX, and they can invoke functions that update state or perform other actions
-– This creates a responsive and interactive user experience.
+- This creates a responsive and interactive user experience.
 
 ---
 
@@ -393,11 +394,11 @@ const handleClick = (event) => {
 ```
 
 Note: 
-The onClick event attribute is a common way to handle click events. 
-- React supports a range of event attributes, such as onChange for input changes and onSubmit for form submissions. 
-- Understanding these attributes is crucial for building interactive user interfaces.
-- React uses camelCase for event names, such as onClick instead of onclick. 
-- Event handlers receive synthetic events with properties like target and currentTarget.
+The onClick event attribute is a common way to handle click events 
+- React supports a range of event attributes, such as onChange and onSubmit for input changes and form submissions
+- It's really important to understand these for building interactive user interfaces
+- The camelCase convention is used for event names, such as onClick instead of onclick
+- Event handlers receive synthetic events with properties like target and currentTarget
 
 ---
 
