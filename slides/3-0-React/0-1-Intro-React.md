@@ -18,6 +18,19 @@ Note:
 
 ---
 
+### Today's agenda
+
+- Why React?
+- Virtual DOM
+- Components
+- JSX
+- Handling events
+- Handling data (props and state)
+- Hooks
+- Exercise / Demo (Live coding)<!-- .element: class="fragment" -->
+
+---
+
 ### Learning Agreement
 
 - Stay focused, cameras on <!-- .element: class="fragment" -->
@@ -30,6 +43,7 @@ Note:
  - Helps me know I'm not alone
  - I understand there maybe some people here that do not code, so please...
  - If there is any point where I have gone to fast or you would like some clarity on something, please ask
+ - There will also hopefully be some time at the end for a bit of a Q&A
 
 ---
 
@@ -38,7 +52,7 @@ Note:
 ---
 
 - <a href="https://npmtrends.com/@angular/core-vs-jquery-vs-react-vs-svelte-vs-vue">React</a> is the most popular frontend library
-- Developed by Facebook<!-- .element: class="fragment" -->
+- Developed and used by Meta (Facebook) <!-- .element: class="fragment" -->
 - Declarative, efficient and flexible<!-- .element: class="fragment" -->
 - Huge community<!-- .element: class="fragment" -->
 - It has the most stars on github<!-- .element: class="fragment" -->
@@ -46,10 +60,13 @@ Note:
 - The most job listings<!-- .element: class="fragment" -->
 
 Note: 
-- It is used on over 100,000 components which gets seen by billions of users every day
-- Unopinionated - bare bones library (routing, styling, state handling etc)
-- Relatively short learning curve
-- Really good dev exp, meaning easier to maintain and debug
+- Facebook: So they have over 100,000 components used by billions of users every day
+- Declarative: Really good developer experience
+  - Relatively short learning curve
+  - ...Meaning easier to maintain and debug
+- Efficient: It's fast... 
+- Flexible: Unopinionated - bare bones library for building UI (routing, styling, state handling etc)
+- Community: Lots of good reference for AI
 - Skills are in high demand so a good investment of time to learn
 - 80% of AND clients use React 
 
@@ -74,27 +91,15 @@ Note:
 React sets itself apart with several key features:
 
 - Virtual DOM: How react handles rendering for high performance
-- Component-Based: Promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development.
+- Component-Based: Promotes reusability, maintainability, and scalability, making it an ideal choice for complex UI development
 - JSX (Javascript Syntax Extension / Javascript XML) templating language enables you to write JS and HTML code alongside eachother
 - One-Way Data binding: So how the data flows from parent to child, so we can guarantee mutations don't disrupt the components
-- Declarative Syntax: React makes code more readable and therefore less prone to bugs.
-- Extensibility: React has many extensions, you can use what comes out of the box or include a different option. 
+- Declarative Syntax: React makes code more readable and therefore less prone to bugs
+- Extensibility: React has many packages (extensions), you can use what comes out of the box or include a different option
 - If you think Lego... you can follow the instructions or build your own (Redux, TanstackQuery, Zustand etc)
-
+- --
 - It supports mobile app development with React Native
-- Now supports server-side rendering and static site generation with NextJS.
-
----
-
-### Today's agenda
-
-- Virtual DOM
-- Components
-- JSX
-- Handling events
-- Handling data (props and state)
-- Hooks
-- Exercise / Demo (Live coding)<!-- .element: class="fragment" -->
+- Now supports server-side rendering and static site generation with NextJS
 
 ---
 
@@ -131,7 +136,7 @@ Note:
 
 ### Virtual DOM
 
-<img src="./assets/virtual-dom.jpg" alt="The Virtual DOM" style="width:50%;" />
+<img src="./assets/virtual-dom.png" alt="The Virtual DOM" style="width:50%;" />
 
 Note:
 - Imagine you have your web page, which is the Real DOM
@@ -169,9 +174,11 @@ Note:
 </div>
 
 Note:
-- Overall component on the left which would represent an organism
-- Then an example of how we'd break that in to molecules and atoms on the right
-
+- Overall component on the left which would represent a page such as a shopping cart
+- Then an example of how we'd break that down on the right
+  - organism being the filter/product table
+  - and then the molecules that build the table rows
+  - and then labels and prices making up the individual atoms  
 ---
 
 ### Class components
@@ -193,9 +200,13 @@ class MyClassComponent extends React.Component {
 }
 ```
 Note:
-Class components are the traditional way of creating React components. They extend the React.Component class and have access to lifecycle methods, allowing developers to manage state and perform actions at various stages of a component's lifecycle.
-
-Think when the component is mounted, updated, unmounted etc.
+- Class components are the traditional way of creating React components. 
+- They extend the React.Component class and have access to lifecycle methods
+- This allows developers to manage state and perform actions at various stages of a component's lifecycle.
+- Think when the component is 
+  - mounted - so when a page is loaded
+  - updated - when an event has taking place (button click or data change)
+  - unmounted - when the user leaves a page
 
 ---
 
@@ -212,9 +223,10 @@ const MyFunctionalComponent = () => {
 };
 ```
 Note:
-- Functional components are the building blocks of a React application. 
-- They are concise, stateless, and focus solely on rendering UI. 
-- Since the introduction of React Hooks, functional components can now also manage state and lifecycle events, blurring the line between functional and class-based components.
+- Functional components are the building blocks of a React application
+- This example is concise, stateless, and focus solely on rendering UI 
+- Since the introduction of React Hooks, functional components can now also manage state and lifecycle events
+  - blurring the line between functional and class-based components
 - Dumb/Smart components ... stateless/stateful
 
 ---
@@ -543,6 +555,10 @@ Note:
 
 ---
 
+# ✋
+
+---
+
 # Exercise
 
 ---
@@ -551,6 +567,10 @@ Note:
 ```
 https://playcode.io/react
 ```
+
+---
+
+## Any questions?<!--.element: class="r-fit-text" -->
 
 ---
 
@@ -566,7 +586,7 @@ https://playcode.io/react
 https://codesandbox.io/p/sandbox/d9dw8v?file=%2Fsrc%2FApp.tsx%3A11%2C1
 ``` -->
 
-#### React Docs
+##### React Docs
 ```
 https://react.dev/
 ```
@@ -576,14 +596,10 @@ https://react.dev/
 https://react.dev/learn/thinking-in-react
 ```
 
-#### Atomic Design
+##### Atomic Design
 ```
 https://bradfrost.com/blog/post/atomic-web-design/
 ```
-
----
-
-## Any questions?<!--.element: class="r-fit-text" -->
 
 ---
 
