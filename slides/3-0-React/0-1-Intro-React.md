@@ -568,6 +568,18 @@ Note:
 https://playcode.io/react
 ```
 
+Note: 
+- Walk through example of building a simple counter
+- When the user clicks the button, React captures the beginning of this event handler.
+- React sees the three state updates (setCount).
+- Instead of triggering a re-render after Update 1, then Update 2, and finally Update 3
+- React puts all three updates into a queue (the "batch").
+- Once the event handler function (handleClick) has finished executing, React processes the entire queue at once.
+- It calculates the final, resulting state based on all the updates.
+- Finally, React triggers a single re-render of the component with the new state values.
+- -- 
+- Key takeaway: State setters are asynchronous and do not immediately change the state or trigger a re-render. They merely queue the change for React to process later.
+
 ---
 
 ## Any questions?<!--.element: class="r-fit-text" -->
