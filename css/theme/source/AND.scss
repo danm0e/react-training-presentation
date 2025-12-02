@@ -56,6 +56,14 @@ $headingFontWeight: bold;
     flex: 1;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+.highlight {
+    color: #02a6b2;
+}
+
 // Background generator
 @mixin bodyBackground() {
 	@include radial-gradient( rgb(10, 36, 62), rgb(0, 0, 0) );
