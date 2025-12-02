@@ -65,13 +65,13 @@ Note:
 
 <!-- .slide: data-auto-animate="true" -->
 
-### The Three Reasons
+### The three reasons
 
 A component re-renders when:
 
 - It's state changed<!-- .element: class="fragment" -->
 - The context changed<!-- .element: class="fragment" -->
-- It's parent re-rendered<!-- .element: class="fragment" -->
+- It's parent has re-rendered<!-- .element: class="fragment" -->
 - It's props changed (if memoised)<!-- .element: class="hidden" -->
 
 <!-- .element: data-id="code-animation" -->
@@ -87,13 +87,13 @@ Note:
 
 <!-- .slide: data-auto-animate="true" -->
 
-### The Three Reasons
+### The three reasons
 
 A component re-renders when:
 
 - It's state changed
 - The context changed
-- ~~It's parent re-rendered~~
+- ~~It's parent has re-rendered~~
 - It's props changed (if memoised)
 
 <!-- .element: data-id="code-animation" -->
@@ -107,7 +107,8 @@ Note:
 
 ---
 
-#### There are three phases of a render
+### There are three phases
+### of a render
 
 - Render<!-- .element: class="fragment" -->
 - Commit<!-- .element: class="fragment" -->
@@ -137,12 +138,10 @@ Note:
 
 ### What is React Fiber?
 
-- **Core Re-implementation** \
-Complete rewrite of React's rendering engine \
-(React 16+)
-
-- **Primary Goal** \
-Drastically improve performance in complex applications
+- Core Re-implementation<!-- .element: class="fragment" -->
+  - Complete rewrite of React's rendering engine (React 16+)<!-- .element: class="fragment" -->
+- Primary Goal<!-- .element: class="fragment" -->
+  - Drastically improve performance in complex applications<!-- .element: class="fragment" -->
 
 Note:
 - Introduced in React 16
@@ -154,9 +153,12 @@ Note:
 
 ### Key Features
 
-- **Incremental Rendering:** Breaks work into smaller, manageable units
-- **Non-Blocking:** Can pause, abort, or resume rendering work
-- **Better UX:** Yields control to handle high-priority tasks like user input
+- Incremental Rendering <!-- .element: class="fragment" --> 
+  - Breaks work into smaller, manageable units<!-- .element: class="fragment" -->
+- Non-Blocking <!-- .element: class="fragment" --> 
+  - Can pause, abort, or resume rendering work<!-- .element: class="fragment" -->
+- Better UX <!-- .element: class="fragment" --> 
+  - Yields control to handle high-priority tasks like user input<!-- .element: class="fragment" -->
 
 Note:
 - **Before Fiber**
@@ -194,7 +196,7 @@ Note:
 - **Necessary** 
   - State or props actually changed<!-- .element: class="fragment" -->
 - **Unnecessary** 
-  - Component re-renders but produces same output<!-- .element: class="fragment" -->
+  - Component re-renders but produces the same output<!-- .element: class="fragment" -->
 
 Note:
 - **Necessary re-renders**: We can't avoid, but can prioritise
@@ -546,11 +548,12 @@ Note:
 
 ---
 
-### Three ways to memoise in React
+### Three ways to memoise 
+### in React
 
-- **useCallback** = Memoises a function
-- **useMemo** = Memoises a value
-- **React.memo** = Memoises an entire component
+- useCallback = Memoises a function<!-- .element: class="fragment" -->
+- useMemo = Memoises a value<!-- .element: class="fragment" -->
+- React.memo = Memoises an entire component<!-- .element: class="fragment" -->
 
 Note:
 - All about preventing unnecessary work
@@ -631,7 +634,7 @@ Note:
 
 ---
 
-### 🏆 The Golden Rule ⚖️ 
+### 🏆 The Golden Rule 🏆 
 
 "Doing nothing is faster than doing something"
 
@@ -648,7 +651,7 @@ Note:
 
 ---
 
-### The Browser's Frame Budget
+### The browser's frame budget
 
 The browser paints every 16ms<!-- .element: class="fragment" -->
 
@@ -660,6 +663,23 @@ Note:
 - Don't optimise based on feeling
 - Use React DevTools Profiler to measure
 - Only optimise if you're dropping frames
+
+---
+
+### Perceived performance
+
+Prefetching, lazy loading and optimistic updates improve perceived performance without \
+actual speed gains<!-- .element: class="fragment" -->
+
+Loading spinner anyone?<!-- .element: class="fragment" -->
+
+Note:
+- There is also the idea of perceived performance
+- Where 'feeling fast' is considered almost as valuable as actually 'being' fast
+- Prefetching, lazy loading and optimistic updates improve perceived performance without actual speed gains
+- And why is this important? 
+- It provides immediate feedback to users, making the application feel responsive even during slow network conditions
+- People will quite happily sit there an watch a page loading 
 
 ---
 
@@ -900,7 +920,7 @@ Note:
 
 ---
 
-### 🪄 The Magic of Abstraction
+### 🪄 The magic of abstraction
 
 React Compiler abstracts away complexity
 
@@ -920,7 +940,7 @@ Note:
 
 ---
 
-### React Compiler Playground
+### React compiler playground
 
 ```
 https://playground.react.dev/
@@ -935,7 +955,7 @@ Note:
 
 ---
 
-### Current Status
+### Current status
 
 React 17+ (Relies on the Fiber architecture) \
 currently relies on an opt-in strategy
@@ -959,7 +979,7 @@ Note:
 
 ---
 
-# Key Takeaways
+# Key takeaways
 
 ---
 
@@ -1042,93 +1062,3 @@ Note:
 ---
 
 # Thank you!<!--.element: class="r-fit-text" -->
-
-<!-- 
-
-### See also...
-
-- `useTransition` - Mark updates as non-urgent
-- `useDeferredValue` - Defer updating expensive values
-- `useOptimistic` - Show optimistic UI updates
-- `useActionState` - Manage form actions
-
-Note:
-- These are advanced performance hooks
-- **useTransition**: Keep UI responsive during heavy updates
-- **useDeferredValue**: Show stale value while computing new one
-- **useOptimistic**: Instagram "like" that shows immediately
-- **useActionState**: Server actions with pending states
-- -- 
-- Great for search, filtering, form submissions
-- Look into these for your next project!
-
-
--- NEW PAGE -
-
-### State Setters Are Already Memoised
-
-```jsx
-const [count, setCount] = useState(0);
-```
-
-State setters use **useCallback** under the hood
-
-They always maintain the same reference
-
-**Argument:** You don't need to overuse useCallback
-
-Note:
-- React guarantees setState identity is stable
-- This is why you can safely omit it from dependency arrays
-- One less thing to memoise manually
-- But functions you pass TO setState might need memoisation
-- When small optimisations build up, they matter
-
--- NEW PAGE - 
-
-### The Previous State Pattern
-
-```jsx
-// With closure (needs count in dependencies)
-const increment = useCallback(() => {
-  setCount(count + 1);
-}, [count]);
-
-// With function (no dependencies needed)
-const increment = useCallback(() => {
-  setCount(prev => prev + 1);
-}, []);
-```
-
-**Passing a function prevents dependency issues**
-
-Note:
-- When setState uses a function, doesn't need current state in closure
-- Gets latest state as argument to function
-- Allows useCallback to have empty dependencies
-- Function stays stable across renders
-- Prevents stale closure bugs
-
--- NEW PAGE - 
-
-### When NOT to Optimise
-
-You CAN memoise everything in your app, but:
-
-- There is always a cost attached
-- You could introduce bugs
-- Maintainability suffers
-
-**Better:** Let rendering work naturally
-
-**Optimise only when needed** based on profiling
-
-Note:
-- This is critical to understand
-- Premature optimisation is the root of all evil
-- Clear, working code > slightly faster broken code
-- Use your judgment as a developer
-- Profile first, optimise second
-- Bugs are worse than minor performance issues
-
--->
