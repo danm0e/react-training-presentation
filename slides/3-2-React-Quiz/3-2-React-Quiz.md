@@ -1,4 +1,4 @@
-# Quiz Time! 📝
+# Quiz Time!
 
 ---
 
@@ -31,13 +31,13 @@ Note:
 
 ### Question 3
 
-What is the golden rule of performance optimization?
+What is the golden rule of performance optimisation?
 
 Not doing stuff is faster than doing stuff<!-- .element: class="fragment" -->
 
 Note:
-- The foundation of all optimization
-- Avoid work rather than optimize work
+- The foundation of all optimisation
+- Avoid work rather than optimise work
 - All our techniques come back to this
 
 ---
@@ -58,13 +58,13 @@ Note:
 
 ### Question 5
 
-What is one of the main risks of overusing React.memo and memoization?
+What is one of the main risks of overusing React.memo and memoisation?
 
 Cache invalidation bugs can be extremely difficult to debug<!-- .element: class="fragment" -->
 
 Note:
 - Phil Karlton quote about cache invalidation
-- Memoization IS caching
+- Memoisation IS caching
 - Wrong cache = stale data shown to users
 - These bugs are subtle and hard to reproduce
 
@@ -232,11 +232,11 @@ The complexity cost and maintainability can lead to bugs, which is worse than mi
 
 Note:
 - This is CRITICAL
-- Premature optimization is evil
+- Premature optimisation is evil
 - Complex code is hard to maintain
 - Can introduce bugs
 - Bugs > minor performance issues
-- Profile first, optimize only when needed
+- Profile first, optimise only when needed
 
 ---
 
@@ -244,12 +244,12 @@ Note:
 
 What is the primary purpose of the useCallback hook in React?
 
-To memoize a function so that if its dependencies haven't changed, React reuses the same function instance instead of creating a new one<!-- .element: class="fragment" -->
+To memoise a function so that if its dependencies haven't changed, React reuses the same function instance instead of creating a new one<!-- .element: class="fragment" -->
 
 Note:
 - Returns same function reference between renders
 - Only creates new function if dependencies change
-- Useful with optimized child components
+- Useful with optimised child components
 - Child with React.memo won't re-render unnecessarily
 
 ---
@@ -258,7 +258,7 @@ Note:
 
 What is the main difference between useMemo and useCallback?
 
-useMemo memoizes the result of a computation, while useCallback memoizes the function itself<!-- .element: class="fragment" -->
+useMemo memoises the result of a computation, while useCallback memoises the function itself<!-- .element: class="fragment" -->
 
 Note:
 - useMemo: Cache computed value
@@ -270,14 +270,14 @@ Note:
 
 ### Question 19
 
-What problem can occur when returning an object from a custom hook that contains both state values and memoized functions?
+What problem can occur when returning an object from a custom hook that contains both state values and memoised functions?
 
-The object itself is a new reference on each render, even if its members are memoized, potentially breaking downstream memoization<!-- .element: class="fragment" -->
+The object itself is a new reference on each render, even if its members are memoised, potentially breaking downstream memoisation<!-- .element: class="fragment" -->
 
 Note:
 - Subtle gotcha
 - Object literal creates new reference
-- Even though properties are memoized
+- Even though properties are memoised
 - Components see "new props"
 - Solution: Wrap return object in useMemo
 - Or return array instead
@@ -318,15 +318,15 @@ Note:
 
 Why can't React.memo be applied everywhere by default in React applications?
 
-Memoizing a component can prevent necessary updates to its children down the component tree<!-- .element: class="fragment" -->
+Memoising a component can prevent necessary updates to its children down the component tree<!-- .element: class="fragment" -->
 
 Note:
 - Interesting edge case
-- If parent is memoized but children need updates
+- If parent is memoised but children need updates
 - Updates might not propagate correctly
 - Also: Comparison overhead
 - React can't make this decision automatically
-- Developer must choose when to memoize
+- Developer must choose when to memoise
 
 ---
 
@@ -379,10 +379,10 @@ Note:
 
 What is the primary purpose of React Compiler?
 
-To automatically analyze code and apply memoization optimizations without manual use of useMemo, useCallback, and React.memo<!-- .element: class="fragment" -->
+To automatically analyse code and apply memoisation optimisations without manual use of useMemo, useCallback, and React.memo<!-- .element: class="fragment" -->
 
 Note:
-- Removes need for manual optimization
+- Removes need for manual optimisation
 - Automatically applies best practices
 - Instagram using in production
 - Still experimental but promising
@@ -398,7 +398,7 @@ React 17 or later, as it relies on the Fiber architecture<!-- .element: class="f
 
 Note:
 - Requires modern rendering engine
-- Fiber architecture enables optimizations
+- Fiber architecture enables optimisations
 - React 17+ includes Fiber
 - Most projects already on React 18
 - If on older version, need to upgrade
@@ -407,7 +407,7 @@ Note:
 
 ### Question 28
 
-How does React Compiler optimize component rendering compared to manually using React.memo?
+How does React Compiler optimise component rendering compared to manually using React.memo?
 
 It stores references in arrays and performs simple value checks instead of calling functions and comparing objects<!-- .element: class="fragment" -->
 
@@ -415,8 +415,8 @@ Note:
 - More efficient approach
 - No comparison function calls needed
 - Just primitive value checks
-- Can optimize things we can't manually
-- Removes memoization bug classes
+- Can optimise things we can't manually
+- Removes memoisation bug classes
 
 ---
 
@@ -432,4 +432,4 @@ Note:
 - Gradually opt in existing ones
 - Use directive for control
 - Safe migration path
-- Remove manual memoization as you go
+- Remove manual memoisation as you go
