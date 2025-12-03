@@ -21,15 +21,9 @@ Note:
 
 ### Question 2
 
-What is React Fiber?
+What is the primary principle for managing state placement in React applications?
 
-A complete rewrite of React's rendering engine that enables incremental, non-blocking rendering<!-- .element: class="fragment" -->
-
-Note:
-- Introduced in React 16
-- Can pause, abort, or resume rendering work
-- Enables cooperative scheduling
-- Foundation for concurrent features
+"Keep state as high as you need it and as low as you can get away with"<!-- .element: class="fragment" -->
 
 ---
 

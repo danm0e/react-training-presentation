@@ -26,7 +26,7 @@ Note:
 - Component Lifecycle
 - Hooks
 - Memoisation
-- **Exercise 1 & 2 - Optimisation**
+- Exercise - Putting it all together
 - React Compiler
 - Quiz?<!-- .element: class="fragment" -->
 
@@ -726,128 +726,40 @@ Note:
 
 ---
 
-# 🚀 Exercise 1
-## State Placement
+# 🚀 Exercise
+## Putting it all together
 
 **You'll need:** <a href="https://react.dev/learn/react-developer-tools">React Dev Tools</a> browser extension
 
-<!-- **Tasks:**
-1. Open the deep-thoughts example
-2. Observe component re-renders with highlighting
-3. Identify unnecessary re-renders
-4. Push state down to optimise
-5. Compare before and after -->
-
-**Time: 10 minutes**
+```jsx
+http://path-to-repo
+```
 
 Note:
+1. Open the example
+2. Observe component re-renders with highlighting
+3. Identify unnecessary re-renders
+4. All state is currently in the top level (Application file)
+4. Push state down to optimise
+5. Compare before and after (Use profiling tool - check the render time)
+6. Discuss methods are being defined new everytime
+7. Add useCallback to each method
+8. Previous state pattern shows dependency elimination
+9. Custom useCounter hook demonstrates referential equality gotcha
+10. Add useMemo to return object for referential equality
+11. Undo everything, show how changing the text widget re-renders the counter widget
+12. Add React.memo to counter widget
+12. Add useCallback to count methods
+13. Observe how this now prevents Counter from re-rendering
+- --
 - This demonstrates the power of state placement
-- No memoisation needed - just smart architecture
-- You'll see how moving state eliminates re-renders
+- Priciple rule of state: Keep state as high as you need it and as low as you can get away with
+- No tricks needed - just smart architecture
 - Golden rule in action: not doing stuff is faster
 - This should be your first optimisation strategy
 
 ---
 
-<!-- PLACEHOLDER: Exercise 1 Solution
-Include before/after code examples:
-
-Before: State too high
-```jsx
-function App() {
-  const [input, setInput] = useState('');
-  return (
-    <div>
-      <ExpensiveComponent />
-      <input value={input} onChange={e => setInput(e.target.value)} />
-    </div>
-  );
-}
-```
-
-After: State pushed down
-```jsx
-function App() {
-  return (
-    <div>
-      <ExpensiveComponent />
-      <InputComponent />
-    </div>
-  );
-}
-
-function InputComponent() {
-  const [input, setInput] = useState('');
-  return <input value={input} onChange={e => setInput(e.target.value)} />;
-}
-```
-
-Screenshot showing DevTools with reduced re-render flashing
-
-No te:
-- Take 2-3 minutes for discussion
-- Did everyone see the re-render reduction?
-- This is architectural optimisation
-- No memoisation needed
-- Questions about state placement?
-
--->
-
-# 🚀 Exercise 2
-## Counter Optimisation
-
-<!-- **Tasks:**
-1. Build counter with increment/decrement
-2. Show state change and children re-rendering
-3. Minimise with useCallback and React.memo
-4. Move logic to custom hook
-5. Explain referential equality issue with return value
-6. Show previous state pattern removing dependencies -->
-
-**Time: 15 minutes**
-
-Note:
-- More complex exercise combining multiple techniques
-- Progressive optimisation approach
-- We'll measure impact with DevTools at each step
-- Custom hook demonstrates referential equality gotcha
-- Previous state pattern shows dependency elimination
-
----
-
-<!-- PLACEHOLDER: Exercise 2 Solution
-Progressive code examples:
-
-1. Basic counter (no optimisation)
-```jsx
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <Display count={count} />
-      <Button onClick={() => setCount(count - 1)}>-</Button>
-      <Button onClick={() => setCount(count + 1)}>+</Button>
-    </div>
-  );
-}
-```
-
-2. With React.memo on Button
-3. With useCallback for handlers
-4. Extracted to useCounter hook
-5. Memoised hook return value
-6. Using previous state pattern
-
-DevTools screenshots showing render count improvements at each step
-
-No te:
-- Take 5 minutes for discussion
-- Which optimisations made the biggest difference?
-- When is memoisation worth it vs not worth it?
-- Questions about the techniques?
-- This is real-world optimisation workflow
-
--->
 #### ...with all that said
 # 👀
 ## React Compiler<!-- .element: class="fragment" -->
