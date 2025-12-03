@@ -14,8 +14,8 @@ Note:
 - Welcome to Session 2!
 - Last time around we touched on some basics with React (Virtual DOM, components etc)
 - Today we're diving deeper in to some of those concepts
-- Particularly around re-rendering and practical optimisation techniques to prevent it from doing so
-- Two hands-on exercises to put concepts into practice
+- Particularly around re-rendering and practical optimisation techniques
+- Exercise/Demo to put these concepts into practice
 
 ---
 
@@ -23,20 +23,19 @@ Note:
 
 - Why React re-renders
 - React Fiber
-- Component Lifecycle
 - Hooks
 - Memoisation
-- Exercise - Putting it all together
+- Exercise - Optimising
 - React Compiler
 - Quiz?<!-- .element: class="fragment" -->
 
 Note:
-- Touched on rendering, now we discuss why it does it
-- React Fiber - Rework on the reconciler algorithm (the process which updates the DOM)
-- Component Lifecycle
-- Hooks
-- Memoisation
-- 2 Exercises to go over some optimisation techniques
+- Previously touched on rendering, today we discuss why
+- React Fiber 
+  - Rework to the process which updates the virtual DOM
+- Most common Hooks
+- Memoisation which is how we can manually control a components render
+- Exercise to some examples of optimising our components
 - React Compiler
 - If we have time - Quiz
 
@@ -51,10 +50,9 @@ Note:
 ...so please ask a question whenever you like<!-- .element: class="fragment" -->
 
 Note:
-- Same expectations as Session 1
-- Performance concepts can be abstract
-- Exercises make concepts concrete
-- Questions are encouraged!
+- As per last time, I have a couple of asks...
+- It really does help me!
+- We'll be going deeper this time, so definitely more technical
 
 ---
 
@@ -77,11 +75,11 @@ A component re-renders when:
 <!-- .element: data-id="code-animation" -->
 
 Note:
-- These are the ONLY reasons React re-renders
-- State change: updates via the state hooks we'll go over shortly
-- Context change: Any context value the component consumes
-- Parent re-renders: By default, all children re-render too
-- Understanding this is fundamental to optimisation
+- These are the ONLY reasons React will re-render
+- **State change**: any updates via the state hooks we'll go over shortly causes a render
+- **Context change**: Any context value the component consumes
+- **Parent re-renders**: If a component re-renders, then by default all it's children will re-render too
+- Understanding this is fundamental to how we plan our optimisation
 
 ---
 
@@ -99,7 +97,8 @@ A component re-renders when:
 <!-- .element: data-id="code-animation" -->
 
 Note:
-- The 3rd reason is replaced if we're using memoisation
+- There is a slight caveat to this however
+- If the component is memoised, the 3rd reason is replaced by if it's props changed
 
 ---
 
@@ -116,19 +115,25 @@ Note:
 
 Note:
 - **Render** 
-  - Calculate what changed, build virtual DOM, 
-  - which we do in memory as it's faster than mutating the DOM and preventing repaints etc
-  - once we've gone through the whole component tree we get to the commit phase
+  - Calculate what changed, so we can rebuild virtual DOM 
+  - Which we do in memory as it's faster than mutating the DOM and preventing repaints etc
+  - Once we've gone through the whole component tree we get to the commit phase
 - **Commit** 
-  - The virtual DOM has calculated all of the changes via diffing
-  - and now we're going to actually apply those changes to real DOM 
+  - The virtual DOM has calculated all of the changes
+  - We know what needs to be updated
+  - And now we're going to actually apply those changes to real DOM 
+  - Think of it like a git commit
 - **Cleanup** 
   - Once we're done there...
   - Run any cleanup functions from effects
 - --
 - So from React 15 and earlier, the “virtual DOM” was essentially a tree of lightweight objects that mirrored the real DOM 
 - Every render, React would build a fresh tree from your JSX, diff it against the previous one, and then compute a patch to apply to the actual DOM
-- That whole process was synchronous and uninterruptible: once React started walking the tree, it had to finish before the browser could do anything else
+- That whole process was synchronous and uninterruptible: 
+- So it was blocking by nature, much like the javascript call stack
+- Once React started traversing the tree, it **had** to finish before the browser could do anything else
+- So this was a problem right? 
+- Is there a better way?
 
 ---
 
@@ -144,10 +149,11 @@ Note:
   - Drastically improve performance in complex applications<!-- .element: class="fragment" -->
 
 Note:
+- Complete rewrite of React's rendering engine
 - Introduced in React 16
 - Complete rewrite of the reconciler
 - Changed how React processes component trees
-- Foundation for concurrent features
+- It is the foundation for concurrent features
 
 ---
 
@@ -166,26 +172,15 @@ Note:
 - **With Fiber**
 - More like **multitasking** vs **single-threaded** execution
 - Main thread stays responsive for animations and user input
-
----
-
-### "Cooperatively Scheduled Rendering"
-
-React Fiber helps prioritise DOM changes by:<!-- .element: class="fragment" -->
-- Pausing current work<!-- .element: class="fragment" -->
-- Checking for higher priority tasks<!-- .element: class="fragment" -->
-- Resuming when appropriate<!-- .element: class="fragment" -->
-
-Note:
-- Can stop current work and handle more important tasks
-- This cooperative scheduling is the secret sauce
-- Enables React to keep UI responsive even during heavy computation
 - **Example**
   - User typing in a search box (urgent) vs filtering a large list (can wait)
 
 ---
 
 ## Types of Re-render
+
+Note:
+- There are two types of render
 
 ---
 
@@ -200,7 +195,8 @@ Note:
 
 Note:
 - **Necessary re-renders**: We can't avoid, but can prioritise
-- **Unnecessary re-renders**: Nothing has changed, so this is where we might want to optimise
+- **Unnecessary re-renders**: Nothing has changed, but the component still re-renders
+- This is where we might want to optimise
 
 ---
 
@@ -216,7 +212,7 @@ Note:
 - **Non-urgent** ...anything that could probably be deferred
 - --
 - Our ultimate goal for optimisation: 
-  - ...eliminate unnecessary
+  - ...eliminate unnecessary renders
   - ...prioritise necessary
 
 ---
@@ -235,8 +231,8 @@ Note:
 - Already discussed this in session 1
 - Foundation for all stateful logic
 - Adds state to function components
-- Returns current state and setter function
-- Setter triggers re-render
+- Returns the current state along with a setter function
+- These setters will trigger a re-render
 
 ---
 
@@ -262,10 +258,12 @@ dispatch({ type: 'INCREMENT' });
 
 Note:
 - Expands upon useState for complex state management
-- Better for state with multiple sub-values
-- Better when next state depends on previous
+- Better in a case where you may have multiple sub-values
+- When next state depends on the previous
 - Dispatch function is stable (like setState)
-- Redux-style pattern built into React
+- If you've used any of the other state management packages before
+- It's more like a Redux-style pattern built into React
+- Which I believe if you dig in to the source code of Redux, is using reducer under the hood
 
 ---
 
@@ -288,15 +286,18 @@ function ThemedButton() {
 ```
 
 Note:
-- Removes need for prop drilling
+- So we declare a global state or context
+- We then consume that via the hook
+- Then wrap all components that need it within a provider 
+- This then removes need for prop drilling
 - Access shared data across component tree
-- Problem: All consumers re-render when context changes
-- Even if they only use part of the context value
-- --
-- Lots of unnecessary renders
-- Performance degradation
-- Can be a problem if you have a big store
-- Solution: Split into multiple contexts
+- Problem: 
+  - All consumers re-render when context changes, this can be a lot
+  - Even if they only use part of the context value
+  - You can imagine, lots of component re-rendering would mean performance degradation
+  - Can be a problem if you have a big store
+- Solution: 
+  - Split into multiple contexts
 
 ---
 
@@ -321,12 +322,9 @@ Note:
 ```
 
 Note:
-- but then we get the nested provider doom tree from hell
-- so you just really do need to be mindful of how you structure your app
+- But then we get the nested provider doom tree from hell
+- So you just really do need to be mindful of how you structure your app
 - Context is convenient but has performance implications
-- Every context value change re-renders ALL consumers
-- Even if they only use one property
-- Splitting contexts helps but creates nesting
 - This is why Redux, Zustand, Jotai exist
 - They solve the "only re-render what changed" problem
 
@@ -346,10 +344,28 @@ return <input ref={inputRef} type="text" />;
 ```
 
 Note:
+- Creates a mutable reference that persists across renders
 - Doesn't trigger re-render when changed
 - Common uses: DOM element access, storing mutable values
 - Persists for component lifetime
 - Good for storing previous values, timers, etc.
+
+---
+
+### useLayoutEffect
+
+```jsx
+useLayoutEffect(() => {
+  console.log('Before Paint!');
+}, []);
+```
+
+Note:
+- useLayoutEffect also fires after render but before paint and is synchronous
+- Blocks the browser paint
+- Use for DOM measurements or manipulations
+- Examples: tooltips positioning, scroll position restoration
+- 99% of the time you want useEffect (asynchronous)
 
 ---
 
@@ -372,13 +388,16 @@ useEffect(() => {
 ```
 
 Note:
+- useEffect lets you perform side effects (like data fetching, subscriptions, or manually changing the DOM) 
+- Triggers after the component is rendered
+- There are a couple of ways that you can use it
 - **No array**
   - useEffect runs after every render (usually not what you want)
   - should be used sparingly
   - only when you want to trigger a side effect after render
-  - example being resizing an element's height with useRef
+  - example being get the new height of an element that has been stored in a useRef
 - **Empty array**: Run once when component mounts
-  - e.g Data fetch
+  - e.g common pattern is a data fetch
 - **With dependencies**: Run when those values change
 
 ---
@@ -400,95 +419,14 @@ useEffect(() => {
 ```
 
 Note:
-- Return a cleanup function to prevent memory leaks
-- Runs before component unmounts
+- Return a function, which runs before component unmounts
+- Known as a cleanup function to prevent memory leaks
 - Essential for timers, subscriptions, event listeners
 - Forget cleanup = memory leaks
 
 ---
 
-### useLayoutEffect
-
-```jsx
-useLayoutEffect(() => {
-  console.log('Before Paint!');
-}, []);
-```
-
-Note:
-- useLayoutEffect fires synchronously after render but before paint
-- Blocks the browser paint
-- Use for DOM measurements or manipulations
-- Examples: tooltips positioning, scroll position restoration
-- 99% of the time you want useEffect (asynchronous)
-- Only use useLayoutEffect when you need to read/write DOM before paint
-
----
-
-## Component Lifecycle
-
-Note:
-- Previously class based components had a bunch of lifecycle methods that we could use for various stages of the component's lifecycle
-- I don't want to talk about class components - as far as I'm concerned they're redundant, haven't used one in 6 years
-- With hooks, we can do the same thing within functional components
-
----
-
-<img src="./assets/react-lifecycle.png" alt="React lifecycle" />
-
-Note:
-- **Mounting** - Component creation, so when the component is being added to the DOM
-- **Updating** - Component Re-render
-- **Unmounting** - Component Removal - when the component is removed from the DOM, like navigating to a new page for example
-
----
-
-```jsx [3|8|12]
-// Before mounting
-useLayoutEffect(() => {
-  console.log('Me first!');
-}, []);
-
-// After mounting
-useEffect(() => {
-  console.log('...and then me!');
-
-  // Before unmounting
-  return () => {
-    console.log('...me last!');
-  }
-}, []);
-```
-
-Note:
-- Just to illustrate this flow in practice
-- You can see here how this would work with hooks
-
----
-
-### Common usage
-
-```jsx
-useEffect(() => {
-  fetchData();
-}, []);
-
-// ⚠️ Triggers AFTER the component is rendered
-```
-
-Problem: You render the component, then are forced to re-render when data arrives<!-- .element: class="fragment" -->
-
-Note:
-- useEffect fires after the commit phase
-- So you render a loading state first
-- Then fetch data
-- Then re-render with data
-- That's two renders for one piece of content
-- There is another way which I'll show you shortly
-
----
-
-### useEffect vs use
+### Common pattern
 
 ```jsx
 // Old way - useEffect
@@ -505,9 +443,11 @@ function Component() {
 }
 ```
 
+Problem: You render the component, then are forced to re-render when data arrives<!-- .element: class="fragment" -->
+
 Note:
 - You're probably used to seeing this sort of pattern within your components
-- As I mentioned earlier, the problem we have here is that the data is only ever fetched after the component has finished rendering
+- The problem we have here is that the data is only ever fetched after the component has finished rendering
 - Which means the data changes, and does what?
 - Causes a re-render
 
@@ -530,15 +470,16 @@ function Component() {
 ```
 
 Note:
-- React 19
-- New hook that can be called conditionally (breaks Hook rules!)
-- works with both promises (async data) and context (for shared state)
-- Works with Suspense for data fetching
+- As of React 19 we have a new way
+- New **use** hook and **Suspense** component that handles this for us
 - Starts fetching during render phase, not after
-- Only one render needed when data arrives
-- Suspense shows fallback while waiting
+- Only one render needed once data arrives
+- Handles the loading state while waiting
 - Much cleaner than useEffect for data fetching
+- And is als works with both promises and context
+- It can also be called conditionally which you can't usually do with hooks
 - -- 
+Key point:
 - React will suspend the component until the promise resolves, then render with the resolved value.
 - When you pass context, it’s effectively a more flexible version of useContext that can be called conditionally.
 
@@ -662,24 +603,8 @@ Note:
 - If you're under that, users won't notice
 - Don't optimise based on feeling
 - Use React DevTools Profiler to measure
-- Only optimise if you're dropping frames
-
----
-
-### Perceived performance
-
-Prefetching, lazy loading and optimistic updates improve perceived performance without \
-actual speed gains<!-- .element: class="fragment" -->
-
-Loading spinner anyone?<!-- .element: class="fragment" -->
-
-Note:
-- There is also the idea of perceived performance
-- Where 'feeling fast' is considered almost as valuable as actually 'being' fast
-- Prefetching, lazy loading and optimistic updates improve perceived performance without actual speed gains
-- And why is this important? 
-- It provides immediate feedback to users, making the application feel responsive even during slow network conditions
-- People will quite happily sit there an watch a page loading 
+- Only optimise if you need to
+- It's usually only a problem if it's a problem
 
 ---
 
@@ -732,7 +657,7 @@ Note:
 **You'll need:** <a href="https://react.dev/learn/react-developer-tools">React Dev Tools</a> browser extension
 
 ```jsx
-http://path-to-repo
+https://github.com/danm0e/react-training-exercise
 ```
 
 Note:
@@ -747,11 +672,11 @@ Note:
 8. Previous state pattern shows dependency elimination
 9. Custom useCounter hook demonstrates referential equality gotcha
 10. Add useMemo to return object for referential equality
-11. Undo everything, show how changing the text widget re-renders the counter widget
-12. Add React.memo to counter widget
-12. Add useCallback to count methods
-13. Observe how this now prevents Counter from re-rendering
+11. Show how changing the text widget re-renders the color widget
+12. Add React.memo to color widget to fix
+13. Observe how this now prevents widget from re-rendering
 - --
+Summary:
 - This demonstrates the power of state placement
 - Priciple rule of state: Keep state as high as you need it and as low as you can get away with
 - No tricks needed - just smart architecture
@@ -785,54 +710,7 @@ Note:
 ---
 
 ### How it works
-
-<!-- .slide: data-auto-animate="true" -->
-
-- 🧙‍♀️ Witchcraft<!-- .element: class="fragment" -->
-- Stores references in arrays<!-- .element: class="hidden" -->
-- Performs simple value checks<!-- .element: class="hidden" -->
-- Instead of calling functions and comparing objects<!-- .element: class="hidden" -->
-
-**Much more efficient than manual React.memo**<!-- .element: class="hidden" -->
-
-<!-- .element: data-id="code-animation" -->
-
-Note:
-- The only possible explanation...
-- Anyone who knows anything about referential equality in JS knows it's a pain
-- Much more efficient than manual React.memo
-- Doesn't need comparison functions
-- Just checks primitive values
-- Can optimise things we can't manually
-- Removes whole classes of memoisation bugs
-
----
-
-### How it works
-
-<!-- .slide: data-auto-animate="true" -->
-
-- 🧙‍♀️ Witchcraft<!-- .element: class="fragment strike" -->
-- Stores references in arrays<!-- .element: class="fragment" -->
-- Performs simple value checks<!-- .element: class="fragment" -->
-- Instead of calling functions and comparing objects<!-- .element: class="fragment" -->
-
-**Much more efficient than manual React.memo**<!-- .element: class="fragment" -->
-
-<!-- .element: data-id="code-animation" -->
-
-Note:
-- The only possible explanation...
-- Anyone who knows anything about referential equality in JS knows it's a pain
-- Much more efficient than manual React.memo
-- Doesn't need comparison functions
-- Just checks primitive values
-- Can optimise things we can't manually
-- Removes whole classes of memoisation bugs
-
----
-
-### 🪄 The magic of abstraction
+#### 🪄 The magic of abstraction 🪄
 
 React Compiler abstracts away complexity
 
@@ -844,50 +722,11 @@ React Compiler abstracts away complexity
 #### You focus on features, tools handle optimisation<!-- .element: class="fragment" -->
 
 Note:
-- Remember React.createElement from Session 1?
-- JSX made that disappear
-- Compiler makes memoisation disappear
-- Both are powerful abstractions
-- Let tools handle the hard parts
-
----
-
-### React compiler playground
-
-```
-https://playground.react.dev/
-```
-
-Note:
-- You can try it online right now
-- Paste your component code
-- See what optimisations it applies
-- Really helps understand what compiler does
-- Play with it after this session!
-
----
-
-### Current status
-
-React 17+ (Relies on the Fiber architecture) \
-currently relies on an opt-in strategy
-
-```jsx
-'use compiler';
-```
-
+- You can try it out right now but is currently opt in only
 - Minimum version: React 17 or later
 - Used in production by Instagram
 - Still experimental
 - Being actively developed
-
-Note:
-- Instagram has billions of users on this code
-- That's a pretty good stress test!
-- Still experimental means API might change
-- But coming to stable React soon
-- Worth learning about now
-- Might change how you write React
 
 ---
 
@@ -897,7 +736,8 @@ Note:
 
 ### Remember these principles
 
-1. Not doing stuff is faster than doing stuff (The Golden Rule)<!-- .element: class="fragment" -->
+1. Not doing stuff is faster than doing stuff \
+(The Golden Rule)<!-- .element: class="fragment" -->
 2. Profile before optimising<!-- .element: class="fragment" -->
 3. State placement > memoisation<!-- .element: class="fragment" -->
 4. Clarity > premature optimisation<!-- .element: class="fragment" -->
@@ -913,25 +753,6 @@ Note:
 
 ---
 
-<!-- ### The Optimisation Hierarchy
-
-1. **Fix architecture** (state placement, component structure)
-2. **Profile and measure**
-3. **Eliminate unnecessary renders** (React.memo)
-4. **Memoise expensive computations** (useMemo)
-5. **Stabilise callbacks** (useCallback)
-6. **Consider React Compiler**
-
-No te:
-- Work through this list in order
-- Architecture gives biggest wins
-- Always measure to confirm problems
-- Don't skip to memoisation
-- Each level has diminishing returns
-- Compiler might automate most of this soon
-
---
- -->
 ### Useful Links
 
 ##### React Compiler
@@ -967,9 +788,6 @@ Note:
 ---
 
 ## Any questions?<!--.element: class="r-fit-text" -->
-
-Note:
-- Performance is deep - we've covered fundamentals
 
 ---
 
